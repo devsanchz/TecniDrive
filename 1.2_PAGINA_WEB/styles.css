@@ -1,0 +1,72 @@
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+background: #023E73;
+color: white;
+}
+
+.navbar {
+display: flex;
+justify-content: space-between;
+padding: 20px 40px;
+background: #023859;
+}
+
+.logo {
+font-weight: bold;
+letter-spacing: 2px;
+}
+
+.login-btn {
+color: white;
+text-decoration: none;
+border: 1px solid white;
+padding: 8px 16px;
+}
+
+.hero {
+text-align: center;
+padding: 100px 20px;
+}
+
+.hero h1 {
+font-size: 48px;
+margin: 0;
+}
+
+.hero span {
+font-size: 60px;
+font-weight: bold;
+}
+
+.tagline {
+margin-top: 20px;
+color: #ccc;
+}
+
+.about,
+.events,
+.contact {
+padding: 60px 20px;
+text-align: center;
+}
+
+.speakers {
+display: flex;
+justify-content: center;
+gap: 40px;
+padding: 40px;
+}
+
+.speaker {
+background: #023859;
+padding: 20px;
+width: 250px;
+}
+
+footer {
+background:#023859 ;
+padding: 20px;
+text-align: center;
+color:black ;
+}
