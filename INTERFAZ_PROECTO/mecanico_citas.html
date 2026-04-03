@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas del mecanico</title>
+ <link rel="stylesheet" href="mecanico_citas.css">
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <!------------------------------------PPANEL DE ADMINISTRADOR-------------------------------------------------------------------------------------------------------->
+<div class="sidebar">
+  <ul>
+    <li><a href=""><span class="icon"><i class="bi bi-list"></i></span><span class="text">Panel de usuario</span></a></li>
+    <li><a href="panel_mecanico.html"><span class="icon"><i class="bi bi-file-person-fill"></i></span><span class="text">Mi perfil</span></a></li>
+    <li><a href="mecanico_taller.html"><span class="icon"><i class="bi bi-tools"></i></span><span class="text">Tu taller</span></a></li>
+      <li><a href="mecanico_citas.html"><span class="icon"><i class="bi bi-calendar2-check"></i></span><span class="text">Agenda de citas</span></a></li>
+      <li><a href="mecanico_calificacion.html"><span class="icon"><i class="bi bi-star-half"></i></span><span class="text">Calificaciones</span></a></li>
+    <li><a href="index.html"><span class="icon"><i class="bi bi-box-arrow-left"></i></span><span class="text">Cerrar sesión</span></a></li>
+  </ul>
+</div>
+
+
+<!-- ENCABEZADO DEL PANEL -->
+ <div class="titulos">
+  <h1 class="titulo">Gestión de citas</h1>
+  <h4>Revisa y administra las citas de tus clientes</h4>
+</div>
+
+
+<section>
+    <!-- PARTE DE LFILTROS DE CITAS -->
+    <div class="filtros">
+            <button class="filtro activo" onclick="filtrar('todas')">Todas</button>
+             <button class="filtro" onclick="filtrar('hoy')">Hoy</button>
+            <button class="filtro" onclick="filtrar('pendientes')">Pendientes</button>
+            <button class="filtro" onclick="filtrar('confirmadas')">Confirmadas</button>
+             <button class="filtro" onclick="filtrar('Canceledas')">Canceladas</button>
+        </div>
+
+
+        <!-- CONTENEDOR DE CITAS -->
+         <div class="contenercita">
+      <div class="izq">
+    <div class="estado">
+  <p>Pendiente</p> 
+</div> 
+   
+     <fieldset>
+        <legend>Datos del cliente</legend>
+          <i class="bi bi-person-check"></i> 
+          <span>Daniela Pinzon Garabito</span>
+          <p ><i class="bi bi-telephone-plus-fill"></i> 3224901885</p>
+      </fieldset>
+      
+      <fieldset id="fiel2">
+        <legend>Fecha programada</legend>
+       <p> 12/03/2026  <span> a las 9:00AM</span></p> 
+  </fieldset>
+</div>
+ <!-- DETALLES OCULTOS -->
+<div class="motivo">
+  <div class="detalle">
+  <table>
+     <strong>Servicios requeridos</strong>
+    <tr>
+      <td class="s">Sistema de frenos</td>
+      <td class="p">Desde $30.000</td>
+    </tr>
+     <tr>
+      <td class="s">Transmisión</td>
+      <td class="p">Desde $35.000</td>
+    </tr>
+  </table>
+   <strong >Motivo de visita</strong>
+<p>
+  Mi vehículo, un Chevrolet Onix 2023, presenta inconvenientes en los frenos:<br>
+ se desgastaron las pastillas. También tiene fallas en la transmisión.
+</p>
+    </div>
+  <!-- ESTADOS PRIMEROS TALLER -->
+ <div class="acciones">
+    <span>Gestion de estado</span>
+    <button class="listo">Confirmar servicio</button>
+     <button class="rechazo">Rechazar servicio</button>
+ </div>
+</div>
+</div>
+
+
+
+
+<!-- PARTE DOS CONFIRMADA -->
+      <div class="contenercita">
+      <div class="izq">
+    <div class="estado">
+  <p>Confirmada</p> 
+</div> 
+   
+     <fieldset>
+        <legend>Datos del cliente</legend>
+          <i class="bi bi-person-check"></i> 
+          <span>Daniela Pinzon Garabito</span>
+          <p ><i class="bi bi-telephone-plus-fill"></i> 3224901885</p>
+      </fieldset>
+      
+      <fieldset id="fiel2">
+        <legend>Fecha programada</legend>
+       <p> 12/03/2026  <span> a las 9:00AM</span></p> 
+  </fieldset>
+
+  <!-- DETALLES OCULTOS -->
+   <button class="deta">Servicios requeridos</button>
+  <div class="detalles">
+  <table>
+     <strong>Servicios requeridos</strong>
+    <tr>
+      <td class="s">Sistema de frenos</td>
+      <td class="p">Desde $30.000</td>
+    </tr>
+     <tr>
+      <td class="s">Transmisión</td>
+      <td class="p">Desde $35.000</td>
+    </tr>
+  </table>
+   <strong >Motivo de visita</strong>
+<p>
+  Mi vehículo, un Chevrolet Onix 2023, presenta inconvenientes en los frenos:<br>
+ se desgastaron las pastillas. También tiene fallas en la transmisión.
+</p>
+    </div>
+
+</div>
+
+<div class="Modos">
+<div class="codigov">
+  <h4>Codigo de verificación</h4>
+ <p>CT003</p>
+  <small>Escanea código del cliente y comienze el servicio</small>
+</div>
+<div class="motivo">
+
+  <!-- estado normal -->
+ <div class="acciones">
+    <span>Gestion de estado</span>
+    <button></button>
+     <button>Cancelar servicio</button>
+ </div>
+ 
+
+</div>
+</div>
+
+</div>
+
+
+   </section>
+</body>
+<script>
+    ///PARTE DE ESTADO COLOR SEGUN
+ const estados = document.querySelectorAll(".estado");
+
+estados.forEach(cargo => {
+  const texto = cargo.textContent.toLowerCase();
+
+  if (texto.includes("pendiente")) {
+    cargo.classList.add("pendiente");
+  } else if (texto.includes("confirmada")) {
+    cargo.classList.add("confirmada");
+  } else if (texto.includes("cancelada")) {
+    cargo.classList.add("cancelada");
+  }
+});
+  //PARTE DE DETALLES
+const btn = document.querySelector(".deta");
+const detalles = document.querySelector(".detalles");
+
+btn.addEventListener("click", () => {
+
+  if (detalles.style.display === "none" || detalles.style.display === "") {
+    detalles.style.display = "block";
+    btn.textContent = "Ocultar servicio";
+  } else {
+    detalles.style.display = "none";
+    btn.textContent = "Más detalles";
+  }
+
+});
+
+</script>
+</html>
