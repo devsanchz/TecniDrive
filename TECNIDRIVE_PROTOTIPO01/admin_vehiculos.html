@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>administrador vehiculos</title>
+    <link rel="stylesheet" href="admin_vehiculos.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <!------------------------------------PPANEL DE ADMINISTRADOR-------------------------------------------------------------------------------------------------------->
+<div class="sidebar">
+  <ul>
+    <li><a href=""><span class="icon"><i class="bi bi-list"></i></span><span class="text">Panel de admin</span></a></li>
+    <li><a href="panel_admin.html"><span class="icon"><i class="bi bi-file-person-fill"></i></span><span class="text">Mi perfil</span></a></li>
+    <li><a href="admin_vehiculos.html"><span class="icon"><i class="bi bi-car-front-fill"></i></span><span class="text">Lista de vehículos</span></a></li>
+    <li><a href="admin_talleres.html"><span class="icon"><i class="bi bi-tools"></i></span><span class="text">Gestión de talleres</span></a></li>
+     <li><a href="admin_calificacion.html"><span class="icon"><i class="bi bi-star-half"></i></span><span class="text">Moderar reseñas</span></a></li>
+    <li><a href="index.html"><span class="icon"><i class="bi bi-box-arrow-left"></i></span><span class="text">Cerrar sesión</span></a></li>
+  </ul>
+</div>
+
+
+
+<!-- ENCABEZADO DEL PANEL -->
+<div class="titulos">
+  <h1 class="titulo">Consultar vehiculos</h1>
+  <h4>Supervisa los vehículos registrados y su documentación vigente</h4>
+</div>
+
+
+<!-- MONITOREO -->
+   <section>
+    <header>
+      <!-- ver cuantas hay y prometio -->
+      <div class="numeros">
+        <div class="cantidad">
+          <span class="num">3</span><br>
+          <span>Total vehículos</span>
+        </div>
+        <div class="cantidad">
+          <span class="num">3</span><br>
+          <span>Registrados Hoy</span>
+        </div>
+         <div class="cantidad">
+          <span class="num">2</span><br>
+          <span>Papeles Completos</span>
+        </div>
+      </div>
+    </header>
+    <!-- buscar  -->
+    <div class="controles">
+       <div class="buscador">
+  <input type="text" placeholder="Buscar por placa, propietario o fecha  ">
+    <i class="bi bi-search"></i>
+  </div>
+
+  <select name="" id="">
+    <option value="">Todos</option>
+    <option value="">Recientes</option>
+    <option value="">Sin papeles aun</option>
+    <option value="">Con todo</option>
+  </select>
+    </div>
+
+    <!-- TABLA TODDO-->
+     <table>
+
+      <!-- encabezado tabla -->
+     <tr class="cabeza">
+      <th>Placa</th>
+      <th>Estado vehicuo</th>
+      <th>Propietario</th>
+      <th>Marca/Modelo</th>
+      <th>Registro</th>
+      <th>Estado papeles <br>
+        (Soat y tecno)
+      </th>
+     </tr>
+   
+
+<!-- Como se ven las casillas -->
+ <!-- CASILLA 1 -->
+     <tr class="cuerpo">
+      <th class="placa">AJK203</th>
+      <th class="estadov"><p class="activo">Activo</p>
+<div class="acciones">
+    <button class="motivo">Motivo</button>
+</div>
+      </th>
+      <th class="tio"> <i class="bi bi-person-check"></i> <span>Pedro Rodrigo Sanchez</span> <small>pdrodri12@gmail.com</small></th>
+      <th class="marca">Toyota Corolla 2022 </th>
+      <th class="registro">31/03/2026 <br> <small>8:00</small></th>
+      <th class="papeles"><p class="aldia">Ambos al dia</p>
+<div class="acciones">
+     <button class="Ver">Ver</button>
+</div>
+      </th>
+</th>
+     </tr>
+
+
+ <!-- CASILLA 2 -->
+       <tr class="cuerpo">
+      <th class="placa">XYZ789</th>
+      <th class="estadov"><p class="desactivo">Desactivado</p>
+<div class="acciones">
+  <button class="motivo" onclick="mostrarMotivo()">Motivo</button>
+<div id="cuadritoMotivo" class="cuadrito" style="display: none;">
+    Ya no usaré este vehículo
+</div>
+</div>
+      </th>
+      <th class="tio"> <i class="bi bi-person-check"></i> <span>Pedro Rodrigo Sanchez</span> <small>pdrodri12@gmail.com</small></th>
+      <th class="marca">Renault Logan 2021</th>
+      <th class="registro">31/03/2026 <br> <small>14:23</small> </th>
+      <th class="papeles"><p class="aldia">Ambos al dia</p>
+<div class="acciones">
+     <button class="ver">Ver</button>
+</div>
+      </th>
+</th>
+     </tr>
+
+
+     <!-- CASILLA 3 -->
+       <tr class="cuerpo">
+      <th class="placa">KLM456</th>
+      <th class="estadov">
+        <p class="activo">Activo</p>
+<div class="acciones">
+    <button class="motivo">Motivo</button>
+</div>
+      </th>
+      <th class="tio"> <i class="bi bi-person-check"></i> <span>Carlos López Uribe</span> <small>pdrodri12@gmail.com</small></th>
+      <th class="marca">Mazda 3 2023</th>
+      <th class="registro">31/03/2026 <br><small>19:56</small> </th>
+
+      <th class="papeles">
+        <p class="pendiente">Pendiente</p>
+<div class="acciones">
+  <button class="ver" onclick="mostrarVer()">Ver</button>
+<div id="cuadritoVer" class="cuadrito" style="display: none;">
+    <strong>SOAT</strong><br>
+    <p>registrado:<small class="si">Sí</small></p>
+    <strong>Tecnomecanica</strong>
+    <p>registrado:<small class="no">No</small></p>
+</div>
+</div>
+      </th>
+</th>
+     </tr>
+
+     </table>
+
+      <!-- PAGINACIÓN -->
+        <div class="stats-footer">
+            <div>
+                <strong>Mostrando 1-1 de 3 Vehículos</strong>
+            </div>
+            <div class="pagination">
+                <button class="page-btn">«</button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">»</button>
+            </div>
+        </div>
+    </div>
+   </section>
+    
+    
+</body>
+<script>
+  function mostrarMotivo() {
+    const cuadrito = document.getElementById('cuadritoMotivo');
+    // Si está oculto, lo muestra; si está visible, lo oculta
+    if (cuadrito.style.display === 'none') {
+        cuadrito.style.display = 'block';
+    } else {
+        cuadrito.style.display = 'none';
+    }
+}
+
+function mostrarVer() {
+    const cuadrito = document.getElementById('cuadritoVer');
+    // Si está oculto, lo muestra; si está visible, lo oculta
+    if (cuadrito.style.display === 'none') {
+        cuadrito.style.display = 'block';
+    } else {
+        cuadrito.style.display = 'none';
+    }
+}
+</script>
+</html>

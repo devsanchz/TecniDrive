@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>propietario taller</title>
+    <link rel="stylesheet" href="pt_taller.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+     <!------------------------------------PPANEL DE ADMINISTRADOR-------------------------------------------------------------------------------------------------------->
+<div class="sidebar">
+  <ul>
+    <li><a href=""><span class="icon"><i class="bi bi-list"></i></span><span class="text">Panel de usuario</span></a></li>
+    <li><a href="panel_propietario.html"><span class="icon"><i class="bi bi-file-person-fill"></i></span><span class="text">Mi perfil</span></a></li>
+    <li><a href="pt_vehiculo.html"><span class="icon"><i class="bi bi-car-front-fill"></i></span><span class="text">Vehículos</span></a></li>
+    <li><a href="pt_taller.html"><span class="icon"><i class="bi bi-tools"></i></span><span class="text">Talleres</span></a></li>
+      <li><a href="pt_citas.html"><span class="icon"><i class="bi bi-calendar2-plus"></i></span><span class="text">Cita Agendada</span></a></li>
+      <li><a href="pt_calificacion.html"><span class="icon"><i class="bi bi-star-half"></i></span><span class="text">Mis puntuaciones</span></a></li>
+    <li><a href="pt_notificaciones.html"><span class="icon"><i class="bi bi-bell-fill"></i></span><span class="text">Notificaciones</span></a></li>
+    <li><a href="index.html"><span class="icon"><i class="bi bi-box-arrow-left"></i></span><span class="text">Cerrar sesión</span></a></li>
+  </ul>
+</div>
+
+
+  <!------------------------------------LOS TALLERES CONSULTAR DEL PROPIETARIO-------------------------------------------------------------------------------------------------------->
+  <div class="titulos">
+<h1 class="titulo">Talleres Mecanicos</h1>
+<h5>Encuentra el mejor taller para tu vehículo</h5>
+  </div>
+
+<!-- PANEL DE BUSQUEDA ESPECIALIDAD Y BUSCADOR -->
+ <div class="controles">
+       <div class="buscador">
+  <input type="text" placeholder="Buscar por nombre o servicios">
+    <i class="bi bi-search"></i>
+  </div>
+    <ul class="categoria">
+        <li>Todo</li>
+        <li>Mecanica general</li>
+        <li>Electricidad</li>
+        <li>Pintura</li>
+        <li>Diagnosticos</li>
+        <li>Motores</li>
+    </ul>
+ </div>
+
+ <!-- DONDE APARECEN TODOS LOS TALLERES INSANES TIOS -->
+  <section>
+   <div class="contenertaller">
+  <div class="fototaller">
+    <img src="IMAGENES/Taller1.webp" alt="">
+    <!--VER MAS DETALLES DEL TALLER -->
+    <div class="overlay">
+      Ver más detalles
+    </div>
+  </div>
+  <div class="infotaller">
+    <h1>Maestro Mecánico</h1>
+    <h5>Mecanica General</h5>
+    <ul class="servicios">
+      <li>sistema de frenos</li>
+      <li>Suspensiones</li>
+      <li>Revisión de motor</li>
+      <li>transmisión</li>
+    </ul>
+    <p>Taller familiar 25 años atendiendo todas las marcas de vehículos</p>
+  </div>
+
+  <!--PARTE OCULTA  mas detalle-->
+  <div class="detalle">
+  <!-- ubicacion hora -->
+  <h2 class="titulo_t" >Horarios y lugar</h2>
+  <hr class="lnaranja">
+
+  <p class="direccion"><strong>Ubicacion de local:</strong>Carrera 34 #38-25 sur</p>
+
+ <ul class="horas">
+  <li>
+    <span>Lunes - Viernes</span>
+    <p class="hora">8:00 - 19:00</p>
+  </li>
+
+  <li>
+    <span>Sábado</span>
+    <p class="hora">9:00 - 16:00</p>
+  </li>
+
+  <li>
+    <span>Domingo</span>
+    <p class="hora">Cerrado</p>
+  </li>
+</ul>
+
+  <!--  PRECIOS -->
+  <h2 class="titulo_t">Precios de servicios</h2>
+  <hr class="lnaranja">
+
+  <table class="precio_s">
+    <tr>
+      <th >Servicio</th>
+      <th>Precio</th>
+    </tr>
+    <tr>
+      <td class="s">Sistema de frenos</td>
+      <td class="p">Desde $30.000</td>
+    </tr>
+    <tr>
+      <td class="s">Suspensiones</td>
+      <td class="p">Desde $25.000</td>
+    </tr>
+    <tr>
+      <td class="s">Revisión de motor</td>
+      <td class="p">Desde $45.000</td>
+    </tr>
+    <tr>
+      <td class="s">Transmisión</td>
+      <td class="p">Desde $35.000</td>
+    </tr>
+  </table>
+
+  <!--  CALIFICACIONES -->
+  <h2 class="titulo_t">
+  <i class="bi bi-star-half"></i> Calificaciones 
+  <button class="ponerc" id="btnCalificar">
+    <i class="bi bi-plus-lg"></i> Añadir calificación
+  </button>
+</h2>
+<div class="ocultocali" id="formCalificacion">
+  <form>
+    <div class="calificacion" >  
+      <i class="bi bi-star-fill star" data-value="1"></i>
+      <i class="bi bi-star-fill star" data-value="2"></i>
+      <i class="bi bi-star-fill star" data-value="3"></i>
+      <i class="bi bi-star-fill star" data-value="4"></i>
+      <i class="bi bi-star-fill star" data-value="5"></i>
+      <span id="score">(0.0)</span>
+    </div>
+
+    <input type="text" placeholder="Tu reseña(opcional)">
+    <button type="submit">Puntuación lista</button>
+  </form>
+</div>
+  </h2>
+  <hr class="lnaranja">
+
+  <div class="comentario">
+    <div class="usuario">
+       <i class="bi bi-person-check"></i> 
+      <div class="nofe">
+
+  <div class="fila">
+    <strong class="nombre">Juan Pérez</strong> 
+
+   <div class="calificacion">  
+  <i class="bi bi-star-fill" style="color:#f1c40f;"></i>
+  <i class="bi bi-star-fill" style="color:#f1c40f;"></i>
+  <i class="bi bi-star-fill" style="color:#f1c40f;"></i>
+  <i class="bi bi-star-fill" style="color:#f1c40f;"></i>
+  <i class="bi bi-star-fill" style="color:#ccc;"></i>
+  <span>(4.0)</span>
+</div>
+    </div>
+    <small class="fecha">15/10/2026</small>
+  </div>
+
+</div>
+
+<p class="texto">
+      Excelente servicio, muy rápido y confiable. Recomendado.
+    </p>
+    </div>
+  
+
+  <!-- CITA -->
+  <h2 class="titulo_t"><i class="bi bi-calendar2-plus"></i>Agendar cita</h2>
+  <hr class="lnaranja">
+
+  <form class="form-cita">
+   <label >Tus datos de contacto</label>
+     <div class="fila">
+    <input type="text" placeholder="Nombre y apellido" required>
+    <input type="text" placeholder="Teléfono" maxlength="10" required>
+  </div>
+  <label >Horario</label>
+    <div class="fila2">
+      <input type="date" required>
+      <select required>
+        <option>horas</option>
+        <option>8:00 AM</option>
+        <option>9:00 AM</option>
+        <option>2:00 PM</option>
+      </select>
+    </div>
+
+    <select required>
+      <option>Seleccionar Servicio</option>
+      <option>Sistema de frenos Desde $30.000</option>
+      <option> Suspensiones Desde $25.000</option>
+      <option>Revisión de motor Desde $45.000 </option>
+      <option>Transmisión Desde $35.000</option>
+    </select>
+
+    <button type="submit">Confirmar reserva</button>
+  </form>
+</div>
+  </div>
+
+
+  </section>
+</body>
+<script>
+
+  //MOSTRAR DETALLES AL DAR CLIC EN EL VERDE
+document.querySelectorAll(".fototaller").forEach((foto) => {
+  foto.addEventListener("click", () => {
+
+    const tarjeta = foto.closest(".contenertaller");
+    const detalle = tarjeta.querySelector(".detalle");
+
+    const estaActivo = tarjeta.classList.contains("activo");
+
+    //  resetear todos
+    document.querySelectorAll(".contenertaller").forEach(t => {
+      t.classList.remove("activo");
+      t.style.display = "block";
+      t.querySelector(".detalle").style.display = "none";
+    });
+
+    //  si no estaba activo se abrir
+    if (!estaActivo) {
+      document.querySelectorAll(".contenertaller").forEach(t => {
+        if (t !== tarjeta) t.style.display = "none";
+      });
+
+      tarjeta.classList.add("activo");
+      detalle.style.display = "block";
+    }
+
+  });
+
+});
+
+//LAS ESTRELLAS
+const estrellas = document.querySelectorAll(".star");
+const score = document.getElementById("score");
+
+estrellas.forEach(star => {
+  star.addEventListener("click", () => {
+    const valor = star.getAttribute("data-value");
+
+    // pintar estrellas
+    estrellas.forEach(s => {
+      s.classList.remove("active");
+      if (s.getAttribute("data-value") <= valor) {
+        s.classList.add("active");
+      }
+    });
+
+    // mostrar valor
+    score.textContent = `(${valor}.0)`;
+  });
+});
+
+//AGREGAR PUNTUACION
+const btn = document.getElementById("btnCalificar");
+const form = document.getElementById("formCalificacion");
+
+btn.addEventListener("click", () => {
+  form.classList.toggle("activo");
+});
+
+
+</script>
+</html>
