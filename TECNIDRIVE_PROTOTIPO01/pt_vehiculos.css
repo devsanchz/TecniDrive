@@ -288,14 +288,14 @@ color: white;
   margin: 20px auto;
 }
 
-/* IZQUIERDA - VERTICAL (uno debajo del otro) */
+/* el lado izquierdo los 4 datos */
 .iz {
   flex: 1;
   display: flex;
-  flex-direction: column; /* ← VERTICAL */
+  flex-direction: column; 
   gap: 15px;
   padding: 20px;
-  max-width: 220px; /* ← FIJO PEQUEÑO */
+  max-width: 220px; 
 }
 
 .cuadro-iz {
@@ -318,7 +318,7 @@ color: white;
   color: #171718;
 }
 
-/* DERECHA - MÁS COMPACTA */
+/* DERECHA */
 .der h1{
   font-size: 30px;
 }
@@ -331,7 +331,7 @@ color: white;
   border-radius: 5px;
 }
 
-/* DOCUMENTOS - HORIZONTAL (lado a lado) */
+/* DOCUMENTOS  */
 .doc {
   margin-bottom: 30px;
 }
@@ -398,7 +398,7 @@ color: white;
   background: #e55a2b;
 }
 
-/* ESTADO - COMPACTO */
+/* ESTADO */
 .estado {
   background: #dddfe0;
  padding: 5px;

@@ -87,60 +87,42 @@ h5{
 
 
 /*PARA ELEGIR buscador*/
-.buscar{
-     width: 40%;
-  height: 80%;
-  margin: 0 auto; 
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  justify-content: flex-start;
-  background-color: #efefefdc;
-  box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
-  border-radius: 20px;
-  padding: 20px;
-}
-/*bucador con lupa*/
-.buscador{
-    width:60%;
-    padding: 10px;
+
+.controles{
+  margin: 0 auto;
+  width: 40%;
+    padding: 16px;
+    background: #283a4c53;
+    
+    border-radius: 12px;
     display: flex;
-    justify-content: center;
-    background-color: rgb(255, 254, 254);
-    border-radius: 20px;
-    border: 3px solid rgb(218, 213, 213);
+    flex-wrap: wrap;
+    align-items: center;
 }
-.buscador:focus-within {
+.buscador{
+  text-align: center;
+       flex: 1;
+    position: relative;
+}
+.buscador input:focus-within {
   border-color: rgb(54, 68, 195);
 }
-
-input{
-    font-size: 16px;
-    width: 90%;
-    border: none;
-  outline: none;
+.buscador input {
+    width: 70%;
+    padding: 18px 50px 18px 20px;
+    border: 3px solid #e0e0e0;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+.buscador i {
+    position: absolute;
+  left: 420px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 20px;
 }
 
-.lupa{
-    cursor: pointer;
-    font-size: 25px;
-  outline: none;
-  border: none;
-     border-radius: 20px 20px;
-}
-
-.bi-search{
-    color: #29292b;
-    padding: 5px 10px;
-   border-radius: 20px 20px;
-    background-color: rgb(232, 228, 225);
-}
-
-.lupa :hover{
-    transition: 1s;
-    color: aliceblue;
-   background-color: #197c6f;
-}
 
 
 /*ya partes para las calidicaciones*/

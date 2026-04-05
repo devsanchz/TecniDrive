@@ -30,12 +30,10 @@
   </div>
 
 <!-- PANEL DE BUSQUEDA ESPECIALIDAD Y BUSCADOR -->
- <div class="contenedor_t">
- <div class="buscador">
-  <input type="text" placeholder="Buscar por nombre, servicio o especialidad">
-  <button class="lupa">
+ <div class="controles">
+       <div class="buscador">
+  <input type="text" placeholder="Buscar por nombre o servicios">
     <i class="bi bi-search"></i>
-  </button>
   </div>
     <ul class="categoria">
         <li>Todo</li>
@@ -46,9 +44,6 @@
         <li>Motores</li>
     </ul>
  </div>
-
-
-
 
  <!-- DONDE APARECEN TODOS LOS TALLERES INSANES TIOS -->
   <section>
@@ -71,9 +66,6 @@
     </ul>
     <p>Taller familiar 25 años atendiendo todas las marcas de vehículos</p>
   </div>
-
-
-  
 
   <!--PARTE OCULTA  mas detalle-->
   <div class="detalle">
@@ -136,7 +128,7 @@
 </h2>
 <div class="ocultocali" id="formCalificacion">
   <form>
-    <div class="calificacion">  
+    <div class="calificacion" >  
       <i class="bi bi-star-fill star" data-value="1"></i>
       <i class="bi bi-star-fill star" data-value="2"></i>
       <i class="bi bi-star-fill star" data-value="3"></i>
@@ -145,7 +137,7 @@
       <span id="score">(0.0)</span>
     </div>
 
-    <input type="text" placeholder="Tu reseña">
+    <input type="text" placeholder="Tu reseña(opcional)">
     <button type="submit">Puntuación lista</button>
   </form>
 </div>
@@ -161,12 +153,12 @@
     <strong class="nombre">Juan Pérez</strong> 
 
    <div class="calificacion">  
-  <i class="bi bi-star-fill star" data-value="1"></i>
-  <i class="bi bi-star-fill star" data-value="2"></i>
-  <i class="bi bi-star-fill star" data-value="3"></i>
-  <i class="bi bi-star-fill star" data-value="4"></i>
-  <i class="bi bi-star-fill star" data-value="5"></i>
-  <span id="score">(0.0)</span>
+  <i class="bi bi-star-fill" style="color:#f1c40f;"></i>
+  <i class="bi bi-star-fill" style="color:#f1c40f;"></i>
+  <i class="bi bi-star-fill" style="color:#f1c40f;"></i>
+  <i class="bi bi-star-fill" style="color:#f1c40f;"></i>
+  <i class="bi bi-star-fill" style="color:#ccc;"></i>
+  <span>(4.0)</span>
 </div>
     </div>
     <small class="fecha">15/10/2026</small>
@@ -185,31 +177,29 @@
   <hr class="lnaranja">
 
   <form class="form-cita">
-   
+   <label >Tus datos de contacto</label>
      <div class="fila">
-    <input type="text" placeholder="Nombre completo" required>
-    <input type="text" placeholder="Teléfono" required>
+    <input type="text" placeholder="Nombre y apellido" required>
+    <input type="text" placeholder="Teléfono" maxlength="10" required>
   </div>
-
+  <label >Horario</label>
     <div class="fila2">
       <input type="date" required>
-
-      <select>
+      <select required>
+        <option>horas</option>
         <option>8:00 AM</option>
         <option>9:00 AM</option>
         <option>2:00 PM</option>
       </select>
     </div>
 
-    <select>
+    <select required>
       <option>Seleccionar Servicio</option>
       <option>Sistema de frenos Desde $30.000</option>
       <option> Suspensiones Desde $25.000</option>
       <option>Revisión de motor Desde $45.000 </option>
       <option>Transmisión Desde $35.000</option>
     </select>
-
-    <textarea placeholder="Describe el problema de tu vehiculo o tipo de vehiculo"></textarea>
 
     <button type="submit">Confirmar reserva</button>
   </form>

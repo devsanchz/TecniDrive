@@ -30,15 +30,76 @@
 
   <!-- DONDE APARECEN TODOS LOS TALLERES -->
   <section>
-    
 
-    <!-- COMO SE VERA PRIMERO -->
-     <!-- APARECE DE PRIMERAS SIN NADA MAS -->
+  <!--
+  ====================================
+   PARTE DEL REGISTRO DEL TALLER 
+   ================================== -->
      <div class="agregar mostrar">
       <h1>Aún no tienes un taller creado</h1>
       <small>Comienza creando tu primer taller para ofrecer tus servicios</small>
       <button onclick="mostrarFormulario()">Crear taller</button>
      </div>
+
+     <!-- APARECE DE SEGUNDAS SIN NADA MAS -->
+   <form id="formTaller">
+    <h1>Registrar taller</h1>
+  <!-- FOTO -->
+  <div>
+    <label>Foto del taller:</label>
+    <input type="file" accept="image/*" name="foto">
+  </div>
+
+  <!-- NOMBRE Y ESPECIALIDAD -->
+  <div>
+    <label>Nombre del taller:</label>
+    <input type="text" name="nombre" placeholder="Nombre caracteristico"  maxlength="35" required>
+  </div>
+
+  <div>
+    <label>Especialidad:</label>
+    <input type="text" name="especialidad" placeholder="ej:Mecánica General" required>
+  </div>
+
+  <!-- DESCRIPCIÓN -->
+  <div>
+    <label>Descripción:</label>
+    <textarea name="descripcion" rows="4" placeholder="Descripción breve de 100 caracteres" required  maxlength="100"></textarea>
+  </div>
+
+  <!-- UBICACIÓN -->
+  <div>
+    <label>Ubicación:</label>
+    <input type="text" name="ubicacion" placeholder="dirección del lugar"  maxlength="30" required>
+  </div>
+
+  <!-- HORARIOS -->
+    <div>
+    <label>Horarios:</label>
+    <div id="horarios">
+     <div id="horario">
+    <input type="text"  name="dias[]" placeholder="Días ej:(lunes-viernes)"  maxlength="20" required>
+    <input type="text" name="horas[]" placeholder="Horas ej:(8am-16pm)"  maxlength="20" required>
+     <button type="button" class="btn-eliminar" onclick="borrarhorario(this)"><i class="bi bi-trash3"></i></button>
+     </div>
+     </div>
+ <button type="button" class="btn-agregar" onclick="nuevohorario()">+Añadir otro horario</button>
+
+  </div>
+  <!-- SERVICIOS -->
+  <div>
+    <label>Servicios:</label>
+    <div id="servicios">
+      <div class="servicio">
+        <input type="text" name="servicio[]" placeholder="Sistema de frenos" required>
+        <input type="text" name="precio[]" placeholder="precio del servicio" required>
+        <button type="button" class="btn-eliminar" onclick="borrarServicio(this)"><i class="bi bi-trash3"></i></button>
+      </div>
+    </div>
+    <button type="button" class="btn-agregar" onclick="nuevoServicio()">+Añadir otro servicio</button>
+  </div>
+  <button type="submit">Registrar Taller</button>
+</form>
 
    
       <!-- APARECE AL FINAL-->
@@ -110,85 +171,15 @@
   <!-- GESTIONAR ESTADO Y SOLICITAR -->
    <h2 class="titulo_e">Solitar cambio de estado del taller</h2>
   <hr class="enaranja">
-  <div class="acciones">
-    <button class="activar">Solicitar Activación</button>
-    <button class="desactivar"> Solicitar Desactivación</button>
+ <div class="acciones">
+    <button class="activar">Activar</button>
+    <div class="grupo-desactivar">
+       <button class="desactivar" onclick="mostrarMotivo()">Desactivar</button>
+        <input type="text" class="motivo" placeholder="Motivo de desactivación" required>
     </div>
+</div>
 
   </div>
-
-
-
-
-
-  <!--
-  ====================================
-   PARTE DEL REGISTRO DEL TALLER 
-   ================================== -->
-   <!-- APARECE DE SEGUNDAS SIN NADA MAS -->
-   <form id="formTaller">
-    <h1>Registrar taller</h1>
-  <!-- FOTO -->
-  <div>
-    <label>Foto del taller:</label>
-    <input type="file" accept="image/*" name="foto">
-  </div>
-
-  <!-- NOMBRE Y ESPECIALIDAD -->
-  <div>
-    <label>Nombre del taller:</label>
-    <input type="text" name="nombre" placeholder="Maestro Mecánico" required>
-  </div>
-
-  <div>
-    <label>Especialidad:</label>
-    <input type="text" name="especialidad" placeholder="Mecánica General" required>
-  </div>
-
-  <!-- DESCRIPCIÓN -->
-  <div>
-    <label>Descripción:</label>
-    <textarea name="descripcion" rows="2" placeholder="Taller familiar 25 año" required></textarea>
-  </div>
-
-  <!-- UBICACIÓN -->
-  <div>
-    <label>Ubicación:</label>
-    <input type="text" name="ubicacion" placeholder="Carrera 34 #38-25 sur" required>
-  </div>
-
-  <!-- HORARIOS -->
-  <div>
-    <label>Horarios:<span class="des">Desde</span> - <span class="Hasta">Hasta</span></label>
-    <div id="horarios">
-      <div class="horario">
-        <input type="text" name="dia[]" placeholder="Lunes-viernes">
-        <input type="time" name="inicio[]">
-        <span>-</span>
-        <input type="time" name="fin[]">
-        <button type="button" class="btn-eliminar" onclick="borrarHorario(this)"><i class="bi bi-trash3"></i></button>
-      </div>
-    </div>
-    <button type="button" class="btn-agregar" onclick="nuevoHorario()">+ Horario</button>
-  </div>
-
-  <!-- SERVICIOS -->
-  <div>
-    <label>Servicios:</label>
-    <div id="servicios">
-      <div class="servicio">
-        <input type="text" name="servicio[]" placeholder="Sistema de frenos">
-        <input type="text" name="precio[]" placeholder="30.000">
-        <button type="button" class="btn-eliminar" onclick="borrarServicio(this)"><i class="bi bi-trash3"></i></button>
-      </div>
-    </div>
-    <button type="button" class="btn-agregar" onclick="nuevoServicio()">+ Servicio</button>
-  </div>
-
-  <button type="submit">Registrar Taller</button>
-</form>
-
-
   </section>
 </body>
 <script>
@@ -208,25 +199,8 @@ document.getElementById('formTaller').addEventListener('submit', function(e) {
 });
 
   //PARTE DE AGREAR MAS HORARIOS O SERVICIOS
-let numHorarios = 1;
 let numServicios = 1;
-
-function nuevoHorario() {
-  const div = document.createElement('div');
-  div.className = 'horario';
-  div.innerHTML = `
-    <input type="text" name="dia[]" placeholder="Sábado">
-    <input type="time" name="inicio[]">
-    <span>-</span>
-    <input type="time" name="fin[]">
-    <button type="button" class="btn-eliminar" onclick="borrarHorario(this)"><i class="bi bi-trash3"></i></button>
-  `;
-  document.getElementById('horarios').appendChild(div);
-}
-
-function borrarHorario(btn) {
-  btn.parentNode.remove();
-}
+let numhorario = 1;
 
 function nuevoServicio() {
   const div = document.createElement('div');
@@ -243,9 +217,31 @@ function borrarServicio(btn) {
   btn.parentNode.remove();
 }
 
-document.getElementById('formTaller').onsubmit = function() {
-  console.log(' Taller registrado!');
-  return false;
-};
+//horarios
+function nuevohorario() {
+  const div = document.createElement('div');
+  div.className = 'horario';
+  div.innerHTML = `
+    <input type="text"  name="dias[]" placeholder="Días ej:(lunes-viernes)"  maxlength="20" required>
+    <input type="text" name="horas[]" placeholder="Horas ej:(8am-16pm)"  maxlength="20" required>
+     <button type="button" class="btn-eliminar" onclick="borrarhorario(this)"><i class="bi bi-trash3"></i></button>
+  `;
+  document.getElementById('horarios').appendChild(div);
+}
+
+function borrarhorario(btn) {
+  btn.parentNode.remove();
+}
+
+//ocultar o mostrar con el boton desactivaar
+function mostrarMotivo() {
+  let input = document.querySelector(".motivo");
+
+  if (input.style.display === "none") {
+    input.style.display = "block";
+  } else {
+    input.style.display = "none";
+  }
+}
 </script>
 </html>

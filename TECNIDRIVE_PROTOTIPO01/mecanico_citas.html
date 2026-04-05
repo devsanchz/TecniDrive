@@ -30,17 +30,24 @@
 
 <section>
     <!-- PARTE DE LFILTROS DE CITAS -->
-    <div class="filtros">
-            <button class="filtro activo" onclick="filtrar('todas')">Todas</button>
-             <button class="filtro" onclick="filtrar('hoy')">Hoy</button>
-            <button class="filtro" onclick="filtrar('pendientes')">Pendientes</button>
-            <button class="filtro" onclick="filtrar('confirmadas')">Confirmadas</button>
-             <button class="filtro" onclick="filtrar('Canceledas')">Canceladas</button>
-        </div>
+    <div class="contenedor-filtros">
+        <ul class="filtros">
+            <li>Todas</li>
+            <li>Hoy</li>
+            <li>Pendientes</li>
+            <li>Confirmadas</li>
+            <li>Canceladas</li>
+            <li class="escaner" id="Poner" onclick="toggleEscaner()">Escanear Codigo</li>
+        </ul>
+        <form action="" class="codigobr oculto" id="codigobb" onsubmit="verificarCodigo(event)">
+            <input type="text" placeholder="Codigo de barra">
+            <button type="submit">Verificar</button>
+        </form>
+    </div>
 
 
         <!-- CONTENEDOR DE CITAS -->
-         <div class="contenercita">
+         <div class="contenercita" id="inicio1">
       <div class="izq">
     <div class="estado">
   <p>Pendiente</p> 
@@ -57,12 +64,13 @@
         <legend>Fecha programada</legend>
        <p> 12/03/2026  <span> a las 9:00AM</span></p> 
   </fieldset>
+ 
 </div>
- <!-- DETALLES OCULTOS -->
-<div class="motivo">
-  <div class="detalle">
-  <table>
-     <strong>Servicios requeridos</strong>
+<div class="modos">
+   <table>
+    <tr>
+     <td><strong class="servi">Servicios requeridos</strong></td>
+     </tr>
     <tr>
       <td class="s">Sistema de frenos</td>
       <td class="p">Desde $30.000</td>
@@ -72,26 +80,20 @@
       <td class="p">Desde $35.000</td>
     </tr>
   </table>
-   <strong >Motivo de visita</strong>
-<p>
-  Mi vehículo, un Chevrolet Onix 2023, presenta inconvenientes en los frenos:<br>
- se desgastaron las pastillas. También tiene fallas en la transmisión.
-</p>
-    </div>
-  <!-- ESTADOS PRIMEROS TALLER -->
  <div class="acciones">
     <span>Gestion de estado</span>
-    <button class="listo">Confirmar servicio</button>
+    <div>
+    <button class="listo" onclick="mostrarparte2()">Confirmar servicio</button>
      <button class="rechazo">Rechazar servicio</button>
+     </div>
  </div>
+         </div>
 </div>
-</div>
-
 
 
 
 <!-- PARTE DOS CONFIRMADA -->
-      <div class="contenercita">
+      <div class="contenercita oculto" id="final">
       <div class="izq">
     <div class="estado">
   <p>Confirmada</p> 
@@ -108,12 +110,11 @@
         <legend>Fecha programada</legend>
        <p> 12/03/2026  <span> a las 9:00AM</span></p> 
   </fieldset>
-
-  <!-- DETALLES OCULTOS -->
-   <button class="deta">Servicios requeridos</button>
-  <div class="detalles">
+  <!-- servicos -->
   <table>
-     <strong>Servicios requeridos</strong>
+    <tr>
+     <td><strong class="servi">Servicios requeridos</strong></td>
+     </tr>
     <tr>
       <td class="s">Sistema de frenos</td>
       <td class="p">Desde $30.000</td>
@@ -123,41 +124,22 @@
       <td class="p">Desde $35.000</td>
     </tr>
   </table>
-   <strong >Motivo de visita</strong>
-<p>
-  Mi vehículo, un Chevrolet Onix 2023, presenta inconvenientes en los frenos:<br>
- se desgastaron las pastillas. También tiene fallas en la transmisión.
-</p>
-    </div>
-
 </div>
-
 <div class="Modos">
-<div class="codigov">
-  <h4>Codigo de verificación</h4>
- <p>CT003</p>
-  <small>Escanea código del cliente y comienze el servicio</small>
-</div>
-<div class="motivo">
-
-  <!-- estado normal -->
- <div class="acciones">
-    <span>Gestion de estado</span>
-    <button></button>
-     <button>Cancelar servicio</button>
- </div>
- 
-
-</div>
+<div class="codeoculto" style=" display: none">
+CT003
 </div>
 
+ <div class="acciones2">
+    <span>Codigo del cliente verificado</span>
+    <input type="checkbox" id="checkVerificado" disabled>
 </div>
-
-
+</div>
+</div>
    </section>
 </body>
 <script>
-    ///PARTE DE ESTADO COLOR SEGUN
+    ///PARTE DE ESTADO COLOR 
  const estados = document.querySelectorAll(".estado");
 
 estados.forEach(cargo => {
@@ -171,21 +153,37 @@ estados.forEach(cargo => {
     cargo.classList.add("cancelada");
   }
 });
-  //PARTE DE DETALLES
-const btn = document.querySelector(".deta");
-const detalles = document.querySelector(".detalles");
 
-btn.addEventListener("click", () => {
+// VERIFICAR CODIGO DE BARRAS
+function verificarCodigo(event) {
+  event.preventDefault();
 
-  if (detalles.style.display === "none" || detalles.style.display === "") {
-    detalles.style.display = "block";
-    btn.textContent = "Ocultar servicio";
+  // Leer el codigo secreto guardado en el div oculto
+  var codigoSecreto = document.querySelector(".codeoculto").textContent.trim();
+
+  // Leer lo que escribio el mecanico en el input
+  var codigoEscrito = document.querySelector("#codigobb input").value.trim();
+
+  if (codigoEscrito === codigoSecreto) {
+    // el checkbox con el chulo
+    document.getElementById("checkVerificado").checked = true;
+    document.querySelector(".acciones2").style.backgroundColor = "rgba(67, 229, 88, 0.653)";
   } else {
-    detalles.style.display = "none";
-    btn.textContent = "Más detalles";
+    alert("Codigo incorrecto, intenta de nuevo");
   }
+}
 
-});
+// FORMULARIO ESCANER
+function toggleEscaner() {
+  document.getElementById("codigobb").classList.toggle("oculto");
+}
+
+//PROTOTIPO MOSTAR CITA CON Y SIN CODIGO
+function mostrarparte2() {
+  document.getElementById("inicio1").classList.add("oculto");
+  document.getElementById("final").classList.remove("oculto"); 
+}
+
 
 </script>
 </html>

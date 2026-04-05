@@ -88,62 +88,40 @@ h5{
 
 
 /*-------------PANEL DE BUSQUEDA-----------*/
-.contenedor_t {
+.controles{
+  margin: 0 auto;
   width: 55%;
-  height: 80%;
-  margin: 0 auto; 
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  justify-content: flex-start;
-  background-color: #efefefdc;
-  box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
-  border-radius: 20px;
-  padding: 20px;
-}
-
-.buscador{
-    width:60%;
-    padding: 10px;
+    padding: 16px;
+    background: #bec0c353;
+    border-radius: 12px;
     display: flex;
-    justify-content: center;
-    background-color: rgb(255, 254, 254);
-    border-radius: 20px;
-    border: 3px solid rgb(218, 213, 213);
+    flex-wrap: wrap;
+    align-items: center;
 }
-.buscador:focus-within {
+.buscador{
+  text-align: center;
+       flex: 1;
+    position: relative;
+}
+.buscador input:focus-within {
   border-color: rgb(54, 68, 195);
 }
-
-input{
-    font-size: 16px;
-    width: 90%;
-    border: none;
-  outline: none;
+.buscador input {
+  font-size: 15px;
+    width: 70%;
+    padding: 18px 50px 18px 20px;
+    border: 3px solid #e0e0e0;
+    border-radius: 25px;
+    transition: all 0.3s ease;
 }
-
-.lupa{
-    cursor: pointer;
-    font-size: 25px;
-  outline: none;
-  border: none;
-     border-radius: 20px 20px;
+.buscador i {
+    position: absolute;
+  left: 620px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 20px;
 }
-
-.bi-search{
-    color: #29292b;
-    padding: 5px 10px;
-   border-radius: 20px 20px;
-    background-color: rgb(232, 228, 225);
-}
-
-.lupa :hover{
-    transition: 1s;
-    color: aliceblue;
-   background-color: #ac4dff;
-}
-
-
 /*CATEGORIAS ESPECIALIDADES*/
 .categoria {
   cursor: pointer;
@@ -165,10 +143,10 @@ input{
 color: aliceblue;
  transition: all 0.2s ease;
 }
-
-
-
-
+.categoria li:first-child {
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: aliceblue;
+}
 /*SEECCION DE TALLERES*/
  section {
    width: 90%;
@@ -179,24 +157,24 @@ color: aliceblue;
   gap: 25px;
 }
 
-        .contenertaller {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+.contenertaller {
+background: white;
+ border-radius: 15px;
+ overflow: hidden;
+ box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+ transition: transform 0.3s, box-shadow 0.3s;
+ }
 
-        .contenertaller:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
+.contenertaller:hover {
+ transform: translateY(-8px);
+ box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
 
-        /*FTO PARA VER MAS INFO DEL TALLER*/
-    .fototaller {
-  position: relative;
-  height: 200px;
-  overflow: hidden;
+ /*FTO PARA VER MAS INFO DEL TALLER*/
+.fototaller {
+position: relative;
+height: 200px;
+overflow: hidden;
 }
 
 .fototaller img {
@@ -433,6 +411,7 @@ font-weight: 700;
   transition: 0.2s;
 }
 
+
 .star.active {
   color: #f1c40f;
 }
@@ -451,8 +430,7 @@ font-weight: 700;
 }
 
 .form-cita input,
-.form-cita select,
-.form-cita textarea {
+.form-cita select {
   padding: 8px;
   border-radius: 8px;
   border: 1px solid #ccc;

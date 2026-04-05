@@ -36,7 +36,7 @@
     <div class="contenercita">
       <div class="izq">
     <div class="estado">
-  <p>Pendiente</p> 
+  <p>confirmada</p> 
 </div> 
    
      <fieldset>
@@ -51,9 +51,7 @@
        <p> 12/03/2026  <span> a las 9:00AM</span></p> 
   </fieldset>
 
-  <!-- DETALLES OCULTOS -->
-  
-   <button class="deta">Mas Detalles</button>
+  <!-- DETALLES SERVICIOS -->
   <div class="detalles">
   <table>
      <strong>Servicios requeridos</strong>
@@ -66,11 +64,6 @@
       <td class="p">Desde $35.000</td>
     </tr>
   </table>
-   <strong >Motivo de visita</strong>
-<p>
-  Mi vehículo, un Chevrolet Onix 2023, presenta inconvenientes en los frenos:<br>
- se desgastaron las pastillas. También tiene fallas en la transmisión.
-</p>
     </div>
 
 </div>
@@ -118,21 +111,6 @@ estados.forEach(cargo => {
   } else if (texto.includes("cancelada")) {
     cargo.classList.add("cancelada");
   }
-});
-  //PARTE DE DETALLES
-const btn = document.querySelector(".deta");
-const detalles = document.querySelector(".detalles");
-
-btn.addEventListener("click", () => {
-
-  if (detalles.style.display === "none" || detalles.style.display === "") {
-    detalles.style.display = "block";
-    btn.textContent = "Ocultar detalles";
-  } else {
-    detalles.style.display = "none";
-    btn.textContent = "Más detalles";
-  }
-
 });
 
 //PARTE DE CANCELAR

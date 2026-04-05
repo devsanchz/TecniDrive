@@ -27,12 +27,11 @@
 <section class="date-basic">
    <div class="insertar">
     <div class="cara">
-  <i class="bi bi-person-fill-lock" id="iconoUsuario"></i>
+  <i class="bi bi-person-fill-lock"></i>
 </div>
-    <button class="ccolor" id="btnColor">
+    <button class="ccolor">
   Cambiar color
 </button>
-<input type="color" id="colorPicker" style="display: none;">
   </div>
 
    <!-- la informacion del ti@ -->
@@ -56,17 +55,6 @@
 <script>
    document.addEventListener("DOMContentLoaded", () => {
 
-  // evitar errores si no existen
-  const toggleBtn = document.getElementById("toggleMenuBtn");
-  const opciones = document.getElementById("formularioProducto");
-
-  if (toggleBtn && opciones) {
-    toggleBtn.addEventListener("click", () => {
-      opciones.classList.toggle("mostrar");
-      toggleBtn.classList.toggle("activo");
-    });
-  }
-
   // COLORES ROL
   const cargo = document.getElementById("cargousuario");
   const texto = cargo.textContent.toLowerCase();
@@ -79,33 +67,6 @@
     cargo.classList.add("mecanico");
   }
 
-
-  //COLORES PARA EL AVATAR
- 
-  const btn = document.getElementById("btnColor");
-  const picker = document.getElementById("colorPicker");
-  const icono = document.getElementById("iconoUsuario");
-  const nombre = document.getElementById("nombreUsuario").textContent;
-
-  const clave = "colorIcono_" + nombre; // clave única despues con base
-
-  // cargar color guardado
-  const colorGuardado = localStorage.getItem(clave);
-  if (colorGuardado) {
-    icono.style.color = colorGuardado;
-  }
-
-  // abrir selector
-  btn.addEventListener("click", () => {
-    picker.click();
-  });
-
-  // guardar color
-  picker.addEventListener("input", () => {
-    const color = picker.value;
-    icono.style.color = color;
-    localStorage.setItem(clave, color);
-  });
  // PARA ACTUALIZAR DATOS
 const btnEditar = document.getElementById("btnEditar");
 const form = document.getElementById("formEditar");
@@ -118,7 +79,7 @@ const inputCorreo = document.getElementById("inputCorreo");
 
 const btnGuardar = document.getElementById("guardarCambios");
 
-// 🔥 validar que todo exista
+//validar que todo exista
 if (btnEditar && form && nombreElemento && correoElemento && inputNombre && inputCorreo && btnGuardar) {
 
   // mostrar formulario
