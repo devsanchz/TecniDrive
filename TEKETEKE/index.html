@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - TecniDrive</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- INICIAR SESION -->
+<div class="login-container">
+
+  <h1>Iniciar sesión</h1>
+
+  <form id="loginForm">
+   
+  <label>E-mail
+       <div class="grupo-input">
+  <input type="text" id="usuario" placeholder="ejemplo@gmil.com" required>
+         <i class="bi bi-envelope"></i>
+       </div>
+  </label>
+
+  <label>Contraseña
+           <div class="grupo-input">
+  <input type="password" id="password" placeholder="●●●●●●●●" required>
+  </div>
+</label>
+
+  <button type="submit">Ingresar</button>
+</form>
+
+  <div class="links">
+    <a href="#">¿Olvidaste tu contraseña?</a>
+     <a href="#" onclick="mostrarSign()">No tienes cuenta? Crear cuenta</a>
+  </div>
+</div>
+
+
+   <!-- REGISTRARSE-->
+<div class="login-container">
+  <form id="signForm">
+
+     <h1>Crea tu cuenta</h1>
+
+<label>Nombres
+<div class="fila">
+  <input type="text" placeholder="Primer nombre" required>
+  <input type="text" placeholder="Segundo nombre">
+</div>
+</label>
+
+<label>Apellidos
+<div class="fila">
+  <input type="text" placeholder="Primer apellido" required>
+  <input type="text" placeholder="Segundo apellido" required>
+</div>
+</label>
+
+<label>E-mail
+       <div class="grupo-input">
+  <input type="text" id="usuario" placeholder="ejemplo@gmil.com" required>
+         <i class="bi bi-envelope"></i>
+       </div>
+  </label>
+
+  <label>Contraseña
+           <div class="grupo-input">
+  <input type="password" id="password" placeholder="●●●●●●●●" required>
+  </div>
+</label>
+
+   <button type="submit"><a href="roles.html">Continúa</a></button>
+
+  <div class="links">
+      <a href="#" onclick="mostrarLogin()">Ya tienes una cuenta? iniciar sesión</a>
+  </div>
+</form>
+
+</div>
+</body>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let usuario = document.getElementById("usuario").value.trim().toLowerCase();
+  let password = document.getElementById("password").value.trim();
+
+  if (usuario === "administrador" && password === "1234") {
+    window.location.href = "panel_admin.html";
+  } 
+  else if (usuario === "propietario" && password === "4321") {
+    window.location.href = "panel_propietario.html";
+  } 
+  else if (usuario === "mecanico" && password === "5678") {
+    window.location.href = "panel_mecanico.html";
+  } 
+  else {
+    alert("Usuario o contraseña incorrectos");
+  }
+});
+
+//MOSREAR Y OCULTAR FORMULARIOS
+function mostrarSign() {
+  document.querySelectorAll(".login-container")[0].style.display = "none";
+  document.querySelectorAll(".login-container")[1].style.display = "block";
+}
+
+function mostrarLogin() {
+  document.querySelectorAll(".login-container")[1].style.display = "none";
+  document.querySelectorAll(".login-container")[0].style.display = "block";}
+</script>
+</html>
