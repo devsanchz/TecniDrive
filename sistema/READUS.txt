@@ -1,0 +1,7 @@
+#al momento de hacer este sistema y migrarlo a otro entorno porfavor:
+1. cambia en todos los archivos de configuracion donde el texto code-4 se vea
+2. asegurate de leer el archivo README.md debido a que puede que existan
+verisones de php que ya no se usen (actual: 8.2+)
+3. el nombre actual del proyecto es 'proyectoAVI' ten en cuenta eso para el redireccionamiento
+
+nota: este archivo es unicamente para los dessarrolladores y para el manejo del entorno
