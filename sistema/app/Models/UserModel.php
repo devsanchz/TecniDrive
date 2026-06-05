@@ -57,7 +57,14 @@ class UserModel extends Model
     // ------------------------------------------------------------------
     public function registrar(array $datos): bool|int
     {
-        $datos['contrasena'] = password_hash($datos['contrasena'], PASSWORD_BCRYPT);
+        $datos
+        ['contrasena'] = password_hash($datos['contrasena'], PASSWORD_BCRYPT),
+        ['primer_nombre'],
+        ['segundo_nombre'],
+        ['primer_apellido'],
+        ['segundo_apellido'],
+        ['email']
+        ;
         return $this->insert($datos);
     }
 }
