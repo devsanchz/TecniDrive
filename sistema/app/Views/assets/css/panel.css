@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
@@ -16,9 +17,11 @@ background-image: url('IMAGENES/fondo.png');
 }
 
 
-/*--------------PARDE DE PANEL DEL ADMINISTRADOR--------------------------*/
+/*-------------------------------
+PARDE DE PANEL DEL ADMINISTRADOR
+--------------------------------*/
 .sidebar {
-  background-color: #3f4bd0;
+  background: #3f4bd0;
   position: fixed;
   top: 0;
   left: 0;
@@ -36,16 +39,6 @@ background-image: url('IMAGENES/fondo.png');
 
 .sidebar:hover ul li a .text {
   opacity: 1;
-}
-
-.sidebar ul {
-  height: 97vh;
-  overflow-y: auto;
-}
-
-.sidebar ul li {
-  list-style: none;
-  margin: 5px 0;
 }
 
 .sidebar ul li a {
@@ -74,148 +67,148 @@ background-image: url('IMAGENES/fondo.png');
 }
 
 
-/*----------------------DATOS BASICOS DE PERFIL_----------------- */
-
-.date-basic {
-  padding-left: 0;
-  display: flex;
-  align-items: stretch;
-  width: 60%;
-  margin-left: 200px;
-  margin-top: 120px;
-  border-radius: 10px;
-  background-color: #f3f2f1dc;
-  box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
-  justify-content: space-around;
-  text-align: center;
+/*-------------------------------
+PERFIL DEL USUARIO
+--------------------------------- */
+.profile-card{
+    width: 420px;
+    margin: 90px auto;
+    padding: 40px 30px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.95);
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transition: 0.3s;
 }
-
-.insertar {
-   border-radius: 10px 0 0 10px;
-  background-color: #e78021;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: auto;
-  padding: 15px;
-  align-self: stretch; 
-  height:300px;
-  width:250px;
-}
-
-.cara {
-  margin-top: 20px;
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  background-color: #f1eded;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 100px;
-  color: rgb(101, 201, 122);
-}
-
-.ccolor {
-  color: rgb(255, 255, 255);
-  margin-top: 30px;
-  cursor: pointer;
-  background-color: hsl(52, 85%, 52%);
-  font-size: 15px;
-  padding: 6px 12px;
-  border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-border-style: none;
-}
-
-.ccolor:hover {
-  background-color: hsl(59, 84%, 55%);
-}
-
-.datos {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 15px;
-  text-decoration: none;
-  list-style: none; 
-  padding-right: 150px;      
-margin-top: 30px;
-}
-/*cambio de estilos de datos ti@*/
- .bi-pencil-square{
-  padding: 15px;
-  cursor: pointer;
-}
- .bi-pencil-square:hover {
-  color: hsl(232, 90%, 49%);
-}
-
-#nombreUsuario{
-  font-size: 22px;
-}
-
-#cargousuario {
-  cursor: pointer;
-  font-size: 16px;
-  padding: 5px;
-  border-radius: 10px;
-}
-
-.administrador {
-  background-color: #4da6ff; 
-  color: white;
-}
-
-.propietario {
-  background-color: rgb(99, 205, 131);
-  color: white;
-}
-
-.mecanico {
-  background-color: #e74c3c;
-  color: white;
-}
-
-#correousuario, #telefonousuario, i{
-  padding: 5px;
-}
-
-.bi-envelope-at-fill,
-.bi-telephone-plus-fill {
-font-size:20px ;
+/* COLOR GRIS AL EDITAR */
+.profile-card.editing{
+    background: rgba(220,220,220,0.95);
 }
 
 
-/*ACTUALIZAR DATOS*/
-.form-editar {
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  position: absolute; 
-  top: 20px;
- margin-left: 450px;
- margin-top: 90px;
-  width: 250px;
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-  z-index: 10; 
+/* -------------------------------
+ AVATAR PERFIL
+---------------------------------- */
+.profile-avatar{
+    width: 140px;
+    height: 140px;
+    margin: auto auto 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border: 5px solid;
+    font-size: 95px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.form-editar input {
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+/* EDITAR COLOR */
+.color-editor{
+    display: none;
+    margin-bottom: 20px;
 }
 
-.form-editar button {
-  background-color: #ac4dff;
-  color: white;
-  border: none;
-  padding: 8px;
-  border-radius: 5px;
-  cursor: pointer;
+#avatarColor{
+    width: 80px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+
+/*-------------------------------
+ INFORMACION PERFIL 
+ -------------------------------*/
+.profile-info{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#userName{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.edit-icon{
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.email-icon{
+    color: #ed8941;
+}
+
+
+/*-------------------------------
+ INPUT PARA EDITAR
+ --------------------------------- */
+#emailInput{
+    display: none;
+    width: 250px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    outline: none;
+}
+
+
+/*-------------------------------
+ ROLES 
+ -------------------------------*/
+#userRole{
+    padding: 8px 18px;
+    border-radius: 30px;
+    color: white;
+}
+
+.administrador{
+    background: #3f4bd0;
+}
+
+.propietario{
+    background: #2ecc71;
+}
+
+.mecanico{
+    background: #e74c3c;
+}
+
+
+/*-------------------------------
+ BOTONES EDIT*AR PERFIL
+ ------------------------------- */
+.profile-buttons{
+    margin-top: 25px;
+}
+
+button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+/* BOTON EDITAR */
+#editButton{
+    background: #ed8941;
+}
+
+#editButton:hover{
+    background: #df7319;
+}
+
+/* BOTON LISTO */
+#saveButton{
+    display: none;
+    background: #c9223d;
+}
+
+#saveButton:hover{
+    background: #aa1430;
 }

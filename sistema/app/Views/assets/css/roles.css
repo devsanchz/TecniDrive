@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Poppins", sans-serif;
+    background:#3f4bd0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+/* CONTENEDOR */
+.contenedor{
+    width:100%;
+    max-width:1100px;
+    text-align:center;
+}
+
+/* TITULOS */
+h1{
+    font-size:48px;
+    color:white;
+    margin-bottom:15px;
+}
+
+.subtitulo{
+    color:#e7e5e5;
+    font-size:20px;
+    margin-bottom:50px;
+}
+
+/* TARJETAS */
+.roles{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+/* CARD */
+.card{
+    width:300px;
+    background:white;
+    border-radius:25px;
+    padding:30px 25px;
+    cursor:pointer;
+    transition:0.3s;
+    position:relative;
+    box-shadow:0px 5px 15px rgba(0,0,0,0.08);
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    background:#f7f7f7;
+}
+
+/* RADIO */
+.card input{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:22px;
+    height:22px;
+    accent-color:#ed8941;
+}
+
+/* ICONO */
+.icono{
+    width:100px;
+    height:100px;
+    background:#eef1ff;
+    border-radius:50%;
+    margin:0 auto 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.icono i{
+    font-size:45px;
+    color:#ed8941;
+}
+
+/* TEXTO */
+.card h2{
+    font-size:24px;
+    margin-bottom:15px;
+    color:#222;
+}
+
+.card p{
+    color:#666;
+    font-size:15px;
+    line-height:1.6;
+}
+
+.precio{
+    color:#3f4bd0;
+    font-weight:600;
+    margin-top:15px;
+}
+
+/* BOTON */
+button{
+    margin-top:50px;
+    padding:18px 80px;
+    border:none;
+    border-radius:10px;
+    background:#ed8941;
+    color:white;
+    font-size:20px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#e7711d;
+}
+
+/* VENTANA MODAL */
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+/* CAJA MODAL */
+.modal-contenido{
+    background:white;
+    width:350px;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    animation:aparecer 0.3s ease;
+}
+
+
+.modal-contenido h2{
+    margin-bottom:15px;
+    color:#222;
+}
+
+.modal-contenido p{
+    color:#666;
+    margin-bottom:25px;
+}
+
+/* PLAN */
+.plan{
+    background:#f4f5ff;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+}
+
+.plan h3{
+    color:#3f4bd0;
+    margin-bottom:10px;
+}
+
+.plan .valor{
+    font-size:35px;
+    font-weight:700;
+    color:#ed8941;
+}
+
+.plan span{
+    color:#777;
+}
+
+/* BOTONES MODAL */
+.botones-modal{
+    display:flex;
+    gap:10px;
+}
+
+.botones-modal button{
+    width:100%;
+    margin-top:0;
+    padding:14px;
+    font-size:16px;
+}
+
+.cerrar{
+    background:#ccc;
+    color:#222;
+}
+
+.cerrar:hover{
+    background:#b5b5b5;
+}

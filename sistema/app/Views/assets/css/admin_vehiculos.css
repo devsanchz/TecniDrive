@@ -233,10 +233,11 @@ select{
  color: rgb(142, 28, 28);
 }
 .bi-person-check{
-  padding: 3px 8px;
+
+   border: 3px solid;
+  padding: 3px 10px;
   border-radius: 50%;
-  background-color: #dedbdb;
-  color: rgb(187, 3, 187);
+  color: rgb(4, 4, 4);
   font-size: 30px;
 }
 .tio{
