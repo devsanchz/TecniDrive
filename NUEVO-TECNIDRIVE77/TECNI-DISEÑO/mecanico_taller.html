@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Taller - Mecánico</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="mecanico_taller.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href=""><span class="icon"><i class="bi bi-list"></i></span><span class="text">Panel de usuario</span></a></li>
+            <li><a href="mecanico_panel.html"><span class="icon"><i class="bi bi-file-person-fill"></i></span><span class="text">Mi perfil</span></a></li>
+            <li><a href="mecanico_taller.html"><span class="icon"><i class="bi bi-tools"></i></span><span class="text">Tu taller</span></a></li>
+            <li><a href="mecanico_citas.html"><span class="icon"><i class="bi bi-calendar2-check"></i></span><span class="text">Agenda de citas</span></a></li>
+            <li><a href="mecanico_control.html"><span class="icon"><i class="bi bi-clock-history"></i></span><span class="text">Control de citas</span></a></li>
+            <li><a href="mecanico_calificacion.html"><span class="icon"><i class="bi bi-star-half"></i></span><span class="text">Calificaciones</span></a></li>
+            <li><a href="index.html"><span class="icon"><i class="bi bi-box-arrow-left"></i></span><span class="text">Cerrar sesión</span></a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+
+        <header class="titulos">
+            <h1 class="titulo">Tu taller</h1>
+            <h5>Registra tu taller, recibe reservas y haz seguimiento</h5>
+        </header>
+
+        <div class="tarjeta-autenticacion" id="contenedorInicial">
+            <div class="panel-vacio">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <h1>Todavía no tienes un taller registrado</h1>
+                <p>Registra tu taller y tu información comercial para comenzar a gestionar servicios y reservas</p>
+                <button type="button" class="btn-principal" onclick="irAFormulario()">
+                    Ingresar datos
+                </button>
+            </div>
+        </div>
+
+        <div class="form-card oculto" id="contenedorFormulario">
+            <div class="form-body">
+                <form id="formTaller">
+
+                    <div class="form-seccion">
+                        <div class="form-seccion-titulo">
+                            <i class="bi bi-image"></i> Foto del taller
+                        </div>
+                        <div class="grupo-campo">
+                            <div class="zona-foto" id="zonaFoto">
+                                <input type="file" accept="image/*" name="foto" class="input-archivo" id="inputFoto">
+                                <i class="bi bi-cloud-arrow-up"></i>
+                                <span><strong>Haz clic para subir</strong> o arrastra una imagen aquí</span>
+                            </div>
+                            <img id="preview-foto" alt="Vista previa del taller">
+                        </div>
+                    </div>
+
+                    <div class="form-seccion">
+                        <div class="form-seccion-titulo">
+                            <i class="bi bi-info-circle"></i> Información general
+                        </div>
+
+                        <div class="fila-formulario">
+                            <div class="grupo-campo flex-1">
+                                <label class="etiqueta-formulario">Nombre del taller</label>
+                                <input type="text" name="nombre" class="input-registro" placeholder="Nombre característico" maxlength="35" required>
+                            </div>
+                            <div class="grupo-campo flex-1">
+                                <label class="etiqueta-formulario">Especialidad</label>
+                                <input type="text" name="especialidad" class="input-registro" placeholder="ej: Mecánica General" required>
+                            </div>
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label class="etiqueta-formulario">Descripción</label>
+                            <textarea name="descripcion" class="input-registro" rows="3" placeholder="Descripción breve de tu taller..." maxlength="150" required></textarea>
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label class="etiqueta-formulario">Ubicación</label>
+                            <input type="text" name="ubicacion" class="input-registro" placeholder="Dirección exacta del local" maxlength="60" required>
+                        </div>
+                    </div>
+
+                    <div class="form-seccion">
+                        <div class="form-seccion-titulo">
+                            <i class="bi bi-clock"></i> Horarios de atención
+                        </div>
+                        <div id="horarios" class="contenedor-dinamico">
+                            <div class="fila-dinamica">
+                                <input type="text" name="dias[]" class="input-registro" placeholder="Ej: Lunes - Viernes" maxlength="25" required>
+                                <input type="text" name="horas[]" class="input-registro" placeholder="8:00am-4:00pm o Cerrado" maxlength="40" required>
+                                <button type="button" class="btn-eliminar" onclick="borrarFila(this)">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-agregar" onclick="agregarHorario()">
+                            <i class="bi bi-plus-lg"></i> Añadir otro horario
+                        </button>
+                    </div>
+
+                    <div class="form-seccion">
+                        <div class="form-seccion-titulo">
+                            <i class="bi bi-tag"></i> Servicios y Precios
+                        </div>
+                        <div id="servicios" class="contenedor-dinamico">
+                            <div class="fila-dinamica">
+                                <input type="text" name="servicio[]" class="input-registro" placeholder="Ej: Sistema de frenos" required>
+                                <input type="text" name="precio[]" class="input-registro" placeholder="$20.000 (precio base)" required>
+                                <button type="button" class="btn-eliminar" onclick="borrarFila(this)">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-agregar" onclick="agregarServicio()">
+                            <i class="bi bi-plus-lg"></i> Añadir otro servicio
+                        </button>
+                    </div>
+
+                    <button type="submit" class="btn-enviar-registro">
+                       Registrar Taller
+                    </button>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="contenido-taller oculto" id="contenidoCompleto">
+
+            <header class="header-taller">
+                <img id="res-foto" src="IMAGENES/Taller1.webp" alt="Foto del taller" class="imagen-banner">
+                <div class="overlay-info">
+                    <h2 class="nombre-taller" id="res-nombre">Maestro Mecánico</h2>
+                    <span class="badge-especialidad" id="res-especialidad">Mecánica General</span>
+                </div>
+            </header>
+
+            <section class="seccion-detalle">
+                <div class="cabecera-seccion">
+                    <h2 class="subtitulo-taller">Descripción</h2>
+                    <span class="status-badge activo">Activo</span>
+                </div>
+                <div class="linea-decorativa"></div>
+                <p class="texto-descripcion" id="res-descripcion">
+                    Taller familiar con 25 años de experiencia atendiendo todas las marcas de vehículos.
+                </p>
+            </section>
+
+            <section class="seccion-detalle">
+                <h2 class="subtitulo-taller">Horarios y Lugar</h2>
+                <div class="linea-decorativa"></div>
+                <p class="direccion-texto">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <strong>Ubicación del local:</strong>
+                    <span id="res-ubicacion">Carrera 34 #38-25 sur</span>
+                </p>
+                <ul class="lista-horarios" id="res-horarios">
+                    <li>
+                        <span class="dia-semana">Lunes - Viernes</span>
+                        <span class="bloque-hora">8:00 - 19:00</span>
+                    </li>
+                    <li>
+                        <span class="dia-semana">Sábado</span>
+                        <span class="bloque-hora">9:00 - 16:00</span>
+                    </li>
+                    <li>
+                        <span class="dia-semana domingo">Domingo</span>
+                        <span class="bloque-hora cerrado">Cerrado</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="seccion-detalle">
+                <h2 class="subtitulo-taller">Precios de Servicios</h2>
+                <div class="linea-decorativa"></div>
+                <table class="tabla-precios">
+                    <thead>
+                        <tr>
+                            <th>Servicio</th>
+                            <th>Precio base</th>
+                        </tr>
+                    </thead>
+                    <tbody id="res-servicios">
+                        <tr>
+                            <td class="celda-servicio">Sistema de frenos</td>
+                            <td class="celda-precio">Desde $30.000</td>
+                        </tr>
+                        <tr>
+                            <td class="celda-servicio">Suspensiones</td>
+                            <td class="celda-precio">Desde $25.000</td>
+                        </tr>
+                        <tr>
+                            <td class="celda-servicio">Revisión de motor</td>
+                            <td class="celda-precio">Desde $45.000</td>
+                        </tr>
+                        <tr>
+                            <td class="celda-servicio">Transmisión</td>
+                            <td class="celda-precio">Desde $35.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="seccion-detalle">
+                <div class="bloque-comentario">
+                    <h2 class="subtitulo-taller">
+                        <i class="bi bi-toggles icono-naranja"></i> Gestión de acciones
+                    </h2>
+                    <div class="partes">
+                        <strong class="tipo">Estado del taller</strong>
+                        <strong class="tipo">Información del taller</strong>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-accion btn-aprobar">Activar</button>
+                        <button class="btn-accion btn-rechazar">Desactivar</button>
+                        <button class="btn-accion btn-editar">Editar información</button>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <script>
+    // 1. IR DE PANTALLA INICIAL A FORMULARIO
+    function irAFormulario() {
+        document.getElementById("contenedorInicial").classList.add("oculto");
+        document.getElementById("contenedorFormulario").classList.remove("oculto");
+    }
+
+    // NUEVO: IR DE FORMULARIO A VISTA DEL TALLER COMPLETO
+    document.getElementById("formTaller").addEventListener("submit", function (evento) {
+        evento.preventDefault(); // Evita que la página se recargue al enviar el formulario
+
+        document.getElementById("contenedorFormulario").classList.add("oculto");
+        document.getElementById("contenidoCompleto").classList.remove("oculto");
+    });
+
+    // 2. VISTA PREVIA DE LA FOTO SELECCIONADA
+    document.getElementById("inputFoto").addEventListener("change", function () {
+        const archivo = this.files[0];
+        if (!archivo) return;
+
+        const lector = new FileReader();
+        lector.onload = function (e) {
+            const preview = document.getElementById("preview-foto");
+            preview.src = e.target.result;
+            preview.style.display = "block";
+
+            document.querySelector(".zona-foto span").style.display = "none";
+            document.querySelector(".zona-foto i").style.display = "none";
+        };
+        lector.readAsDataURL(archivo);
+    });
+
+    // 3. FUNCIONES PARA AGREGAR Y ELIMINAR FILAS DINÁMICAS
+    function agregarHorario() {
+        const contenedor = document.getElementById("horarios");
+        const fila = document.createElement("div");
+        fila.className = "fila-dinamica";
+        
+        fila.innerHTML = `
+            <input type="text" name="dias[]" class="input-registro" placeholder="Ej: Sábado" maxlength="25" required>
+            <input type="text" name="horas[]" class="input-registro" placeholder="8:00am-4:00pm o cerrado" maxlength="40" required>
+            <button type="button" class="btn-eliminar" onclick="borrarFila(this)">
+                <i class="bi bi-trash3-fill"></i>
+            </button>
+        `;
+        contenedor.appendChild(fila);
+    }
+
+    function agregarServicio() {
+        const contenedor = document.getElementById("servicios");
+        const fila = document.createElement("div");
+        fila.className = "fila-dinamica";
+        
+        fila.innerHTML = `
+            <input type="text" name="servicio[]" class="input-registro" placeholder="Ej: Alineación" required>
+            <input type="text" name="precio[]" class="input-registro" placeholder="$20.000 (precio base)" required>
+            <button type="button" class="btn-eliminar" onclick="borrarFila(this)">
+                <i class="bi bi-trash3-fill"></i>
+            </button>
+        `;
+        contenedor.appendChild(fila);
+    }
+
+    function borrarFila(btn) {
+        btn.closest(".fila-dinamica").remove();
+    }
+    </script>
+</body>
+</html>

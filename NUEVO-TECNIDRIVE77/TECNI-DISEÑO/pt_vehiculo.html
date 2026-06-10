@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="pt_vehiculos.css">
+</head>
+<body>
+      <!--PANEL DEL PROPIETARIO DE VEHICULOS LERO LERO TITIT -->
+    <div class="sidebar">
+        <ul>
+            <li><a href=""><span class="icon"><i class="bi bi-list"></i></span><span class="text">Panel de usuario</span></a></li>
+            <li><a href="propietario_panel.html"><span class="icon"><i class="bi bi-file-person-fill"></i></span><span class="text">Mi perfil</span></a></li>
+            <li><a href="pt_vehiculo.html"><span class="icon"><i class="bi bi-car-front-fill"></i></span><span class="text">Vehículos</span></a></li>
+            <li><a href="pt_taller.html"><span class="icon"><i class="bi bi-tools"></i></span><span class="text">Talleres</span></a></li>
+            <li><a href="pt_citas.html"><span class="icon"><i class="bi bi-calendar2-plus"></i></span><span class="text">Cita Agendada</span></a></li>
+            <li><a href="pt_calificacion.html"><span class="icon"><i class="bi bi-star-half"></i></span><span class="text">Mis puntuaciones</span></a></li>
+            <li><a href="index.html"><span class="icon"><i class="bi bi-box-arrow-left"></i></span><span class="text">Cerrar sesión</span></a></li>
+        </ul>
+    </div>
+
+    <!-- ENCABEZADO -->
+     
+
+        <header class="titulos">
+            <h1 class="titulo">Tus Vehículo</h1>
+            <h5>Supervisa los vehículos registrados y su documentación vigente</h5>
+        </header>
+
+
+       
+  <div class="tarjeta-autenticacion">
+    
+    <div class="panel-vacio" id="panelInicial">
+        <i class="bi bi-person-vcard-fill principal"></i>
+      <h1>Aún no tienes licencia ni vehículos registrados</h1>
+      <p>Comienza configurando tu perfil registrando tu licencia de conducción.</p>
+      <button type="button" class="btn-principal" onclick="irAFormulario()">Ingresar datos</button>
+    </div>
+
+    <form id="formLicencia" class="hidden" onsubmit="procesarFormulario(event)">
+      <h1>Registro de Licencia</h1>
+      
+      <label>Número de licencia</label>
+      <div class="grupo-input">
+        <input type="text" name="nlicencia" placeholder="Ej: 10102345671" maxlength="11">
+       
+      </div>
+
+      <div id="contenedorCategorias">
+        
+        <div class="categoria-item" id="categoria-1">
+          <div class="fila-doble">
+            <div class="campo-bloque">
+              <label>Categoría</label>
+              <input type="text" name="categoria[]" placeholder="Ej: A2, B1" maxlength="3" >
+            </div>
+            <div class="campo-bloque">
+              <label>Fecha vigencia</label>
+              <input type="date" name="fecha[]" >
+            </div>
+            <button type="button" class="btn-eliminar-fila invisible">
+              <i class="bi bi-trash3-fill"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <button type="button" class="btn-accion-secundaria" onclick="agregarCategoria()">
+        <i class="bi bi-plus-lg"></i> Agregar otra categoría
+      </button>
+
+      <button type="submit" class="btn-principal btn-guardar">Datos listos</button>
+    </form>
+  </div>
+
+
+  <!-- PARTE DE LOS VEHICULOSSS -->
+   <main class="dashboard-section hidden" id="dashboardvehiculos">
+    <section class="controles">
+      
+      <div class="tarjeta-licencia">
+        <div class="header-licencia">
+          <p class="titulo-licencia"><i class="bi bi-person-vcard-fill"></i> Tu licencia</p>
+          <button class="btn-desplegar" >
+            <i class="bi bi-caret-down-fill"></i>
+          </button>
+        </div>
+        
+        <div class="info-licencia hidden">
+          <strong>Categorías</strong>
+          <ul class="lista-categorias">
+            <li>A2</li>
+            <li>B2</li>
+          </ul>
+          <strong>Número de licencia</strong>
+          <p class="texto-detalle">12345678919</p>
+          <strong>Fecha de vigencia</strong>
+          <p class="texto-detalle">21/03/2027</p>
+
+          <button class="Licencia-editar">Editar</button>
+        </div>
+      </div>
+        
+      <div class="tarjeta-agregar-vehiculo"> 
+        <div class="header-licencia">
+          <p class="titulo-vehiculo">Agregar Vehículo</p>
+          <button class="btn-desplegar btn-desplegar-form">
+            <i class="bi bi-caret-down-fill"></i>
+          </button>
+        </div>
+
+        <div class="formulario-vehiculo hidden">
+          <h2>Agregar datos</h2>
+          <input type="text" name="placa" placeholder="Placa"> 
+          <input type="text" name="marca" placeholder="Marca">
+          <input type="text" name="modelo" placeholder="Modelo">
+          <input type="text" name="ano" placeholder="Año">
+          <select name="tipo">
+            <option value="">Tipo de vehículo</option>
+            <option value="carro">Carro</option>
+            <option value="moto">Moto</option>
+          </select>
+          <input type="text" placeholder="Servicio (Particular o Público)">
+          <button type="submit" class="btn-guardar-vehiculo">Guardar vehículo</button>
+        </div>
+      </div>
+    </section>
+
+
+<!-- PARTE DONDE SE VE EL HEVICULO REGISREADO ONISHAN -->
+    <section class="tabla-wrapper">
+      <table class="tabla-calificaciones">
+        <thead>
+          <tr class="cabeza-tabla">
+            <th>Datos básicos</th>
+            <th>Estado del vehículo</th>
+            <th>Documentos</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="fila-cuerpo">
+            
+            <td class="col-datos-basicos">
+              <div class="bloque-vehiculo">
+                <div class="badge-vehiculo">
+                  <i class="fa-solid fa-car"></i>
+                  <p class="texto-placa">ACB 123</p>
+                </div>
+                <div class="info-texto-vehiculo">
+                  <strong class="nombre-vehiculo">Toyota Corolla 2022</strong>
+                  <span class="tipo-servicio">Particular</span>
+                </div>
+              </div>
+            </td>
+
+            <td class="col-estado-vehiculo">
+              <span class="badge-estado activo">Activo</span>
+            </td>
+
+           <td class="col-documentos-vehiculo">
+  <button class="btn-ver-docs">
+    <span>sin documentos aun</span> <i class="bi bi-caret-down-fill"></i>
+  </button>
+  
+  <div class="contenedor-documentos hidden">
+    <div class="grupo-input-doc">
+      <strong>SOAT</strong>
+      <label>Vigencia: <input type="date"></label>
+    </div>
+    <div class="grupo-input-doc">
+      <strong>Tecnomecánica</strong>
+      <label>Vigencia: <input type="date"></label>
+    </div>
+    <button class="btn-guardar-docs">Guardar</button>
+  </div>
+</td>
+
+            <td class="col-acciones-vehiculo">
+              <div class="grupo-botones-accion">
+                <button class="btn-accion btn-aprobar">Activar</button>
+                <button class="btn-accion btn-rechazar">Desactivar</button>
+              
+                       
+              </div>
+            </td>
+
+          </tr>          
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  
+    
+</body>
+<script>
+
+    //PARTE DE OCULTAR Y APARECERR LAS DOS  COSAS LICENCIA Y TABLA DE VEHICULOS
+    function procesarFormulario(event) {
+
+  event.preventDefault();
+
+  // ocultar formulario completo
+  document.querySelector(".tarjeta-autenticacion").style.display = "none";
+
+  // mostrar dashboard
+  document.getElementById("dashboardvehiculos")
+    .classList.remove("hidden");
+
+}
+
+//PARTE DE CATEGORIAS DE LICENCIA PONER
+    let contadorCategorias = 1;
+
+    // Pasar del panel de bienvenida al formulario
+    function irAFormulario() {
+      document.getElementById('panelInicial').classList.add('hidden');
+      document.getElementById('formLicencia').classList.remove('hidden');
+    }
+
+    // Agregar dinámicamente filas de categorías perfectamente alineadas
+    function agregarCategoria() {
+      contadorCategorias++;
+      const contenedor = document.getElementById('contenedorCategorias');
+      const div = document.createElement('div');
+      div.className = 'categoria-item';
+      div.id = 'categoria-' + contadorCategorias;
+      
+      div.innerHTML = `
+        <div class="fila-doble">
+          <div class="campo-bloque">
+            <label>Categoría</label>
+            <input type="text" name="categoria[]" placeholder="Ej: B2" maxlength="3" required>
+          </div>
+          <div class="campo-bloque">
+            <label>Fecha vigencia</label>
+            <input type="date" name="fecha[]" required>
+          </div>
+          <button type="button" class="btn-eliminar-fila" onclick="eliminarCategoria(${contadorCategorias})" title="Eliminar fila">
+            <i class="bi bi-trash3-fill"></i>
+          </button>
+        </div>
+      `;
+      contenedor.appendChild(div);
+    }
+
+    // Eliminar la fila seleccionada
+    function eliminarCategoria(id) {
+      const item = document.getElementById('categoria-' + id);
+      if (item) item.remove();
+    }
+
+   
+    //PARTE DE LA TABLA DE VEHICULOS LERO LERO
+    document.addEventListener("DOMContentLoaded", () => {
+      // Desplegar Licencia
+      const btnLicencia = document.querySelector(".btn-desplegar");
+      const infoLicencia = document.querySelector(".info-licencia");
+      if(btnLicencia && infoLicencia) {
+        btnLicencia.addEventListener("click", () => infoLicencia.classList.toggle("hidden"));
+      }
+
+      // Desplegar Formulario Vehículo
+      const btnForm = document.querySelector(".btn-desplegar-form");
+      const formVehiculo = document.querySelector(".formulario-vehiculo");
+      if(btnForm && formVehiculo) {
+        btnForm.addEventListener("click", () => formVehiculo.classList.toggle("hidden"));
+      }
+
+      // Desplegar Documentos en la Tabla
+      const btnDocs = document.querySelector(".btn-ver-docs");
+      const contenedorDocs = document.querySelector(".contenedor-documentos");
+      if(btnDocs && contenedorDocs) {
+        btnDocs.addEventListener("click", () => contenedorDocs.classList.toggle("hidden"));
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - TecniDrive</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="tarjeta-autenticacion" id="loginCard">
+    <h1>Iniciar sesión</h1>
+
+    <form id="loginForm">
+      <label>E-mail</label>
+      <div class="grupo-input">
+        <input type="email" id="usuarioLogin" placeholder="ejemplo@gmail.com" required>
+        <i class="bi bi-envelope"></i>
+      </div>
+
+      <label>Contraseña</label>
+      <div class="grupo-input">
+        <input type="password" id="passwordLogin" placeholder="●●●●●●●●" required minlength="8">
+      </div>
+
+      <button type="submit">Ingresar</button>
+    </form>
+
+    <div class="links">
+      <a href="#">¿Olvidaste tu contraseña?</a>
+      <a href="#" onclick="mostrarSign()">¿No tienes cuenta? Crear cuenta</a>
+    </div>
+  </div>
+
+
+  <div class="tarjeta-autenticacion" id="registerCard">
+    <h1>Crea tu cuenta</h1>
+
+    <form id="signForm">
+      
+      <label>Nombres</label>
+      <div class="fila-doble">
+        <div class="campo-bloque">
+          <input type="text" placeholder="Primer nombre" required>
+        </div>
+        <div class="campo-bloque">
+          <small class="etiqueta-opcional">Opcional</small>
+          <input type="text" placeholder="Segundo nombre">
+        </div>
+      </div>
+
+      <label>Apellidos</label>
+      <div class="fila-doble">
+        <div class="campo-bloque">
+          <input type="text" placeholder="Primer apellido" required>
+        </div>
+        <div class="campo-bloque">
+          <input type="text" placeholder="Segundo apellido" required>
+        </div>
+      </div>
+
+      <label>Teléfono</label>
+      <div class="grupo-input">
+        <input type="tel" id="telefonoReg" placeholder="300 123 4567" required>
+        <i class="bi bi-telephone"></i>
+      </div>
+
+      <label>E-mail</label>
+      <div class="grupo-input">
+        <input type="email" id="usuarioReg" placeholder="ejemplo@gmail.com" required>
+        <i class="bi bi-envelope"></i>
+      </div>
+
+      <label>Contraseña</label>
+        <input type="password" id="passwordReg" placeholder="●●●●●●●●" required>
+    
+<button type="submit">Continúa</button>
+    </form>
+
+    <div class="links">
+      <a href="#" onclick="mostrarLogin()">¿Ya tienes una cuenta? Iniciar sesión</a>
+    </div>
+  </div>
+
+  <script>
+    const loginCard = document.getElementById("loginCard");
+    const registerCard = document.getElementById("registerCard");
+
+    function mostrarSign() {
+      loginCard.style.display = "none";
+      registerCard.style.display = "block";
+    }
+
+    function mostrarLogin() {
+      registerCard.style.display = "none";
+      loginCard.style.display = "block";
+    }
+  </script>
+</body>
+</html>

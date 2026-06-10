@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>propietario notificaciones</title>
+ <link rel="stylesheet" href="pt_notificaciones.css">
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <section class="profile-card" id="profileCard">
+        
+        <div id="panelNotificaciones">
+            <div class="cabeza">
+                <a href="propietario_panel.html" aria-label="Volver al panel"><i class="bi bi-chevron-left"></i></a>
+                <h1>Sección de notificaciones</h1>
+            </div>
+
+            <h2>Recientes</h2>
+
+            <div class="casilla-noti" id="notiNormal">
+                <div class="vehiculo">
+                    <i class="fa-solid fa-car"></i>
+                    <p>ACB 123</p>
+                </div>
+                <strong>Tecno pronto a vencer</strong>
+                <div class="botones">
+                    <small>2h</small>
+                    <i class="bi bi-three-dots btn-menu-contextual"></i>
+                    <div class="opciones-boton">
+                        <p class="accion-quitar">Quitar</p>
+                        <p class="abrir-config">Ver configuración de notificaciones</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="casilla-noti completa" id="notiCompleta">
+                <div class="cabeza-interna">
+                    <i class="bi bi-chevron-left btn-ocultar-detalle"></i>
+                    <strong>Tecno pronto a vencer</strong>
+                </div>
+                <small class="etiqueta-mensaje">Mensaje:</small>
+                <p class="texto-mensaje">Hola Carlos Pérez, la tecnomecánica del vehículo con placa XYZ-123 vence en 12 días.</p>
+                <div class="opciones-noti">
+                    <button class="btn-renovar">Ya la renové</button>
+                    <button class="btn-recordar">Recordar después <br> (en 5 días)</button>
+                </div>
+            </div>
+
+            <div class="casilla-noti">
+                <div class="vehiculo">
+                    <i class="bi bi-person-vcard-fill"></i>
+                    <p>Licencia</p>
+                </div>
+                <strong>Licencia está próxima a vencer</strong>
+                <div class="botones">
+                    <small>2h</small>
+                    <i class="bi bi-three-dots btn-menu-contextual"></i>
+                    <div class="opciones-boton">
+                        <p class="accion-quitar">Quitar</p>
+                        <p class="abrir-config">Ver configuración de notificaciones</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Visto</h2>
+
+            <div class="casilla-noti">
+                <div class="vehiculo">
+                    <i class="fa-solid fa-motorcycle"></i>
+                    <p>KEF G39</p>
+                </div>
+                <strong>SOAT vencido</strong>
+                <div class="botones">
+                    <small>2sem.</small>
+                    <i class="bi bi-three-dots btn-menu-contextual"></i>
+                    <div class="opciones-boton">
+                        <p class="accion-quitar">Quitar</p>
+                        <p class="abrir-config">Ver configuración de notificaciones</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- PANEL CONFIGURACION DE NOTIFIACIONES -->
+        <div id="panelConfiguracion" class="hidden">
+            <div class="cabeza">
+                <i class="bi bi-chevron-left" id="volverNotis"></i>
+                <h1>Configuración de notificaciones</h1>
+            </div>
+
+            <article class="notification-item">
+                <div class="notification-header">
+                    <div class="vehicle-info">
+                        <i class="fa-solid fa-car"></i>
+                        <p>ACB 123</p>
+                    </div>
+                    <button class="toggle-button" aria-label="Desplegar alertas">
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+
+                <div class="notification-content hidden">
+                    <h2>Alertas del vehículo</h2>
+                    <div class="option-row">
+                        <span>SOAT</span>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="option-row">
+                        <span>Tecnomecánica</span>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-group">
+                        <p>Avisar antes del vencimiento</p>
+                        <select>
+                            <option>3 días antes</option>
+                            <option>7 días antes</option>
+                            <option>15 días antes</option>
+                            <option>30 días antes</option>
+                        </select>
+                    </div>
+                    <div class="settings-group">
+                        <p>Repetir recordatorio</p>
+                        <label><input type="radio" name="carro1" checked> Nunca</label>
+                        <label><input type="radio" name="carro1"> Cada 3 días</label>
+                        <label><input type="radio" name="carro1"> Cada 15 días</label>
+                        <label><input type="radio" name="carro1"> Cada mes</label>
+                    </div>
+                </div>
+            </article>
+
+            <article class="notification-item">
+                <div class="notification-header">
+                    <div class="vehicle-info">
+                        <i class="fa-solid fa-motorcycle"></i>
+                        <p>KEF 39G</p>
+                    </div>
+                    <button class="toggle-button" aria-label="Desplegar alertas">
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+
+                <div class="notification-content hidden">
+                    <h2>Alertas del vehículo</h2>
+                    <div class="option-row">
+                        <span>SOAT</span>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="option-row">
+                        <span>Tecnomecánica</span>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-group">
+                        <p>Avisar antes del vencimiento</p>
+                        <select>
+                           <option>3 días antes</option>
+                            <option>7 días antes</option>
+                            <option>15 días antes</option>
+                            <option>30 días antes</option>
+                        </select>
+                    </div>
+                    <div class="settings-group">
+                        <p>Repetir recordatorio</p>
+                        <label><input type="radio" name="carro2" checked> Nunca</label>
+                        <label><input type="radio" name="carro2"> Cada 3 días</label>
+                        <label><input type="radio" name="carro2"> Cada 15 días</label>
+                        <label><input type="radio" name="carro2"> Cada mes</label>
+                    </div>
+                </div>
+            </article>
+
+            <article class="notification-item">
+                <div class="notification-header">
+                    <div class="vehicle-info">
+                        <i class="bi bi-person-vcard-fill"></i>
+                        <p>Tu licencia</p>
+                    </div>
+                    <button class="toggle-button" aria-label="Desplegar alertas">
+                        <i class="bi bi-caret-down-fill"></i>
+                    </button>
+                </div>
+
+                <div class="notification-content hidden">
+                    <h2>Alertas del propietario</h2>
+                    <div class="option-row">
+                        <span>Licencia</span>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-group">
+                        <p>Avisar antes del vencimiento</p>
+                        <select>
+                          <option>3 días antes</option>
+                            <option>7 días antes</option>
+                            <option>15 días antes</option>
+                            <option>30 días antes</option>
+                        </select>
+                    </div>
+                    <div class="settings-group">
+                        <p>Repetir recordatorio</p>
+                        <label><input type="radio" name="licencia" checked> Nunca</label>
+                        <label><input type="radio" name="licencia"> Cada 3 días</label>
+                        <label><input type="radio" name="licencia"> Cada 15 días</label>
+                        <label><input type="radio" name="licencia"> Cada mes</label>
+                    </div>
+                </div>
+            </article>
+
+            <div class="btn-group">
+                <button class="btn-accion btn-restablecer">Restablecer</button>
+                <button class="btn-accion btn-guardar">Guardar</button>
+            </div>
+        </div>
+
+    </section>
+
+   
+</body>
+<script>
+  /**
+ * Script de Control para el Panel de Gestión de Notificaciones
+ * Encargado de manejar los flujos de visualización, menús contextuales y modales colapsables.
+ */
+document.addEventListener("DOMContentLoaded", () => {
+
+    // --- ELEMENTOS CONTENEDORES DE VISTAS ---
+    const panelNotificaciones = document.getElementById("panelNotificaciones");
+    const panelConfiguracion = document.getElementById("panelConfiguracion");
+
+    // --- ELEMENTOS DE INTERACCIÓN DE NOTIFICACIONES ---
+    const notiNormal = document.getElementById("notiNormal");
+    const notiCompleta = document.getElementById("notiCompleta");
+    const btnOcultarDetalle = document.querySelector(".btn-ocultar-detalle");
+    const menusContextuales = document.querySelectorAll(".opciones-boton");
+    const btnTresPuntos = document.querySelectorAll(".btn-menu-contextual");
+
+    // --- ELEMENTOS DE CAMBIO DE PANEL ---
+    const botonesAbrirConfig = document.querySelectorAll(".abrir-config");
+    const btnVolverNotificaciones = document.getElementById("volverNotis");
+
+    // --- COMPONENTES COLAPSABLES (ACORDEÓN CONFIGURACIÓN) ---
+    const itemsConfiguracion = document.querySelectorAll(".notification-item");
+
+
+    /* ==========================================================================
+       1. MANEJO DE MENÚS CONTEXTUALES (TRES PUNTOS)
+       ========================================================================== */
+
+    /**
+     * Alterna la visibilidad del menú contextual de tres puntos en la notificación seleccionada.
+     */
+    btnTresPuntos.forEach((boton) => {
+        boton.addEventListener("click", (evento) => {
+            // Detiene la propagación para evitar que el clic abra accidentalmente la notificación completa
+            evento.stopPropagation();
+            
+            const menuActual = boton.nextElementSibling;
+            
+            // Cierra cualquier otro menú contextual abierto antes de abrir el actual
+            menusContextuales.forEach((menu) => {
+                if (menu !== menuActual) menu.classList.remove("activo");
+            });
+
+            // Conmutar el menú actual
+            if (menuActual) {
+                menuActual.classList.toggle("activo");
+            }
+        });
+    });
+
+    /**
+     * NUEVO: Evita que hacer clic en "Quitar" o cualquier opción interna del menú 
+     * active el clic de la tarjeta de notificación completa.
+     */
+    menusContextuales.forEach((menu) => {
+        menu.addEventListener("click", (evento) => {
+            evento.stopPropagation();
+        });
+    });
+
+    /**
+     * Cierra de forma automática los menús contextuales abiertos si se hace clic fuera de ellos.
+     */
+    document.addEventListener("click", () => {
+        menusContextuales.forEach((menu) => menu.classList.remove("activo"));
+    });
+
+
+    /* ==========================================================================
+       2. FLUJO DE DETALLE DE NOTIFICACIÓN (EXPANDIR / COLAPSAR)
+       ========================================================================== */
+
+    /**
+     * Al hacer clic en la tarjeta de notificación corta, oculta su contenedor básico y despliega el detalle completo.
+     */
+    if (notiNormal && notiCompleta) {
+        notiNormal.addEventListener("click", () => {
+            notiNormal.classList.add("hidden");
+            notiCompleta.style.display = "flex";
+        });
+
+        /**
+         * Al hacer clic en el botón izquierdo interno del detalle completo, revierte la visualización al estado simple.
+         */
+        btnOcultarDetalle.addEventListener("click", (evento) => {
+            evento.stopPropagation(); // Previene burbujeo errático
+            notiCompleta.style.display = "none";
+            notiNormal.classList.remove("hidden");
+        });
+    }
+
+
+    /* ==========================================================================
+       3. INTERCAMBIO DE PANELES PRINCIPALES (NOTIFICACIONES <-> CONFIGURACIÓN)
+       ========================================================================== */
+
+    /**
+     * Configura los botones dentro del menú de tres puntos para cambiar de vista hacia la sección de configuración.
+     */
+    botonesAbrirConfig.forEach((enlace) => {
+        enlace.addEventListener("click", () => {
+            panelNotificaciones.classList.add("hidden");
+            panelConfiguracion.classList.remove("hidden");
+        });
+    });
+
+    /**
+     * Permite retornar al panel principal de notificaciones desde el encabezado de configuración.
+     */
+    if (btnVolverNotificaciones) {
+        btnVolverNotificaciones.addEventListener("click", () => {
+            panelConfiguracion.classList.add("hidden");
+            panelNotificaciones.classList.remove("hidden");
+        });
+    }
+
+
+    /* ==========================================================================
+       4. COMPORTAMIENTO DE ACORDEÓN (CONFIGURACIÓN DE ALERTAS)
+       ========================================================================== */
+
+    /**
+     * Agrega comportamiento dinámico a los botones de flecha de cada fila para mostrar u ocultar la configuración específica.
+     */
+    itemsConfiguracion.forEach((item) => {
+        const botonDesplegar = item.querySelector(".toggle-button");
+        const contenidoInterno = item.querySelector(".notification-content");
+        const iconoFlecha = botonDesplegar ? botonDesplegar.querySelector("i") : null;
+
+        if (botonDesplegar && contenidoInterno) {
+            botonDesplegar.addEventListener("click", () => {
+                const estaOculto = contenidoInterno.classList.toggle("hidden");
+                
+                // Efecto visual interactivo: cambia la flecha de dirección según el estado del panel
+                if (iconoFlecha) {
+                    if (estaOculto) {
+                        iconoFlecha.className = "bi bi-caret-down-fill";
+                    } else {
+                        iconoFlecha.className = "bi bi-caret-up-fill";
+                    }
+                }
+            });
+        }
+    });
+});
+</script>
+</html>

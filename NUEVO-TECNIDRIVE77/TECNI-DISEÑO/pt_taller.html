@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talleres Mecánicos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="pt_taller.css">
+</head>
+<body>
+
+    <!-- =============================================
+         BARRA LATERAL (SIDEBAR)
+         Menú de navegación principal del propietario
+         ============================================= -->
+    <nav class="sidebar">
+        <ul>
+            <li>
+                <a href="">
+                    <span class="icon"><i class="bi bi-list"></i></span>
+                    <span class="text">Panel de usuario</span>
+                </a>
+            </li>
+            <li>
+                <a href="propietario_panel.html">
+                    <span class="icon"><i class="bi bi-file-person-fill"></i></span>
+                    <span class="text">Mi perfil</span>
+                </a>
+            </li>
+            <li>
+                <a href="pt_vehiculo.html">
+                    <span class="icon"><i class="bi bi-car-front-fill"></i></span>
+                    <span class="text">Vehículos</span>
+                </a>
+            </li>
+            <li>
+                <a href="pt_taller.html">
+                    <span class="icon"><i class="bi bi-tools"></i></span>
+                    <span class="text">Talleres</span>
+                </a>
+            </li>
+            <li>
+                <a href="pt_citas.html">
+                    <span class="icon"><i class="bi bi-calendar2-plus"></i></span>
+                    <span class="text">Cita Agendada</span>
+                </a>
+            </li>
+            <li>
+                <a href="pt_calificacion.html">
+                    <span class="icon"><i class="bi bi-star-half"></i></span>
+                    <span class="text">Mis puntuaciones</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.html">
+                    <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
+                    <span class="text">Cerrar sesión</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- =============================================
+         CONTENIDO PRINCIPAL
+         ============================================= -->
+    <main class="main-content">
+
+        <!-- Títulos de la sección -->
+        <header class="titulos">
+            <h1 class="titulo">Talleres Mecánicos</h1>
+            <h4>Encuentra el mejor taller para tu vehículo</h4>
+        </header>
+
+        <section class="dashboard-section">
+
+            <!-- Tarjetas de estadísticas por puntuación -->
+            <div class="numeros-container">
+                <div class="tarjeta-cantidad">
+                    <span class="num">Talleres</span><br>
+                    <span>5 <i class="bi bi-star-fill star-activa"></i></span>
+                </div>
+                <div class="tarjeta-cantidad">
+                    <span class="num">Talleres</span><br>
+                    <span>3 a 4 <i class="bi bi-star-fill star-activa"></i></span>
+                </div>
+                <div class="tarjeta-cantidad">
+                    <span class="num">Talleres</span><br>
+                    <span>2 a 1 <i class="bi bi-star-fill star-activa"></i></span>
+                </div>
+            </div>
+
+            <!-- Buscador y filtro de especialidad -->
+            <div class="controles">
+                <div class="buscador-wrapper">
+                    <input type="text" placeholder="Buscar servicios, dirección o especialidad...">
+                    <i class="bi bi-search"></i>
+                </div>
+                <select class="filtro-select">
+                    <option value="todos">Todos los talleres</option>
+                    <option value="mecanica-general">Mecánica general</option>
+                    <option value="electricidad">Electricidad automotriz</option>
+                    <option value="latoneria">Latonería y pintura</option>
+                    <option value="llantas">Llantas y alineación</option>
+                    <option value="aceite">Cambio de aceite</option>
+                    <option value="frenos">Frenos</option>
+                    <option value="aire">Aire acondicionado</option>
+                    <option value="motos">Especialistas en motos</option>
+                    <option value="carros">Especialistas en carros</option>
+                </select>
+            </div>
+
+            <!-- =============================================
+                 LISTA DE TARJETAS DE TALLERES
+                 Cada tarjeta tiene vista compacta y expandida
+                 ============================================= -->
+            <div class="lista-talleres">
+
+                <!-- TARJETA DE TALLER -->
+                <article class="card-taller compacta" id="cardTaller">
+
+                    <!-- Encabezado con imagen (siempre visible, se puede clicar) -->
+                    <header class="header-taller" id="headerTaller">
+
+                        <!-- Botón para cerrar/colapsar la tarjeta (solo visible al expandir) -->
+                        <button class="btn-cerrar" id="btnCerrar" aria-label="Cerrar panel">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+
+                        <!-- Imagen principal del taller -->
+                        <img src="IMAGENES/Taller1.webp" alt="Instalaciones del Taller Maestro Mecánico" class="imagen-banner">
+
+                        <!-- Nombre y especialidad sobre la imagen -->
+                        <div class="overlay-info">
+                            <h1>Maestro Mecánico</h1>
+                            <span class="badge-especialidad">Mecánica General</span>
+                        </div>
+
+                        <!-- Texto flotante que aparece al pasar el mouse -->
+                        <span class="hover-hint">
+                            <i class="bi bi-arrows-angle-expand"></i> Ver más detalles
+                        </span>
+                    </header>
+
+                    <!-- Vista compacta: resumen rápido del taller -->
+                    <div class="vista-compacta" id="vistaCompacta">
+                        <p class="direccion-texto">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <strong>Ubicación:</strong> Carrera 34 #38-25 sur
+                        </p>
+                        <ul class="servicios">
+                            <li>Sistema de frenos</li>
+                            <li>Suspensiones</li>
+                            <li>Revisión de motor</li>
+                            <li>Transmisión</li>
+                        </ul>
+                        <p class="texto-descripcion">Taller familiar con 25 años de experiencia atendiendo todas las marcas de vehículos.</p>
+                    </div>
+
+                    <!-- Contenido completo (oculto al inicio, aparece al expandir) -->
+                    <div class="contenido-taller" id="contenidoCompleto">
+
+                        <!-- Descripción -->
+                        <section class="seccion-detalle">
+                            <h2 class="subtitulo-taller">Descripción</h2>
+                            <div class="linea-decorativa"></div>
+                            <p class="texto-descripcion">Taller familiar con 25 años de experiencia atendiendo todas las marcas de vehículos.</p>
+                        </section>
+
+                        <!-- Horarios y ubicación -->
+                        <section class="seccion-detalle">
+                            <h2 class="subtitulo-taller">Horarios y Lugar</h2>
+                            <div class="linea-decorativa"></div>
+                            <p class="direccion-texto">
+                                <i class="bi bi-geo-alt-fill"></i>
+                                <strong>Ubicación del local:</strong> Carrera 34 #38-25 sur
+                            </p>
+                            <ul class="lista-horarios">
+                                <li>
+                                    <span class="dia-semana">Lunes - Viernes</span>
+                                    <span class="bloque-hora">8:00 - 19:00</span>
+                                </li>
+                                <li>
+                                    <span class="dia-semana">Sábado</span>
+                                    <span class="bloque-hora">9:00 - 16:00</span>
+                                </li>
+                                <li>
+                                    <span class="dia-semana domingo">Domingo</span>
+                                    <span class="bloque-hora cerrado">Cerrado</span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <!-- Tabla de precios -->
+                        <section class="seccion-detalle">
+                            <h2 class="subtitulo-taller">Precios de Servicios</h2>
+                            <div class="linea-decorativa"></div>
+                            <table class="tabla-precios">
+                                <thead>
+                                    <tr>
+                                        <th>Servicio</th>
+                                        <th>Precio base</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="celda-servicio">Sistema de frenos</td>
+                                        <td class="celda-precio">Desde $30.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="celda-servicio">Suspensiones</td>
+                                        <td class="celda-precio">Desde $25.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="celda-servicio">Revisión de motor</td>
+                                        <td class="celda-precio">Desde $45.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="celda-servicio">Transmisión</td>
+                                        <td class="celda-precio">Desde $35.000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+
+                        <!-- Calificaciones de otros usuarios -->
+                        <section class="seccion-detalle">
+                            <h2 class="subtitulo-taller">
+                                <i class="bi bi-star-half"></i> Calificaciones
+                            </h2>
+                            <div class="linea-decorativa"></div>
+
+                            <!-- Comentario de ejemplo -->
+                            <div class="bloque-comentario">
+                                <div class="usuario-header">
+                                    <i class="bi bi-person-check avatar-icono"></i>
+                                    <div class="usuario-meta">
+                                        <div class="nombre-estrellas-fila">
+                                            <strong class="nombre-usuario">Juan Pérez</strong>
+                                            <div class="estrellas-grupo">
+                                                <i class="bi bi-star-fill star-activa"></i>
+                                                <i class="bi bi-star-fill star-activa"></i>
+                                                <i class="bi bi-star-fill star-activa"></i>
+                                                <i class="bi bi-star-fill star-activa"></i>
+                                                <i class="bi bi-star-fill star-activa"></i>
+                                            </div>
+                                        </div>
+                                        <small class="fecha-comentario">15/10/2026</small>
+                                    </div>
+                                </div>
+                                <p class="comentario-texto">
+                                    Excelente servicio, muy rápido y confiable. Recomendado al 100%.
+                                </p>
+                            </div>
+
+                            <!-- Sección para que el usuario deje su calificación -->
+                            <div class="tu-calificacion">
+                                <h5>Califica este Taller</h5>
+                                <small>Comparte tu opinión con los demás</small>
+
+                                <!-- Estrellas interactivas (el clic muestra el campo de reseña) -->
+                                <div class="calificacion-estrellas">
+                                    <i class="bi bi-star-fill star" data-value="1"></i>
+                                    <i class="bi bi-star-fill star" data-value="2"></i>
+                                    <i class="bi bi-star-fill star" data-value="3"></i>
+                                    <i class="bi bi-star-fill star" data-value="4"></i>
+                                    <i class="bi bi-star-fill star" data-value="5"></i>
+                                </div>
+
+                                <!-- Campo de reseña: oculto hasta que el usuario elige una estrella -->
+                                <div class="bloque-resena oculto-js">
+                                    <input type="text" placeholder="Tu reseña (opcional)">
+                                    <button class="btn-guardar-cali" type="button">Publicar</button>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Formulario para agendar una cita -->
+                        <section class="seccion-detalle">
+                            <h2 class="subtitulo-taller">
+                                <i class="bi bi-calendar2-plus"></i> Agendar cita
+                            </h2>
+                            <div class="linea-decorativa"></div>
+
+                            <div class="cita">
+
+                                <!-- Selección del vehículo -->
+                                <div class="seccion-bloque">
+                                    <label class="los-top">Vehículo a reparar</label>
+                                    <div class="vehiculos">
+                                        <div class="casilla-vehiculo activo">
+                                            <i class="bi bi-car-front-fill"></i>
+                                            <strong>ABD 29F</strong>
+                                        </div>
+                                        <div class="casilla-vehiculo">
+                                            <i class="bi bi-bicycle"></i>
+                                            <strong>DDL 101</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Problema y servicio requerido -->
+                                <div class="fila-formulario">
+                                    <div class="grupo-input">
+                                        <label class="los-top">
+                                            El problema del vehículo
+                                            <span class="aclaracion">(Opcional)</span>
+                                        </label>
+                                        <input type="text" class="los-input" placeholder="Si no sabes el servicio, escribe el problema">
+                                    </div>
+                                    <div class="grupo-input">
+                                        <label class="los-top">
+                                            Servicios requeridos
+                                            <span class="aclaracion">(Opcional si hay problema)</span>
+                                        </label>
+                                        <select class="los-input">
+                                            <option value="" disabled selected>Selecciona un servicio</option>
+                                            <option value="suspension">Suspensión</option>
+                                            <option value="frenos">Sistema de frenos</option>
+                                            <option value="transmision">Transmisión</option>
+                                            <option value="motor">Revisión de motor</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Fecha y hora de la cita -->
+                                <div class="fila-formulario">
+                                    <div class="grupo-input">
+                                        <label class="los-top">Fecha de la cita</label>
+                                        <input class="los-input" type="date">
+                                    </div>
+                                    <div class="grupo-input">
+                                        <label class="los-top">Horas disponibles</label>
+                                        <select class="los-input">
+                                            <option value="" disabled selected>Horas de atención</option>
+                                            <option value="10:22">10:22 am</option>
+                                            <option value="12:00">12:00 pm</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <button class="bt-cita" type="button">Solicitar Reserva</button>
+                            </div>
+                        </section>
+
+                    </div><!-- /contenido-taller -->
+
+                </article><!-- /card-taller -->
+
+            </div><!-- /lista-talleres -->
+
+            <!-- Pie de página con paginación -->
+            <footer class="stats-footer">
+                <div>
+                    <strong>Mostrando 1-3 de 3 Talleres</strong>
+                </div>
+                <div class="pagination">
+                    <button class="page-btn">«</button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">»</button>
+                </div>
+            </footer>
+
+        </section>
+    </main>
+
+
+
+</body>
+<script>
+    // =============================================
+// pt_taller.js
+// Lógica interactiva de la página de talleres
+// =============================================
+
+// Esperamos a que toda la página cargue antes de ejecutar el código
+document.addEventListener("DOMContentLoaded", () => {
+
+    // ─────────────────────────────────────────
+    // 1. REFERENCIAS A LOS ELEMENTOS DEL HTML
+    // ─────────────────────────────────────────
+
+    const card          = document.getElementById("cardTaller");       // La tarjeta del taller
+    const header        = document.getElementById("headerTaller");      // Encabezado con la imagen
+    const btnCerrar     = document.getElementById("btnCerrar");         // Botón X para cerrar
+    const vistaCompacta = document.getElementById("vistaCompacta");     // Resumen inicial
+    const contenido     = document.getElementById("contenidoCompleto"); // Detalle completo
+
+    // ─────────────────────────────────────────
+    // 2. EXPANDIR / COLAPSAR LA TARJETA
+    // ─────────────────────────────────────────
+
+    // Al hacer clic en el encabezado, expandimos la tarjeta
+    header.addEventListener("click", (evento) => {
+        // Si el clic vino del botón cerrar, no hacemos nada aquí
+        if (evento.target.closest("#btnCerrar")) return;
+
+        // Solo expandimos si la tarjeta está en modo compacto
+        if (card.classList.contains("compacta")) {
+            expandirTarjeta();
+        }
+    });
+
+    // Al hacer clic en la X, colapsamos la tarjeta
+    btnCerrar.addEventListener("click", (evento) => {
+        evento.stopPropagation(); // Evita que el clic llegue al header
+        colapsarTarjeta();
+    });
+
+    // Muestra todo el contenido del taller
+    function expandirTarjeta() {
+        // Ocultamos el resumen compacto
+        vistaCompacta.classList.add("oculto");
+
+        // Cambiamos la tarjeta a modo expandido
+        card.classList.replace("compacta", "expandida");
+
+        // Pequeño delay para que la animación de tamaño empiece primero
+        setTimeout(() => {
+            contenido.classList.add("visible");
+        }, 80);
+    }
+
+    // Vuelve la tarjeta a su estado inicial compacto
+    function colapsarTarjeta() {
+        // Ocultamos el contenido completo
+        contenido.classList.remove("visible");
+
+        // Volvemos la tarjeta a modo compacto
+        card.classList.replace("expandida", "compacta");
+
+        // Mostramos el resumen nuevamente con un pequeño delay
+        setTimeout(() => {
+            vistaCompacta.classList.remove("oculto");
+        }, 200);
+
+        // Subimos la página al inicio de forma suave
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // ─────────────────────────────────────────
+    // 3. CALIFICACIÓN CON ESTRELLAS
+    // ─────────────────────────────────────────
+
+    const estrellas        = document.querySelectorAll(".calificacion-estrellas .star");
+    const contenedorEstrellas = document.querySelector(".calificacion-estrellas");
+    const bloqueResena     = document.querySelector(".bloque-resena");
+
+    // Pintamos las estrellas de amarillo según el valor hover
+    function resaltarEstrellas(hastaValor) {
+        estrellas.forEach((estrella) => {
+            const valor = parseInt(estrella.getAttribute("data-value"));
+            estrella.style.color = valor <= hastaValor ? "#f1c40f" : "";
+        });
+    }
+
+    // Quitamos el color amarillo de todas las estrellas
+    function limpiarEstrellas() {
+        estrellas.forEach((estrella) => {
+            estrella.style.color = "";
+        });
+    }
+
+    estrellas.forEach((estrella) => {
+        // Al pasar el mouse: resaltamos hasta la estrella actual
+        estrella.addEventListener("mouseover", () => {
+            const valor = parseInt(estrella.getAttribute("data-value"));
+            resaltarEstrellas(valor);
+        });
+
+        // Al quitar el mouse sin hacer clic: volvemos al estado original
+        estrella.addEventListener("mouseleave", limpiarEstrellas);
+
+        // Al hacer clic: guardamos la puntuación y mostramos el campo de reseña
+        estrella.addEventListener("click", () => {
+            const puntuacion = estrella.getAttribute("data-value");
+            console.log("Puntuación seleccionada:", puntuacion); // Útil para conectar con backend
+
+            contenedorEstrellas.classList.add("oculto-js");
+            bloqueResena.classList.remove("oculto-js");
+        });
+    });
+
+    // ─────────────────────────────────────────
+    // 4. SELECCIÓN DE VEHÍCULO EN EL FORMULARIO
+    // ─────────────────────────────────────────
+
+    const casillasVehiculo = document.querySelectorAll(".casilla-vehiculo");
+
+    casillasVehiculo.forEach((casilla) => {
+        casilla.addEventListener("click", () => {
+            // Quitamos el estado activo de todas las casillas
+            casillasVehiculo.forEach((c) => c.classList.remove("activo"));
+
+            // Marcamos como activa la casilla seleccionada
+            casilla.classList.add("activo");
+        });
+    });
+
+});
+</script>
+</html>
