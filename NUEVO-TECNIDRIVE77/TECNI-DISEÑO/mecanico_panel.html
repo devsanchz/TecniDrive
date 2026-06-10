@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel_mecanico</title>
+    <link rel="stylesheet" href="mecanico_panel.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <!------------------------------------PPANEL DE ADMINISTRADOR-------------------------------------------------------------------------------------------------------->
+<div class="sidebar">
+  <ul>
+    <li><a href=""><span class="icon"><i class="bi bi-list"></i></span><span class="text">Panel de usuario</span></a></li>
+    <li><a href="mecanico_panel.html"><span class="icon"><i class="bi bi-file-person-fill"></i></span><span class="text">Mi perfil</span></a></li>
+    <li><a href="mecanico_taller.html"><span class="icon"><i class="bi bi-tools"></i></span><span class="text">Tu taller</span></a></li>
+      <li><a href="mecanico_citas.html"><span class="icon"><i class="bi bi-calendar2-check"></i></span><span class="text">Agenda de citas</span></a></li>
+       <li><a href="mecanico_control.html"><span class="icon"><i class="bi bi-clock-history"></i></span><span class="text">Control de citas</span></a></li>
+      <li><a href="mecanico_calificacion.html"><span class="icon"><i class="bi bi-star-half"></i></span><span class="text">Calificaciones</span></a></li>
+    <li><a href="index.html"><span class="icon"><i class="bi bi-box-arrow-left"></i></span><span class="text">Cerrar sesión</span></a></li>
+  </ul>
+</div>
+<!----------------------------------------------------PERFIL DEL USUARIO------------------------------------------------------------------------------------------------------------------->
+ 
+  
+
+  <!-- EL LUGAR DEL USUARIO CARTA -->
+  <section class="profile-card" id="profileCard">
+      
+
+        <!-- AVATER PERFIL -->
+        <div class="profile-avatar" id="profileAvatar">
+             <i class="bi bi-person-gear"></i>
+        </div>
+
+        <!-- EDITAR COLOR -->
+        <div class="color-editor" id="colorEditor">
+           <label for="avatarColor">
+                Editar color <br>
+            <input type="color" id="avatarColor" value="#3f4bd0">
+         </label>
+        </div>
+
+        <!-- INFORMACION PERFIL -->
+        <ul class="profile-info">
+
+            <!-- NOMBRE -->
+            <li>
+                <span id="userName">
+                   Dayana Sahnchez Bolivae 
+                </span>
+            </li>
+
+            <!-- ROL -->
+            <li>
+                <span id="userRole">
+                   Mecanico
+                </span>
+            </li>
+
+            <!-- CORREO -->
+            <li class="email-container">
+                <i class="bi bi-envelope-at-fill email-icon"></i>
+                <span id="userEmail">
+                    dayana_sanches@gmail.com
+                </span>
+
+                <!-- INPUT PARA EDITAR -->
+                <input type="email"
+                       id="emailInput"
+                       value="marianatapia262@gmail.com">
+            </li>
+        </ul>
+       
+         <!-- TELEFONO -->
+            <li class="telefono-container">
+                <i class="bi bi-telephone-plus-fill telefono-icon"></i>
+                <span id="usertelefono">
+                   3224509192
+                </span>
+
+                <!-- INPUT PARA EDITAR telefno -->
+                <input type="tel"
+                       id="telefonoInput"
+                       value="  3224509192">
+            </li>
+        </ul>
+
+        <!-- BOTON EDITAR PERFIL -->
+        <div class="profile-buttons">
+
+            <button id="editButton">
+            Editar perfil
+            </button>
+
+        <!-- BOTON LISTO -->
+            <button id="saveButton">
+                Listo
+            </button>
+
+        </div>
+    </section>
+</div>
+</body>
+</html>
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+   // =====================================================
+   //PARTE DE LAS NOTIFIACIONES
+    // =====================================================
+
+    // =====================================================
+    // ELEMENTOS HTML
+    // =====================================================
+
+    const profileCard = document.getElementById("profileCard");
+
+    const editButton = document.getElementById("editButton");
+    const saveButton = document.getElementById("saveButton");
+
+    // EMAIL
+    const userEmail = document.getElementById("userEmail");
+    const emailInput = document.getElementById("emailInput");
+
+    // TELEFONO
+    const usertelefono = document.getElementById("usertelefono");
+    const telefonoInput = document.getElementById("telefonoInput");
+
+    // COLOR AVATAR
+    const colorEditor = document.getElementById("colorEditor");
+    const avatarColor = document.getElementById("avatarColor");
+
+    const profileAvatar = document.getElementById("profileAvatar");
+    const profileIcon = document.getElementById("profileIcon");
+
+    const userRole = document.getElementById("userRole");
+
+    // =====================================================
+    // EVENTOS
+    // =====================================================
+
+    setRoleColor();
+
+    editButton.addEventListener("click", enableEditMode);
+
+    saveButton.addEventListener("click", saveProfileChanges);
+
+    if(avatarColor){
+        avatarColor.addEventListener("input", updateAvatarColor);
+    }
+
+    // =====================================================
+    // FUNCION: ACTIVAR EDICION
+    // =====================================================
+
+    function enableEditMode(){
+
+        // FONDO GRIS
+        profileCard.classList.add("editing");
+
+        // EMAIL
+        userEmail.style.display = "none";
+        emailInput.style.display = "inline-block";
+
+        // TELEFONO
+        usertelefono.style.display = "none";
+        telefonoInput.style.display = "inline-block";
+
+        // COLOR
+        if(colorEditor){
+            colorEditor.style.display = "block";
+        }
+
+        // BOTONES
+        editButton.style.display = "none";
+        saveButton.style.display = "inline-block";
+    }
+
+    // =====================================================
+    // FUNCION: GUARDAR
+    // =====================================================
+
+    function saveProfileChanges(){
+
+        // ACTUALIZAR EMAIL
+        userEmail.textContent = emailInput.value;
+
+        // ACTUALIZAR TELEFONO
+        usertelefono.textContent = telefonoInput.value;
+
+        // MOSTRAR TEXTO
+        userEmail.style.display = "inline";
+        usertelefono.style.display = "inline";
+
+        // OCULTAR INPUTS
+        emailInput.style.display = "none";
+        telefonoInput.style.display = "none";
+
+        // OCULTAR COLOR
+        if(colorEditor){
+            colorEditor.style.display = "none";
+        }
+
+        // QUITAR FONDO
+        profileCard.classList.remove("editing");
+
+        // BOTONES
+        saveButton.style.display = "none";
+        editButton.style.display = "inline-block";
+    }
+
+    // =====================================================
+    // FUNCION: CAMBIAR COLOR
+    // =====================================================
+
+    function updateAvatarColor(){
+
+        const selectedColor = avatarColor.value;
+
+        if(profileAvatar){
+            profileAvatar.style.borderColor = selectedColor;
+        }
+
+        if(profileIcon){
+            profileIcon.style.color = selectedColor;
+        }
+    }
+
+    // =====================================================
+    // FUNCION: COLOR ROL
+    // =====================================================
+
+    function setRoleColor(){
+
+        if(!userRole) return;
+
+        const roleText = userRole.textContent.toLowerCase();
+
+        if(roleText.includes("administrador")){
+            userRole.classList.add("administrador");
+        }
+
+        else if(roleText.includes("propietario")){
+            userRole.classList.add("propietario");
+        }
+
+        else if(roleText.includes("mecanico")){
+            userRole.classList.add("mecanico");
+        }
+    }
+
+});
+
+
+</script>

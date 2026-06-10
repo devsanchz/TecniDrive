@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador de talleres</title>
+    <link rel="stylesheet" href="admin_talleres.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="sidebar">
+        <ul>
+            <li><a href="#"><span class="icon"><i class="bi bi-list"></i></span><span class="text">Panel de admin</span></a></li>
+            <li><a href="admin_panel.html"><span class="icon"><i class="bi bi-file-person-fill"></i></span><span class="text">Mi perfil</span></a></li>
+            <li><a href="admin_vehiculos.html"><span class="icon"><i class="bi bi-car-front-fill"></i></span><span class="text">Lista de vehículos</span></a></li>
+            <li><a href="admin_talleres.html"><span class="icon"><i class="bi bi-tools"></i></span><span class="text">Gestión de talleres</span></a></li>
+            <li><a href="admin_calificacion.html"><span class="icon"><i class="bi bi-star-half"></i></span><span class="text">Moderar reseñas</span></a></li>
+              <li><a href="admin_reportes.html"><span class="icon"><i class="bi bi-bar-chart-line"></i></span><span class="text">Informes</span></a></li>
+            <li><a href="index.html"><span class="icon"><i class="bi bi-box-arrow-left"></i></span><span class="text">Cerrar sesión</span></a></li>
+        </ul>
+    </div>
+
+    <main class="main-content">
+        <header class="titulos">
+            <h1 class="titulo">Supervisar Talleres</h1>
+            <h5>Revisa y gestionar los talleres registrados</h5>
+        </header>
+
+        <section class="dashboard-section">
+            <div class="numeros-container">
+                <div class="tarjeta-cantidad">
+                    <span class="num">2</span><br>
+                    <span> Total de Talleres registrados </span>
+                </div>
+                <div class="tarjeta-cantidad">
+                    <span class="num">0</span><br>
+                    <span> Talleres Desactivados</span>
+                </div>
+                 <div class="tarjeta-cantidad">
+                    <span class="num">0</span><br>
+                    <span>Solicitudes de estado</span>
+                </div>
+                  
+            </div>
+
+            <div class="controles">
+                <div class="buscador-wrapper">
+                    <input type="text" placeholder="Buscar por taller, propietario o fecha">
+                    <i class="bi bi-search"></i>
+                </div>
+
+                <select class="filtro-select">
+                    <option value="todos">Todos</option>
+                    <option value="pendientes">Recientes</option>
+                    <option value="rechazadas">Activados</option>
+                    <option value="rechazadas">Desactivados</option>
+                    <option value="rechazadas">Solicitudes</option>
+                </select>
+            </div>
+
+            <table class="tabla-calificaciones">
+                <thead>
+                    <tr class="cabeza-tabla">
+                        <th>Dueño</th>
+                        <th>Taller</th>
+                        <th>Estado</th>
+                        <th>Detalles</th>
+                        <th>Fecha de Registro</th>
+                        <th>Solicitud de estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="fila-cuerpo">
+                        <td class="col-propietario">
+                            <i class="bi bi-person-gear icon-usuario"></i>
+                            <div class="usuario-info">
+                                <span class="nombre">Carlos López Uribe</span>
+                                <small class="email">clopez@gmail.com</small>
+                            </div>
+                        </td>
+                        <td class="col-taller">
+                            <strong>Maestro Mecánico</strong><br>
+                            <span class="subtexto-taller">Mecánica General</span>
+                        </td>
+                        <td class="col-estado">
+                            <span class="status-badge activo">Activo</span>
+                        </td>
+                        <td>
+                        <div class="btn-group">
+                                <button class="btn-accion btn-detalles">Ver</button>
+                            </div>
+                            </td>
+                        <td class="col-fecha">31/03/2026<br><small>19:56</small></td>
+                        <td class="col-estado">
+                            <span  class="status-badge pendiente0">Solicitudes (0)</span>
+                        </td>
+                        <td class="col-acciones">
+                            <div class="btn-group">
+                                <button class="btn-accion btn-aprobar">Activar</button>
+                                <button class="btn-accion btn-rechazar">Desactivar</button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="fila-cuerpo">
+                         <td class="col-propietario">
+                            <i class="bi bi-person-gear icon-usuario"></i>
+                            <div class="usuario-info">
+                                <span class="nombre">Carlos López Uribe</span>
+                                <small class="email">clopez@gmail.com</small>
+                            </div>
+                        </td>
+                        <td class="col-taller">
+                            <strong>Maestro Mecánico</strong><br>
+                            <span class="subtexto-taller">Mecánica General</span>
+                        </td>
+                        <td class="col-estado">
+                            <span class="status-badge desactivo">Desactivado</span>
+                        </td>
+                        <!-- INICIO -->
+                          <td>
+    <div class="btn-group">
+        <button class="btn-accion btn-detalles">Ver</button>
+    </div>
+</td>
+
+                        <td class="col-fecha">31/03/2026<br><small>19:56</small></td>
+                       <td class="col-estado">
+                            <div class="estado-con-motivo">
+                                <span class="status-badge pendiente">Solitudes (1)</span>
+                                <i class="bi bi-eye icono-ojo"></i>
+                                <div class="tooltip-motivo">
+                                    Ya terminaron los arreglos, volver a activar
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-acciones">
+                            <div class="btn-group">
+                                <button class="btn-accion btn-aprobar">Activar</button>
+                                <button class="btn-accion btn-rechazar">Desactivar</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+             <footer class="stats-footer">
+                <div>
+                    <strong>Mostrando 1-1 de 2 Talleres</strong>
+                </div>
+                <div class="pagination">
+                    <button class="page-btn">«</button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">»</button>
+                </div>
+            </footer>
+        </section>
+    </main>
+
+
+    <!-- ASILLA DEL TALLER LOCO PARA VER CMPLETO POR EL MOMENTO AQUI -->
+     <div class="modal-overlay" id="modalTaller">
+        <article class="card-taller">
+            
+            <header class="header-taller">
+                <button class="btn-cerrar" aria-label="Cerrar panel">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+
+                <img src="IMAGENES/Taller1.webp" alt="Instalaciones del Taller Maestro Mecánico" class="imagen-banner">
+                <div class="overlay-info">
+                    <h1>Maestro Mecánico</h1>
+                    <span class="badge-especialidad">Mecánica General</span>
+                </div>
+            </header>
+
+            <div class="contenido-taller">
+                <section class="seccion-detalle">
+                    <h2 class="subtitulo-taller">Descripción</h2>
+                    <div class="linea-decorativa"></div>
+                    <p class="texto-descripcion">Taller familiar con 25 años de experiencia atendiendo todas las marcas de vehículos.</p>
+                </section>
+
+                <section class="seccion-detalle">
+                    <h2 class="subtitulo-taller">Horarios y Lugar</h2>
+                    <div class="linea-decorativa"></div>
+                    <p class="direccion-texto">
+                        <i class="bi bi-geo-alt-fill"></i> 
+                        <strong>Ubicación del local:</strong> Carrera 34 #38-25 sur
+                    </p>
+                    <ul class="lista-horarios">
+                        <li>
+                            <span class="dia-semana">Lunes - Viernes</span>
+                            <span class="bloque-hora">8:00 - 19:00</span>
+                        </li>
+                        <li>
+                            <span class="dia-semana">Sábado</span>
+                            <span class="bloque-hora">9:00 - 16:00</span>
+                        </li>
+                        <li>
+                            <span class="dia-semana domingo">Domingo</span>
+                            <span class="bloque-hora cerrado">Cerrado</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="seccion-detalle">
+                    <h2 class="subtitulo-taller">Precios de Servicios</h2>
+                    <div class="linea-decorativa"></div>
+                    <table class="tabla-precios">
+                        <thead>
+                            <tr>
+                                <th>Servicio</th>
+                                <th>Precio base</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="celda-servicio">Sistema de frenos</td>
+                                <td class="celda-precio">Desde $30.000</td>
+                            </tr>
+                            <tr>
+                                <td class="celda-servicio">Suspensiones</td>
+                                <td class="celda-precio">Desde $25.000</td>
+                            </tr>
+                            <tr>
+                                <td class="celda-servicio">Revisión de motor</td>
+                                <td class="celda-precio">Desde $45.000</td>
+                            </tr>
+                            <tr>
+                                <td class="celda-servicio">Transmisión</td>
+                                <td class="celda-precio">Desde $35.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="seccion-detalle">
+                    <h2 class="subtitulo-taller">
+                        <i class="bi bi-star-half"></i> Calificaciones
+                    </h2>
+                    <div class="linea-decorativa"></div>
+                    <div class="bloque-comentario">
+                        <div class="usuario-header">
+                            <i class="bi bi-person-check avatar-icono"></i> 
+                            <div class="usuario-meta">
+                                <div class="nombre-estrellas-fila">
+                                    <strong class="nombre-usuario">Juan Pérez</strong> 
+                                    <div class="estrellas-grupo">  
+                                        <i class="bi bi-star-fill star-activa"></i>
+                                        <i class="bi bi-star-fill star-activa"></i>
+                                        <i class="bi bi-star-fill star-activa"></i>
+                                        <i class="bi bi-star-fill star-activa"></i>
+                                        <i class="bi bi-star-fill star-activa"></i>
+                                       
+                                    </div>
+                                </div>
+                                <small class="fecha-comentario">15/10/2026</small>
+                            </div>
+                        </div>
+                        <p class="comentario-texto">
+                            Excelente servicio, muy rápido y confiable. Recomendado al 100%.
+                        </p>
+                    </div>
+                </section>
+            </div> 
+        </article>
+    </div>
+<!-- fin -->
+
+  
+</body>
+ <script>
+      document.addEventListener("DOMContentLoaded", () => {
+    const iconosOjo = document.querySelectorAll(".icono-ojo");
+    iconosOjo.forEach(icono => {
+        icono.addEventListener("click", (evento) => {
+            const tooltipMotivo = evento.target.nextElementSibling;
+            if (tooltipMotivo) {
+                tooltipMotivo.classList.toggle("activo");
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+    const btnDetalles = document.querySelector(".btn-detalles");
+    const btnCerrar = document.querySelector(".btn-cerrar");
+    const modalTaller = document.querySelector("#modalTaller");
+
+    // Al hacer clic en "Ver", muestra la tarjeta centrada
+    btnDetalles.addEventListener("click", () => {
+        modalTaller.classList.add("active");
+    });
+
+    // Al hacer clic en la "X", oculta la tarjeta y vuelve la tabla a la normalidad
+    btnCerrar.addEventListener("click", () => {
+        modalTaller.classList.remove("active");
+    });
+
+    // Opcional: Al hacer clic fuera de la tarjeta (en el fondo oscuro), también se cierra
+    modalTaller.addEventListener("click", (e) => {
+        if (e.target === modalTaller) {
+            modalTaller.classList.remove("active");
+        }
+    });
+});
+
+});
+//PARA OCULTAR CASILLA COMPLETA DEL TALLER
+document.addEventListener("DOMContentLoaded", () => {
+    const btnDetalles = document.querySelector(".btn-detalles");
+    const btnCerrar = document.querySelector(".btn-cerrar");
+    const modalTaller = document.querySelector("#modalTaller");
+
+    // Al hacer clic en "Ver", se abre y se queda fijo en el centro
+    btnDetalles.addEventListener("click", () => {
+        modalTaller.classList.add("active");
+    });
+
+    // ÚNICA FORMA DE QUITARLO: Al hacer clic exactamente en la X
+    btnCerrar.addEventListener("click", () => {
+        modalTaller.classList.remove("active");
+    });
+});
+
+    </script>
+</html>

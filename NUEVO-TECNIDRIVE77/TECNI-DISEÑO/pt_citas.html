@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TECNIDRIVE — Plataforma de Gestión Automotriz</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="pt_citas.css">
+
+</head>
+<body>
+
+    <!------------------------------------PPANEL DE ADMINISTRADOR-------------------------------------------------------------------------------------------------------->
+<div class="sidebar">
+  <ul>
+    <li><a href=""><span class="icon"><i class="bi bi-list"></i></span><span class="text">Panel de usuario</span></a></li>
+    <li><a href="propietario_panel.html"><span class="icon"><i class="bi bi-file-person-fill"></i></span><span class="text">Mi perfil</span></a></li>
+    <li><a href="pt_vehiculo.html"><span class="icon"><i class="bi bi-car-front-fill"></i></span><span class="text">Vehículos</span></a></li>
+    <li><a href="pt_taller.html"><span class="icon"><i class="bi bi-tools"></i></span><span class="text">Talleres</span></a></li>
+      <li><a href="pt_citas.html"><span class="icon"><i class="bi bi-calendar2-plus"></i></span><span class="text">Cita Agendada</span></a></li>
+        <li><a href="pt_calificacion.html"><span class="icon"><i class="bi bi-star-half"></i></span><span class="text">Mis puntuaciones</span></a></li>
+    <li><a href="index.html"><span class="icon"><i class="bi bi-box-arrow-left"></i></span><span class="text">Cerrar sesión</span></a></li>
+  </ul>
+</div>
+
+
+
+  <!-- CODIGO DE CITA:CT02-7K9X -->
+  <main class="main-content">
+    <header class="titulos">
+      <h1 class="titulo">Tus citas mecanicas</h1>
+      <h5>Revisa y sigue el estado de tus solicitudes de cita para la atención de tu vehículo</h5>
+    </header>
+
+    <section class="dashboard-section">
+      
+      <div class="controles">
+        <div class="buscador-wrapper">
+          <p  class="cabezas">citas de tu vehículo</p>
+          <div class="conteo">
+           <div class="casilla-vehiculo activo">
+             <i class="bi bi-car-front-fill"></i>
+              <strong>ABD 29F</strong>
+              </div>
+              <div class="datos">
+                <span>Reparaciones completas: <strong>3</strong></span>
+              </div>
+              </div>
+        </div>
+
+        <div class="lista-taller">
+          <p class="cabezas">Talleres solicitados</p>
+          <select name="" id="">
+            <option value="">Mecanica general</option>
+            <option value="">Los todo terreno</option>
+            <option value="">carrodix</option>
+
+          </select>
+        </div>
+
+        <div class="estados">
+          <p  class="cabezas">Estados de tus citas</p>
+  <select class="filtro-select">
+          <option value="todos">Todas</option>
+          <option value="pendientes">Pendientes</option>
+          <option value="rechazadas">Confirmadas</option>
+            <option value="rechazadas">En atención</option>
+              <option value="rechazadas">Finalizadas</option>
+          <option value="rechazadas">Canceladas</option>
+        </select>
+        </div>
+      
+      </div>
+
+      <div class="tabla-calificaciones">
+        
+        <div class="casilla">
+          <div class="informacion-principal">
+            <div class="encabezado">
+              <div class="estado">Solicitud Pendiente</div>
+              <div class="fecha-registro">
+                <strong>Fecha de registro:</strong><span>12/01/2026</span>
+              </div>
+            </div>
+          
+            <div class="fecha-cita">
+              <fieldset>
+                <legend>Fecha programada</legend>
+                <span>12/06/2026</span> a las <span>9:30am</span>
+              </fieldset>
+            </div>
+            <div class="cliente">
+              <fieldset>
+                <legend>Datos de contacto</legend>
+                <i class="bi bi-person-gear icon-usuario"></i>
+                <div class="usuario-info">
+                  <span class="nombre">Pedro Sanchez</span>
+                  <small class="email">312 358 923</small>
+                </div>
+              </fieldset>
+               <fieldset>
+                <legend>Taller solicitado</legend>
+                <div class="usuario-info">
+                  <span class="taller">Maestro mecanico</span>
+                  <small class="especial">Meganica general</small>
+                </div>
+              </fieldset>
+            </div>
+             <fieldset>
+                <legend>Uicación del local</legend>
+                 <i class="bi bi-geo-alt-fill"></i> <span>Carrera 34 #38-25 sur</span>
+              </fieldset>
+            <details class="mi-detalle">
+              <summary>
+                Vehículo a reparar 
+                <i class="bi bi-caret-down-fill icono-abajo"></i>
+                <i class="bi bi-caret-up-fill icono-arriba"></i>
+              </summary>
+              <div class="vehiculo">
+                <div class="badge-vehiculo">
+                  <i class="fa-solid fa-car"></i>
+                  <p class="texto-placa">ACB 123</p>
+                </div>
+                <span>Toyota Corolla 2022</span>
+              </div>
+            </details>
+            <details class="mi-detalle">
+              <summary>
+                <span><i class="bi bi-tools" style="margin-right: 6px;"></i>Detalles de la cita</span>
+                <i class="bi bi-caret-down-fill icono-abajo"></i>
+                <i class="bi bi-caret-up-fill icono-arriba"></i>
+              </summary>
+              <div class="detalles-contenido">
+                <div class="bloque-detalle">
+                  options <strong>Problema reportado:</strong>
+                  <p class="texto-problema">"Mi vehiculo presenta ruidos extraños en el motor y bota aceite."</p>
+                </div>
+                <div class="bloque-detalle">
+                  <strong>Servicios solicitados:</strong>
+                  <ul class="lista-servicios">
+                    <li><span>Sistema de frenos</span> <strong>Desde $30.000</strong></li>
+                    <li><span>Transmisión</span> <strong>Desde $35.000</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <div class="informacion-segundaria">
+
+            <div class="gestion-inicial">
+              <h2 class="subtitulo-taller">
+                <i class="bi bi-toggles icono-naranja"></i> Control inicial
+              </h2>
+              <div class="acciones">
+              <small>Puedes cancelarla antes que confirmen la reserva</small>
+                <button class="btn1 rechazar" id="btnMostrar"><i class="bi bi-x-circle"></i>cancelar</button>
+                <form action="" id="formulario">
+                  <input type="text" placeholder="Motivo">
+                  <button type="button" class="btn1 cancelar">Enviar</button>
+                </form>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+
+
+        <!-- CASILLA 2 — contiene el código de verificación -->
+        <div class="casilla" id="casilla-CT02-7K9X" data-codigo="CT02-7K9X" data-num="34">
+          <div class="informacion-principal">
+             <div class="encabezado">
+              <div class="estado en-espera" id="estado-CT02-7K9X">Reserva confirmada</div>
+              <div class="fecha-registro">
+                <strong>Confirmada el:</strong><span>14/01/2026</span>
+              </div>
+            </div>
+            <div class="fecha-cita">
+              <fieldset>
+                <legend>Fecha programada</legend>
+                <span>15/06/2026</span> a las <span>11:00am</span>
+              </fieldset>
+            </div>
+              <div class="cliente">
+              <fieldset>
+                <legend>Datos de contacto</legend>
+                <i class="bi bi-person-gear icon-usuario"></i>
+                <div class="usuario-info">
+                  <span class="nombre">Pedro Sanchez</span>
+                  <small class="email">312 358 923</small>
+                </div>
+              </fieldset>
+               <fieldset>
+                <legend>Taller solicitado</legend>
+                <div class="usuario-info">
+                  <span class="taller">Maestro mecanico</span>
+                  <small class="especial">Meganica general</small>
+                </div>
+              </fieldset>
+            </div>
+             <fieldset>
+                <legend>Uicación del local</legend>
+                 <i class="bi bi-geo-alt-fill"></i> <span>Carrera 34 #38-25 sur</span>
+              </fieldset>
+            <details class="mi-detalle">
+              <summary>
+                Vehículo a reparar 
+                <i class="bi bi-caret-down-fill icono-abajo"></i>
+                <i class="bi bi-caret-up-fill icono-arriba"></i>
+              </summary>
+              <div class="vehiculo">
+                <div class="badge-vehiculo">
+                  <i class="fa-solid fa-car"></i>
+                  <p class="texto-placa">KMS 789</p>
+                </div>
+                <span>Mazda 3 2021</span>
+              </div>
+            </details>
+             <details class="mi-detalle">
+              <summary>
+                <span><i class="bi bi-tools" style="margin-right: 6px;"></i>Detalles de la cita</span>
+                <i class="bi bi-caret-down-fill icono-abajo"></i>
+                <i class="bi bi-caret-up-fill icono-arriba"></i>
+              </summary>
+              <div class="detalles-contenido">
+                <div class="bloque-detalle">
+                  <strong>Problema reportado:</strong>
+                  <p class="texto-problema">"Revisión general de los 50,000 kilómetros y cambio de pastillas."</p>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <div class="informacion-segundaria">
+            <div class="gestion-inicial">
+              <h2 class="subtitulo-taller">
+                <i class="bi bi-toggles icono-naranja"></i> Control medio </h2>
+                <small>(Presenta este código al llegar al taller)</small>
+              <div class="accion-code">
+               <p>CT02-7K9X</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+         <!-- CASILLA 3 — PROCESO DE CIERRE LERO LERO -->
+        <div class="casilla">
+          <div class="informacion-principal">
+             <div class="encabezado">
+              <div class="estado cancelada">En cierre</div>
+              <div class="fecha-registro">
+                <strong>Fecha de cierre:</strong><span>17/01/2026</span>
+              </div>
+            </div>
+            <div class="fecha-cita">
+              <fieldset>
+                <legend>Fecha programada</legend>
+                <span>15/06/2026</span> a las <span>11:00am</span>
+              </fieldset>
+            </div>
+              <div class="cliente">
+              <fieldset>
+                <legend>Datos de contacto</legend>
+                <i class="bi bi-person-gear icon-usuario"></i>
+                <div class="usuario-info">
+                  <span class="nombre">Pedro Sanchez</span>
+                  <small class="email">312 358 923</small>
+                </div>
+              </fieldset>
+               <fieldset>
+                <legend>Taller solicitado</legend>
+                <div class="usuario-info">
+                  <span class="taller">Maestro mecanico</span>
+                  <small class="especial">Meganica general</small>
+                </div>
+              </fieldset>
+            </div>
+             <fieldset>
+                <legend>Uicación del local</legend>
+                 <i class="bi bi-geo-alt-fill"></i> <span>Carrera 34 #38-25 sur</span>
+              </fieldset>
+            <details class="mi-detalle">
+              <summary>
+                Vehículo a reparar 
+                <i class="bi bi-caret-down-fill icono-abajo"></i>
+                <i class="bi bi-caret-up-fill icono-arriba"></i>
+              </summary>
+              <div class="vehiculo">
+                <div class="badge-vehiculo">
+                  <i class="fa-solid fa-car"></i>
+                  <p class="texto-placa">KMS 789</p>
+                </div>
+                <span>Mazda 3 2021</span>
+              </div>
+            </details>
+             <details class="mi-detalle">
+              <summary>
+                <span><i class="bi bi-tools" style="margin-right: 6px;"></i>Detalles de la cita</span>
+                <i class="bi bi-caret-down-fill icono-abajo"></i>
+                <i class="bi bi-caret-up-fill icono-arriba"></i>
+              </summary>
+              <div class="detalles-contenido">
+                <div class="bloque-detalle">
+                  <strong>Problema reportado:</strong>
+                  <p class="texto-problema">"Revisión general de los 50,000 kilómetros y cambio de pastillas."</p>
+                </div>
+              </div>
+            </details>
+              <details class="mi-detalle">
+              <summary>
+                <span><i class="bi bi-archive-fill" style="margin-right: 6px;"></i>Detalles de cierre</span>
+                <i class="bi bi-caret-down-fill icono-abajo"></i>
+                <i class="bi bi-caret-up-fill icono-arriba"></i>
+              </summary>
+              <div class="detalles-contenido">
+                <fieldset>
+                <legend>Obsercaciones</legend>
+                El vehiculo presento tal y tal cosa pero lo logramos reparar ya no suena
+               </fieldset>
+        
+                 <fieldset>
+                <legend>Equipo de reparación</legend>
+              <li>Miguel iraldo</li>
+              <li>  Pedro pascal</li>
+               </fieldset>
+                <div class="precio-garantia">
+                <fieldset>
+                <legend>Garantia</legend>
+                Sin garantias
+               </fieldset>
+               <fieldset>
+                <legend>Precio total</legend>
+               30.0000
+               </fieldset>
+               </div>
+              </div>
+            </details>
+          </div>
+
+          <div class="informacion-segundaria">
+             <div class="gestion-inicial">
+              <h2 class="subtitulo-taller">
+               <i class="bi bi-check-circle-fill alvertencia"></i> Control de cierre </h2>
+                <small>(Presenta este código al llegar al taller para finalizar proceso)</small>
+              <div class="accion-codef">
+               <p class="final">CT02-7K9X</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <footer class="stats-footer">
+        <div>
+          <strong>Mostrando 1-2 de 2 Reservas</strong>
+        </div>
+        <div class="pagination">
+          <button class="page-btn">«</button>
+          <button class="page-btn active">1</button>
+          <button class="page-btn">»</button>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // =========================================================
+    // SECCIÓN 1: Formulario de Rechazo en Tarjeta (sin cambios)
+    // =========================================================
+    const boton = document.getElementById("btnMostrar");
+    const formulario = document.getElementById("formulario");
+
+    boton.addEventListener("click", () => {
+      formulario.classList.toggle("mostrar");
+    });
+
+   
+
+   
+  </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador de Vehículos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin_vehiculos.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <ul>
+            <li><a href="#"><span class="icon"><i class="bi bi-list"></i></span><span class="text">Panel de admin</span></a></li>
+            <li><a href="admin_panel.html"><span class="icon"><i class="bi bi-file-person-fill"></i></span><span class="text">Mi perfil</span></a></li>
+            <li><a href="admin_vehiculos.html"><span class="icon"><i class="bi bi-car-front-fill"></i></span><span class="text">Lista de vehículos</span></a></li>
+            <li><a href="admin_talleres.html"><span class="icon"><i class="bi bi-tools"></i></span><span class="text">Gestión de talleres</span></a></li>
+            <li><a href="admin_calificacion.html"><span class="icon"><i class="bi bi-star-half"></i></span><span class="text">Moderar reseñas</span></a></li>
+              <li><a href="admin_reportes.html"><span class="icon"><i class="bi bi-bar-chart-line"></i></span><span class="text">Informes</span></a></li>
+            <li><a href="index.html"><span class="icon"><i class="bi bi-box-arrow-left"></i></span><span class="text">Cerrar sesión</span></a></li>
+        </ul>
+    </div>
+
+    <main class="main-content">
+        <header class="titulos">
+            <h1 class="titulo">Consultar Vehículos</h1>
+            <h4>Supervisa los vehículos registrados y su documentación vigente</h4>
+        </header>
+
+        <section class="dashboard-section">
+            <div class="numeros-container">
+                <div class="tarjeta-cantidad">
+                    <span class="num">3</span><br>
+                    <span>Total vehículos</span>
+                </div>
+                <div class="tarjeta-cantidad">
+                    <span class="num">3</span><br>
+                    <span>Registrados Hoy</span>
+                </div>
+                <div class="tarjeta-cantidad">
+                    <span class="num">2</span><br>
+                    <span>Papeles Completos</span>
+                </div>
+            </div>
+
+            <div class="controles">
+                <div class="buscador-wrapper">
+                    <input type="text" placeholder="Buscar por placa, propietario o fecha...">
+                    <i class="bi bi-search"></i>
+                </div>
+
+                <select class="filtro-select">
+                    <option value="todos">Todos</option>
+                    <option value="recientes">Recientes</option>
+                    <option value="sin-papeles">Sin papeles aún</option>
+                    <option value="con-todo">Con todo al día</option>
+                </select>
+            </div>
+
+            <table class="tabla-vehiculos">
+                <thead>
+                    <tr class="cabeza-tabla">
+                        <th>Placa</th>
+                        <th>Estado Vehículo</th>
+                        <th>Propietario</th>
+                        <th>Marca / Modelo</th>
+                        <th>Fecha de Registro</th>
+                        <th>Estado Papeles<br><small>(SOAT y Tecno)</small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="fila-cuerpo">
+                        <td class="col-placa">AJK203</td>
+                        <td class="col-estado">
+                            <span class="status-badge activo">Activo</span>
+                        </td>
+                        <td class="col-propietario">
+                            <i class="bi bi-person-check icon-usuario"></i>
+                            <div class="usuario-info">
+                                <span class="nombre">Pedro Rodrigo Sanchez</span>
+                                <small class="email">pdrodri12@gmail.com</small>
+                            </div>
+                        </td>
+                        <td class="col-marca">Toyota Corolla 2022</td>
+                        <td class="col-registro">31/03/2026<br><small>08:00</small></td>
+                        <td class="col-papeles">
+                            <span class="badge-papeles al-dia">Ambos al día</span>
+                        </td>
+                    </tr>
+
+                    <tr class="fila-cuerpo">
+                        <td class="col-placa">XYZ789</td>
+                        <td class="col-estado">
+                            <div class="estado-con-motivo">
+                                <span class="status-badge desactivo">Desactivado</span>
+                                <i class="bi bi-eye icono-ojo"></i>
+                                <div class="tooltip-motivo">
+                                    Ya no uso el vehículo
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-propietario">
+                            <i class="bi bi-person-check icon-usuario"></i>
+                            <div class="usuario-info">
+                                <span class="nombre">Pedro Rodrigo Sanchez</span>
+                                <small class="email">pdrodri12@gmail.com</small>
+                            </div>
+                        </td>
+                        <td class="col-marca">Renault Logan 2021</td>
+                        <td class="col-registro">31/03/2026<br><small>14:23</small></td>
+                        <td class="col-papeles">
+                            <span class="badge-papeles al-dia">Ambos al día</span>
+                        </td>
+                    </tr>
+
+                    <tr class="fila-cuerpo">
+                        <td class="col-placa">KLM456</td>
+                        <td class="col-estado">
+                            <span class="status-badge activo">Activo</span>
+                        </td>
+                        <td class="col-propietario">
+                            <i class="bi bi-person-check icon-usuario"></i>
+                            <div class="usuario-info">
+                                <span class="nombre">Carlos López Uribe</span>
+                                <small class="email">clopez@gmail.com</small>
+                            </div>
+                        </td>
+                        <td class="col-marca">Mazda 3 2023</td>
+                        <td class="col-registro">31/03/2026<br><small>19:56</small></td>
+                        <td class="col-papeles">
+                            <span class="badge-papeles pendiente">Pendiente <strong>SOAT</strong></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <footer class="stats-footer">
+                <div>
+                    <strong>Mostrando 1-3 de 3 Vehículos</strong>
+                </div>
+                <div class="pagination">
+                    <button class="page-btn">«</button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">»</button>
+                </div>
+            </footer>
+        </section>
+    </main>
+
+ 
+</body>
+   <script>
+      document.addEventListener("DOMContentLoaded", () => {
+    const iconosOjo = document.querySelectorAll(".icono-ojo");
+    iconosOjo.forEach(icono => {
+        icono.addEventListener("click", (evento) => {
+            const tooltipMotivo = evento.target.nextElementSibling;
+            if (tooltipMotivo) {
+                tooltipMotivo.classList.toggle("activo");
+            }
+        });
+    });
+
+});
+    </script>
+</html>
