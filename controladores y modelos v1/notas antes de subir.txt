@@ -1,0 +1,20 @@
+al haberlo pasado a claude, me dijo que tenia que hacer algunos cambios
+sobretodo en el filtro, antes de subirlo a otro computador,
+por favor realiza un backup, y pegalo fuera de sitema, dentro de la 
+carpeta code-4 en htdocs si estas en xampp
+
+REgistro de filtros
+public array $aliases = [
+    'auth' => \App\Filters\AuthFilter::class,
+];
+
+asignacion de roles
+$db = db_connect();
+
+$idPersona = $this->personaModel->getInsertID();
+
+$db->table('roles_has_persona')->insert([
+    'roles_id_rol' => 1,
+    'personas_id_persona' => $idPersona
+]);
+GUARDAR LUEGO DE 'save()' 
