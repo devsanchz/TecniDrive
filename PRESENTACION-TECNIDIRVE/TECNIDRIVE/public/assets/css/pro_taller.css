@@ -1,0 +1,1012 @@
+/* ==========================================================================
+   pt_taller.css
+   Estilos para la página de talleres mecánicos
+   Organización:
+     1. Fuentes y reset general
+     2. Sidebar
+     3. Títulos y encabezados
+     4. Panel principal (dashboard)
+     5. Controles (buscador y filtro)
+     6. Lista de tarjetas de talleres
+     7. Tarjeta: estados compacto y expandido
+     8. Tarjeta: encabezado con imagen
+     9. Tarjeta: vista compacta (resumen)
+    10. Tarjeta: contenido completo
+    11. Tarjeta: calificaciones y estrellas
+    12. Tarjeta: formulario de cita
+    13. Paginación y footer
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. FUENTES Y RESET GENERAL
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/* Eliminamos márgenes y padding por defecto en todos los elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-image: url("IMAGENES/fondo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Empuja el contenido hacia la derecha para no quedar detrás del sidebar */
+.main-content {
+    margin-left: 90px;
+    padding: 20px;
+}
+
+/* Clase utilitaria para ocultar elementos con JavaScript */
+.oculto-js {
+    display: none !important;
+}
+
+
+/* ==========================================================================
+   2. SIDEBAR (MENÚ LATERAL)
+   ========================================================================== */
+
+.sidebar {
+    background-color: #3f4bd0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 70px;          /* Ancho colapsado */
+    overflow-x: hidden;
+    padding-top: 10px;
+    z-index: 1000;
+    transition: width 0.4s ease;
+}
+
+/* Al pasar el mouse, el sidebar se expande */
+.sidebar:hover {
+    width: 250px;
+}
+
+.sidebar ul {
+    height: 95vh;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin: 5px 0;
+}
+
+.sidebar ul li a {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    white-space: nowrap;
+}
+
+/* Contenedor del ícono: siempre visible */
+.sidebar ul li a .icon {
+    min-width: 70px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+/* Texto del menú: invisible por defecto, aparece al expandir */
+.sidebar ul li a .text {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar:hover ul li a .text {
+    opacity: 1;
+}
+
+
+/* ==========================================================================
+   3. TÍTULOS Y ENCABEZADOS
+   ========================================================================== */
+
+.titulos {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.titulo {
+    color: #0a0a0a;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+h4 {
+    color: #3f4bd0;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+
+/* ==========================================================================
+   4. PANEL PRINCIPAL (DASHBOARD)
+   ========================================================================== */
+
+.dashboard-section {
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Fila de tarjetas de estadísticas (5 estrellas, 3-4, 1-2) */
+.numeros-container {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.tarjeta-cantidad {
+    padding: 10px;
+    width: 180px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.tarjeta-cantidad:hover {
+    background-color: rgba(245, 240, 240, 0.9);
+}
+
+/* Número grande dentro de la tarjeta de estadística */
+.num {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+/* Estrella de color amarillo usada en estadísticas */
+.star-activa {
+    color: #f1c40f;
+}
+
+
+/* ==========================================================================
+   5. CONTROLES (BUSCADOR Y FILTRO)
+   ========================================================================== */
+
+.controles {
+    padding: 20px 30px;
+    background: #f8f9fa;
+    border-bottom: 3px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Buscador con ícono de lupa posicionado dentro */
+.buscador-wrapper {
+    position: relative;
+    flex: 1;
+    max-width: 500px;
+}
+
+.buscador-wrapper input {
+    width: 100%;
+    padding: 12px 45px 12px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.buscador-wrapper input:focus {
+    border-color: #3f4bd0;
+    outline: none;
+}
+
+/* Ícono de lupa centrado verticalmente a la derecha */
+.buscador-wrapper i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 18px;
+}
+
+/* Selector de especialidad */
+.filtro-select {
+    padding: 10px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+
+/* ==========================================================================
+   6. LISTA DE TARJETAS DE TALLERES
+   ========================================================================== */
+
+/* Contenedor en cuadrícula: 3 tarjetas por fila */
+.lista-talleres {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 24px;
+}
+
+
+/* ==========================================================================
+   7. TARJETA: ESTADOS COMPACTO Y EXPANDIDO
+   ========================================================================== */
+
+/* Base de la tarjeta — el grid controla el ancho */
+.card-taller {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Tarjeta compacta — sin cambios en el grid */
+.card-taller.compacta {
+    transition: box-shadow 0.3s ease;
+}
+
+/* ── MODAL OVERLAY ──────────────────────────────────────────────────────────
+   Cuando una tarjeta pasa a "expandida" se saca del flujo del grid con
+   position:fixed, quedando centrada sobre la pantalla.
+   Las otras tarjetas no se mueven porque la expandida ya no ocupa
+   espacio en el grid.
+   ────────────────────────────────────────────────────────────────────────── */
+.card-taller.expandida {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 720px;
+    max-height: 88vh;
+    overflow-y: auto;
+    z-index: 500;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    grid-column: unset;
+    margin: 0;
+}
+
+/* Fondo oscuro semitransparente detrás del modal */
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 499;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.modal-backdrop.activo {
+    display: block;
+}
+
+
+/* ==========================================================================
+   8. TARJETA: ENCABEZADO CON IMAGEN
+   ========================================================================== */
+
+/* El encabezado es clickeable en modo compacto */
+.header-taller {
+    position: relative;
+    cursor: pointer;
+    transition: height 0.4s ease;
+}
+
+/* Altura de la imagen según el estado de la tarjeta */
+.card-taller.compacta .header-taller { height: 190px; }
+.card-taller.expandida .header-taller { height: 240px; }
+
+/* En modo expandido el header ya no es clickeable */
+.card-taller.expandida .header-taller {
+    cursor: default;
+}
+
+/* Imagen de portada del taller */
+.imagen-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Degradado oscuro en la parte baja de la imagen para legibilidad del texto */
+.overlay-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+}
+
+.overlay-info h1 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    transition: font-size 0.3s ease;
+}
+
+/* Texto más pequeño en modo compacto */
+.card-taller.compacta .overlay-info h1 { font-size: 24px; }
+.card-taller.expandida .overlay-info h1 { font-size: 30px; }
+
+/* Badge de especialidad (ej: "Mecánica General") */
+.badge-especialidad {
+    background: #f6802c;
+    color: white;
+    padding: 4px 14px;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+/* Botón circular para cerrar/colapsar la tarjeta */
+.btn-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 20;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    /* Solo visible cuando la tarjeta está expandida */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+
+.card-taller.expandida .btn-cerrar {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.btn-cerrar:hover  { background-color: rgba(0, 0, 0, 0.7); transform: scale(1.1); }
+.btn-cerrar:active { transform: scale(0.95); }
+
+/* Texto flotante "Ver más detalles" que aparece al hacer hover */
+.hover-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.92);
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+    z-index: 15;
+    /* Invisible por defecto, aparece con hover */
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Mostrar hint al pasar el mouse sobre el header (solo modo compacto) */
+.card-taller.compacta .header-taller:hover .hover-hint {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+/* ==========================================================================
+   9. TARJETA: VISTA COMPACTA (RESUMEN)
+   ========================================================================== */
+
+/* Animación de entrada/salida del resumen */
+.vista-compacta {
+    overflow: hidden;
+    max-height: 200px;
+    opacity: 1;
+    padding: 18px 22px;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.3s ease;
+}
+
+/* Estado oculto: se colapsa verticalmente */
+.vista-compacta.oculto {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Texto de dirección con ícono */
+.direccion-texto {
+    font-size: 14.5px;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.direccion-texto i {
+    color: #e78021;
+    margin-right: 5px;
+}
+
+/* Etiquetas de servicios disponibles */
+.servicios {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.servicios li {
+    background: #f0f8ff;
+    color: #1e3c72;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+}
+
+.texto-descripcion {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.vista-compacta .texto-descripcion {
+    font-size: 13.5px;
+    color: #666;
+}
+
+
+/* ==========================================================================
+   10. TARJETA: CONTENIDO COMPLETO
+   ========================================================================== */
+
+/* Animación de apertura del contenido expandido */
+.contenido-taller {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    padding: 0 25px;
+    transition: max-height 0.5s ease, opacity 0.35s ease 0.1s, padding 0.3s ease;
+}
+
+/* Estado visible: se despliega verticalmente */
+.contenido-taller.visible {
+    max-height: 3000px;
+    opacity: 1;
+    padding: 20px 25px;
+}
+
+/* Separación entre secciones internas */
+.seccion-detalle {
+    margin-bottom: 18px;
+}
+
+/* Subtítulos de cada sección */
+.subtitulo-taller {
+    color: #1e3c72;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* Línea decorativa corta debajo del subtítulo */
+.linea-decorativa {
+    width: 50px;
+    height: 3px;
+    background: #e78021;
+    border-radius: 2px;
+    margin-bottom: 12px;
+}
+
+/* Bloques de horario en fila */
+.lista-horarios {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.lista-horarios li {
+    flex: 1;
+    background: #f8f9fa;
+    border: 1px solid #eef0f2;
+    padding: 8px 6px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.dia-semana {
+    display: block;
+    color: #1e3c72;
+    font-weight: 600;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.dia-semana.domingo {
+    color: #999;
+}
+
+.bloque-hora {
+    display: block;
+    color: #e78021;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.bloque-hora.cerrado {
+    color: #dc3545;
+}
+
+/* Tabla de precios */
+.tabla-precios {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #eef0f2;
+}
+
+.tabla-precios th {
+    background: #1e3c72;
+    color: white;
+    padding: 10px 15px;
+    font-size: 13.5px;
+    text-align: left;
+}
+
+.tabla-precios th:last-child {
+    text-align: right;
+}
+
+.tabla-precios td {
+    padding: 10px 15px;
+    font-size: 13.5px;
+    border-bottom: 1px solid #eee;
+}
+
+.tabla-precios tr:last-child td {
+    border-bottom: none;
+}
+
+.celda-servicio {
+    background: #fbfcfd;
+    color: #333;
+}
+
+.celda-precio {
+    background: #fffbfe;
+    color: #e78021;
+    font-weight: 600;
+    text-align: right;
+}
+
+
+/* ==========================================================================
+   11. TARJETA: CALIFICACIONES Y ESTRELLAS
+   ========================================================================== */
+
+/* Bloque de comentario de otro usuario */
+.bloque-comentario {
+    background: #fdfdfd;
+    border: 1px solid #eaeaea;
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+/* Fila con avatar, nombre y estrellas */
+.usuario-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+/* Ícono de avatar circular */
+.avatar-icono {
+    color: #1e3c72;
+    background-color: #e9ecef;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.usuario-meta {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Nombre del usuario y sus estrellas en la misma fila */
+.nombre-estrellas-fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.nombre-usuario {
+    font-size: 14.5px;
+    color: #222;
+}
+
+.estrellas-grupo {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.fecha-comentario {
+    font-size: 11px;
+    color: #999;
+}
+
+.comentario-texto {
+    color: #555;
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+/* Sección de calificación propia del usuario */
+.tu-calificacion {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.tu-calificacion h5 {
+    color: #1e3c72;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.tu-calificacion small {
+    display: block;
+    color: #777;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+/* Fila de estrellas interactivas */
+.calificacion-estrellas {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+/* Estrella individual (gris por defecto, amarilla al hacer hover/clic) */
+.calificacion-estrellas .star {
+    font-size: 20px;
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+/* Formulario de reseña (texto + botón publicar) */
+.bloque-resena {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.bloque-resena input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 13.5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.bloque-resena input:focus {
+    border-color: #3f4bd0;
+}
+
+/* Botón para publicar la reseña */
+.btn-guardar-cali {
+    background: #ed8941;
+    color: white;
+    border: none;
+    padding: 7px 18px;
+    border-radius: 9px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-guardar-cali:hover {
+    background: #f37e2a;
+}
+
+
+/* ==========================================================================
+   12. TARJETA: FORMULARIO DE CITA
+   ========================================================================== */
+
+/* Contenedor del formulario de cita */
+.cita {
+    background: #ffffff;
+    border: 1px solid #eef0f2;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+}
+
+/* Bloque interno con espaciado inferior */
+.seccion-bloque {
+    margin-bottom: 25px;
+}
+
+/* Fila con dos grupos de inputs lado a lado */
+.fila-formulario {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+/* Cada grupo tiene su etiqueta arriba y el input abajo */
+.grupo-input {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiqueta superior del campo */
+.los-top {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e3c72;
+    margin-bottom: 8px;
+}
+
+/* Texto aclaratorio dentro de la etiqueta */
+.los-top .aclaracion {
+    font-size: 12px;
+    color: #888;
+    font-weight: normal;
+}
+
+/* Tarjetas seleccionables de vehículo */
+.vehiculos {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+    flex-wrap: wrap;
+}
+
+.casilla-vehiculo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #e2e8f0;
+    width: 110px;
+    height: 75px;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: #fbfcfd;
+    transition: all 0.25s ease;
+}
+
+.casilla-vehiculo:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+}
+
+/* Vehículo seleccionado actualmente */
+.casilla-vehiculo.activo {
+    border-color: #3f4bd0;
+    background-color: #eef2ff;
+}
+
+.casilla-vehiculo i {
+    font-size: 20px;
+    color: #3f4bd0;
+    margin-bottom: 4px;
+}
+
+.casilla-vehiculo strong {
+    font-size: 13px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Inputs y selects del formulario con estilo uniforme */
+.los-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 13.5px;
+    color: #444;
+    outline: none;
+    background-color: #ffffff;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.los-input:focus {
+    border-color: #3f4bd0;
+    box-shadow: 0 0 0 3px rgba(63, 75, 208, 0.1);
+}
+
+/* Botón principal para solicitar la reserva */
+.bt-cita {
+    display: block;
+    margin: 20px auto 5px auto;
+    padding: 10px 20px;
+    background: #ed8941;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.bt-cita:hover {
+    background: #f58432;
+}
+
+
+/* ==========================================================================
+   13. PAGINACIÓN Y FOOTER
+   ========================================================================== */
+
+.stats-footer {
+    padding: 20px 30px;
+    background: #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination {
+    display: flex;
+    gap: 8px;
+}
+
+.page-btn {
+    padding: 8px 14px;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.page-btn.active,
+.page-btn:hover {
+    background: #ff6b35;
+    color: white;
+    border-color: #ff6b35;
+}
+
+/* ==========================================================================
+   14. CALIFICACIONES — elementos nuevos
+   ========================================================================== */
+
+/* Contenedor de las calificaciones existentes */
+.lista-calificaciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+    max-height: 260px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* Mensaje cuando no hay calificaciones */
+.sin-calis {
+    color: #888;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 8px 0;
+}
+
+/* Badge de promedio junto al título de la sección */
+.badge-promedio {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #fff8ee;
+    border: 1px solid #f1c40f;
+    color: #b8860b;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+/* Input de comentario en el bloque de reseña */
+.input-comentario {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 13.5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+}
+
+.input-comentario:focus {
+    border-color: #3f4bd0;
+}
+
+/* Mensaje "ya calificaste" */
+.ya-califico-msg {
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
