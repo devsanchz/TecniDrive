@@ -14,6 +14,9 @@ $routes->post('login', 'Login::roles');
 #en caso de que los datos ingresados del login esten mal
 
 $routes->get('dashboard','login::volverLogin');
+$routes->get('dashboard','login::volverLogin');
+
+
 
 /**
  * Tener en cuenta algo
