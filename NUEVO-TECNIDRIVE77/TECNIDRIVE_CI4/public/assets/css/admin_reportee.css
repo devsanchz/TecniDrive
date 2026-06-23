@@ -1,0 +1,243 @@
+/* Contenedor principal para empujar el contenido y no chocar con la barra lateral */
+.main-content {
+  margin-left: 90px;
+  padding: 20px;
+}
+
+/* ==========================================================================
+   ENCABEZADOS Y TÍTULOS
+   ========================================================================== */
+.titulos {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.titulo {
+  color: #0a0a0a;
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+h4 {
+  color: #3f4bd0;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* ==========================================================================
+   SECCIÓN PANEL / CONTENEDOR PRINCIPAL
+   ========================================================================== */
+   .dashboard-section {
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+
+.casilla{
+    padding: 30px;
+    text-align: center;
+}
+.casilla h1{
+    margin-bottom: 40px;
+    color: #0d2f70;
+}
+.seccion-casillas{
+    display: flex;
+    gap: 40px;
+}
+
+    /*====================================
+     ELEMENTOS DESPLEGABLES (DETAILS)
+     ===================================== */
+    .mi-detalle {
+      width: 100%;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .mi-detalle summary {
+      padding: 10px 15px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e3c72;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      list-style: none;
+    }
+
+    .mi-detalle summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .mi-detalle summary i {
+      color: #3f4bd0;
+      font-size: 13px;
+    }
+   /* MANEJO DE FLECHAS NATIVAS EN DETAILS */
+    .icono-arriba {
+      display: none;
+    }
+
+    .mi-detalle[open] .icono-abajo {
+      display: none;
+    }
+
+    .mi-detalle[open] .icono-arriba {
+      display: inline-block;
+    }
+/* ==========================================================================
+   ESTILOS ADICIONALES: REPORTES Y FILTROS DEL SISTEMA
+   ========================================================================== */
+
+/* Ajuste de la cuadrícula de contenedores desplegables */
+.seccion-casillas {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap; /* Permite adaptarse a pantallas medianas y pequeñas */
+  margin-bottom: 35px;
+}
+
+.mi-detalle {
+  flex: 1;
+  min-width: 320px; /* Asegura un tamaño base cómodo por tarjeta */
+  align-self: flex-start;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+.mi-detalle[open] {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Panel interno cuando el details se expande */
+.filtros {
+  padding: 20px;
+  border-top: 1px solid #e2e8f0;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: left; /* Alineación limpia para formularios */
+}
+
+/* Bloques de categorías internas */
+.f1, .f2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Subtítulos de secciones de formularios */
+.filtros h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e3c72;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  border-bottom: 1px dashed #e2e8f0;
+  padding-bottom: 4px;
+}
+
+/* Texto de aclaraciones pequeñas */
+.filtros p {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+/* Contenedores internos de los Radio Buttons */
+.fechas {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Componente visual para las opciones (Checkboxes y Radios) */
+.filtros label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #334155;
+  cursor: pointer;
+  padding: 9px 14px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.filtros label:hover {
+  background-color: #edf2f7;
+  border-color: #cbd5e1;
+}
+
+/* Ajuste de color identitario para los selectores nativos */
+.filtros input[type="checkbox"],
+.filtros input[type="radio"] {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  accent-color: #3f4bd0; /* El azul característico de tu plataforma */
+}
+
+/* Botones divisores estáticos del tercer desplegable */
+.filtros button {
+  background: #e2e8f0;
+  color: #1e3c72;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: default;
+  align-self: flex-start;
+  pointer-events: none; /* Actúan como etiquetas visuales */
+  margin-top: 5px;
+}
+
+/* ==========================================================================
+   BOTÓN ACCIÓN PRINCIPAL (CTA)
+   ========================================================================== */
+.reporte {
+  background-color: #e37419;
+  color: #ffffff;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.reporte:hover {
+   background-color: #ff7301;
+
+}
+
+.reporte:active {
+  transform: translateY(0);
+}

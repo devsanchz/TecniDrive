@@ -1,0 +1,200 @@
+/*-------------------------------
+NOTIFIACIONES
+--------------------------------- */
+
+.notis{
+    color: black;
+}
+.notificaciones{
+   display: flex;
+   width: 50px;
+   height: 40px;
+   border-radius: 5px;
+   margin-left: auto;
+   align-items: flex-start;
+}
+
+.notificaciones:hover{
+        background-color: rgb(238, 236, 236); 
+}
+.campana{
+   font-size: 25px;
+   margin-top: 4px;
+}
+.noti{
+    margin-top: 5px;
+    background: #fa0e35;
+    color: white;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    
+}
+
+/*-------------------------------
+PERFIL DEL USUARIO
+--------------------------------- */
+.profile-card{
+    width: 420px;
+    margin: 90px auto;
+    padding: 40px 30px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.95);
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transition: 0.3s;
+       position: relative;
+}
+/* COLOR GRIS AL EDITAR */
+.profile-card.editing{
+    background: rgba(239, 238, 238, 0.95);
+}
+
+
+/* -------------------------------
+ AVATAR PERFIL
+---------------------------------- */
+.profile-avatar{
+    width: 140px;
+    height: 140px;
+    margin: auto auto 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border: 5px solid;
+    font-size: 95px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* EDITAR COLOR */
+.color-editor{
+    display: none;
+    margin-bottom: 20px;
+}
+
+#avatarColor{
+    width: 80px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+
+/*-------------------------------
+ INFORMACION PERFIL 
+ -------------------------------*/
+.profile-info{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#userName{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.edit-icon{
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.email-icon{
+    color: #ed8941;
+}
+
+.numero-icon{
+    color: #ed8941;
+}
+
+.email-container{
+  list-style: none;
+}
+
+.telefono-icon{
+    color: #ed8941;
+}
+
+.telefono-icon{
+    color: #ed8941;
+}
+
+.telefono-container{
+  list-style: none;
+}
+
+/*-------------------------------
+ INPUT PARA EDITAR
+ --------------------------------- */
+#emailInput{
+    display: none;
+    width: 250px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    outline: none;
+}
+#telefonoInput{
+    display: none;
+    width: 250px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    outline: none;
+}
+
+/*-------------------------------
+ ROLES 
+ -------------------------------*/
+#userRole{
+    padding: 8px 18px;
+    border-radius: 30px;
+    color: white;
+}
+
+
+
+
+/*-------------------------------
+ BOTONES EDIT*AR PERFIL
+ ------------------------------- */
+.profile-buttons{
+    margin-top: 25px;
+}
+
+button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+/* BOTON EDITAR */
+#editButton{
+    background: #ed8941;
+}
+
+#editButton:hover{
+    background: #df7319;
+}
+
+/* BOTON LISTO */
+#saveButton{
+    display: none;
+    background: #c9223d;
+}
+
+#saveButton:hover{
+    background: #aa1430;
+}

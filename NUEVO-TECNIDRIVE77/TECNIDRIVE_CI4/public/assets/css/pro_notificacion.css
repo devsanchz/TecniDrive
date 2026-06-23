@@ -1,0 +1,451 @@
+/* ==========================================================================
+   2. CONTENEDOR TARJETA PRINCIPAL (LAYOUT)
+   ========================================================================== */
+.profile-card {
+  width: 100%;             
+  max-width: 480px;      
+  margin: 90px auto;
+  padding: 45px 35px;    
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* Encabezados y títulos comunes */
+.cabeza {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;    
+}
+
+.cabeza a {
+    text-decoration: none;
+}
+
+.profile-card h1 {
+  margin-left: 15px;
+  color: #1e3c72;
+  font-size: 22px;       
+  font-weight: 600;
+  text-align: left;
+}
+
+.profile-card h2 {
+  color: #ffa47d;
+  font-size: 18px;       
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Botón flecha de retorno superior */
+.bi-chevron-left {
+  font-size: 24px;         
+  color: #1e3c72;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.bi-chevron-left:hover {
+  background-color: #e4e3e3;
+}
+
+/* ==========================================================================
+   3. BLOQUES DE NOTIFICACIONES (VISTA LISTA)
+   ========================================================================== */
+.casilla-noti {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px;          
+  border-radius: 18px;
+  margin-bottom: 18px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.casilla-noti:hover {
+  background: #efefef;
+}
+
+/* Información del elemento izquierdo (Icono + Nombre/Placa) */
+.vehiculo {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;    
+  gap: 8px;               
+}
+
+.vehiculo i {
+  font-size: 26px;       
+  color: #4d88ff;
+  background: #dcebff;
+  width: 56px;            
+  height: 56px;           
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vehiculo p {
+  font-weight: 600;
+  color: #1f1f1f;
+  font-size: 15px;      
+}
+
+/* Detalle textual central */
+.casilla-noti strong {
+  flex: 1;
+  margin-left: 20px;
+  font-size: 15px;       
+  color: #121212;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Bloque lateral derecho (Acciones y Métricas de tiempo) */
+.botones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  margin-left: 20px;
+}
+
+.botones small {
+  color: #666;
+  font-size: 13px;      
+}
+
+.botones .bi-three-dots {
+  font-size: 20px;        
+  cursor: pointer;
+  color: #222;
+  padding: 2px 6px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.botones .bi-three-dots:hover {
+  background: #2b2b2a;
+  color: #ffffff;
+}
+
+/* Menú Contextual Flotante */
+.opciones-boton {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: none;
+  white-space: nowrap;
+  z-index: 100;
+}
+
+.opciones-boton.activo {
+  display: block;
+}
+
+.opciones-boton p {
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;        
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.opciones-boton p:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+   4. DETALLE DE NOTIFICACIÓN EXPANDIDA
+   ========================================================================== */
+.casilla-noti.completa {
+  display: none; 
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;       
+  border-radius: 18px;
+  background: #f8f8f8;
+  border: 1px solid #ececec;
+  cursor: default;
+}
+
+.casilla-noti.completa:hover {
+  background: #f3f3f3;
+}
+
+.cabeza-interna {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.casilla-noti.completa strong {
+  margin-left: 0;
+  font-size: 18px;        
+  color: #1e1e1e;
+}
+
+.etiqueta-mensaje {
+  color: #4d88ff;
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 14px;        
+}
+
+.texto-mensaje {
+  text-align: left;
+  line-height: 1.6;       
+  color: #4a4a4a;
+  font-size: 14px;        
+}
+
+.opciones-noti {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  width: 100%;
+}
+
+.opciones-noti button {
+  flex: 1;
+  border: none;
+  padding: 5px;         
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;        
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.opciones-noti .btn-renovar {
+  background: #fd8d5d;
+  color: #ffffff;
+}
+
+.opciones-noti .btn-renovar:hover {
+  background: #f96e32;
+}
+
+.opciones-noti .btn-recordar {
+  background: #dbe4f6;
+  color: #385995;
+}
+
+.opciones-noti .btn-recordar:hover {
+  background: #d6e4ff;
+}
+
+/* ==========================================================================
+   5. COMPONENTES DEL PANEL DE CONFIGURACIÓN
+   ========================================================================== */
+.notification-item {
+  border-bottom: 1px solid #ececec;
+  padding: 20px 0;         
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vehicle-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.vehicle-info i {
+  width: 54px;          
+  height: 54px;          
+  border-radius: 12px;
+  background: #dcebff;
+  color: #4d88ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;       
+}
+
+.vehicle-info p {
+  font-size: 17px;         
+  font-weight: 600;
+  color: #222;
+}
+
+.toggle-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;         
+  padding: 8px;
+  border-radius: 8px;
+  color: #666;
+  transition: background-color 0.2s ease;
+}
+
+.toggle-button:hover {
+  background: #f1f1f1;
+}
+
+.notification-content {
+  margin-top: 25px;
+  padding-left: 5px;
+}
+
+.notification-content h2 {
+  font-size: 16px;        
+  margin-bottom: 18px;
+  color: #444;
+}
+
+.option-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  font-size: 15px;         
+  color: #333;
+}
+
+/* Interruptor Deslizable (Switch CSS) */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 54px;            
+  height: 28px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #d4d4d4;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 22px;           
+  height: 22px;
+  top: 3px;
+  left: 3px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.switch input:checked + .slider {
+  background: #ff9a4c;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(26px); 
+}
+
+/* Campos de Formulario Internos */
+.settings-group {
+  margin-top: 25px;
+  text-align: left;
+}
+
+.settings-group p {
+  font-size: 14px;       
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+.settings-group select {
+  width: 100%;
+  padding: 12px;          
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 14px;        
+  outline: none;
+}
+
+.settings-group label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 14px;        
+  color: #444;
+}
+
+.settings-group input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* Botones de acción inferiores */
+.btn-group {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn-accion {
+  flex: 1;
+  cursor: pointer;
+  padding: 14px;          
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;    
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-restablecer {
+  background-color: #e2e8f0;
+  color: #64748b;
+}
+
+.btn-restablecer:hover {
+ background: #e7711d;
+  color: #ffffff;
+}
+
+.btn-guardar {
+  background-color: #e2e8f0;
+  color: #64748b;
+}
+
+.btn-guardar:hover {
+ background-color: #1e3c72;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   6. CLASES DE ESTADO globales
+   ========================================================================== */
+.hidden {
+  display: none !important;
+}
