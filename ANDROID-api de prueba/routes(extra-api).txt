@@ -1,0 +1,10 @@
+$routes->get('api/','APiController::usuarios');
+
+
+#Este añadido esta para poner la ruta, la logica de la vista en andorid es que sea responsive
+#que quere decir? que sea mas sencillo de trabajar, en android seria la vista y cada accion seria una
+#solicitud web para que sea la vista pero el codigo siga intacto y no sea un extra muy grande 
+#en el codigo pricipal, solamente la API de la vista en android
+
+#por cierto luego de /* 'api/'  */ es la direccion, pero pues es algo general, si acaso seria poner 
+#el controlador de que haga el manejo de JSON en 'personas'
