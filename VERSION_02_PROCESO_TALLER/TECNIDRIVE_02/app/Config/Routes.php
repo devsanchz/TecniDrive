@@ -74,20 +74,7 @@ $routes->group('propietario', ['filter' => 'auth:2'], static function($routes) {
     $routes->post('perfil/actualizar',       'Propietario\PanelPro::actualizarPerfil'); 
 
     $routes->get('notificacion',             'Propietario\ProNotificacion::notificacion');
- //   
-//parte de la gestion del vehiculo
-    $routes->get('vehiculo',                 'Propietario\ProVehiculo::vehiculo');
-
-    $routes->post('guardar-licencia',        'Propietario\ProVehiculo::guardarLicencia'); 
-
-    $routes->post('guardar-vehiculo',        'Propietario\ProVehiculo::guardarVehiculo');
-
-    $routes->post('guardar-documentos',      'Propietario\ProVehiculo::guardarDocumentos');
-
-    $routes->post('activar-vehiculo',        'Propietario\ProVehiculo::activarVehiculo');
-
-    $routes->post('desactivar-vehiculo',     'Propietario\ProVehiculo::desactivarVehiculo');
-//
+ //
 //parte de la gestion califiacion y consultar taller y cita
     $routes->get('taller',                   'Propietario\ProTaller::taller');
 
@@ -98,10 +85,6 @@ $routes->group('propietario', ['filter' => 'auth:2'], static function($routes) {
     $routes->post('taller/eliminar',         'Propietario\ProTaller::eliminar');
 
     $routes->get('cita',                     'Propietario\ProCita::cita');
-
-    $routes->post('taller/agendar-cita',     'Propietario\ProTaller::agendarCita');
-//
-    $routes->post('cita/cancelar',           'Propietario\ProCita::cancelar');
     
     $routes->get('salir',                    'Autentificar\Ingresar::salir');
 });
@@ -123,26 +106,7 @@ $routes->group('mecanico', ['filter' => 'auth:3'], static function($routes) {
     $routes->post('taller/activar',             'Mecanico\MecanicoTaller::activar'); 
 
     $routes->post('taller/actualizar',          'Mecanico\MecanicoTaller::actualizar'); 
-//
-//parte de agenda de citas pasos inciales cancelar confirmar, verificar codgio para inicio de atencion
-    $routes->get( 'cita',                       'Mecanico\MecanicoCita::cita');
 
-    $routes->post('cita/confirmar',             'Mecanico\MecanicoCita::confirmar');
-
-    $routes->post('cita/cancelar',               'Mecanico\MecanicoCita::cancelar');
-
-    $routes->post('cita/verificar-codigo',       'Mecanico\MecanicoCita::verificarCodigo');
-//
-//parte dos de la cita el seguimiento de la cita en su reparacion y finalizacion donde hay tecnicos, cerrar cita verificar el codigo para finalizar cita y guardar ese registro
-    $routes->get( 'control',                     'Mecanico\MecanicoControl::control');
- 
-   $routes->post('control/agregar-tecnico',      'Mecanico\MecanicoControl::agregarTecnico');
-
-   $routes->post('control/eliminar-tecnico',     'Mecanico\MecanicoControl::eliminarTecnico');
-
-   $routes->post('control/cerrar',               'Mecanico\MecanicoControl::cerrar');
-
-   $routes->post('control/verificar-entrega',    'Mecanico\MecanicoControl::verificarEntrega');
 //
    $routes->get( 'calificacion',                 'Mecanico\MecanicoCalificacion::calificacion');
 
