@@ -1,0 +1,863 @@
+/* Margen izquierdo para evitar superposición con el Sidebar */
+.main-content {
+  margin-left: 90px;
+  padding: 20px;
+}
+
+/* ==========================================================================
+   ENCABEZADOS
+   ========================================================================== */
+.titulos {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.titulo {
+  color: #0a0a0a;
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+h5 {
+  color: #3f4bd0;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* ==========================================================================
+   SECCIÓN DASHBOARD Y ESTADÍSTICAS
+   ========================================================================== */
+.dashboard-section {
+  border-radius: 10px;
+  width: 120%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.numeros-container {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.tarjeta-cantidad {
+  padding: 10px;
+  width: 180px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+
+.num {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+/* ==========================================================================
+   CONTROLES (BUSCADOR Y FILTROS)
+   ========================================================================== */
+.controles {
+  padding: 20px 30px;
+  background: #f8f9fa;
+  border-bottom: 3px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.buscador-wrapper {
+  position: relative;
+  flex: 1;
+  max-width: 500px;
+}
+
+.buscador-wrapper input {
+  width: 100%;
+  padding: 12px 45px 12px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.buscador-wrapper input:focus {
+  border-color: #3f4bd0;
+  outline: none;
+}
+
+.buscador-wrapper i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 18px;
+}
+
+.filtro-select {
+  padding: 10px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 15px;
+  background: white;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+/* ==========================================================================
+   ESTILOS DE LA TABLA
+   ========================================================================== */
+.tabla-calificaciones {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  padding: 0 20px;
+}
+
+.cabeza-tabla th {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.fila-cuerpo {
+  transition: all 0.3s ease;
+}
+
+.fila-cuerpo td {
+  background: white;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 15px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.fila-cuerpo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilos de Columnas del cuerpo */
+/* Perfil de Propietario en Tabla */
+.col-propietario {
+  text-align: left !important;
+}
+
+.icon-usuario {
+  color: #020202;
+  background-color: #e9ecef;
+  border-radius: 50%;
+  font-size: 20px;
+  padding: 8px;
+  float: left;
+   display: inline-flex;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.usuario-info {
+  display: inline-block;
+}
+
+.usuario-info .nombre {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.usuario-info .email {
+  color: #777;
+}
+
+
+.col-taller {
+  width: 20%;
+  text-align: left !important;
+}
+
+.subtexto-taller {
+  font-weight: normal;
+  color: #666;
+  font-size: 13px;
+}
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status-badge.activo {
+  background-color: #e2fbe8;
+  color: #1e7e34;
+}
+.status-badge.desactivo {
+  background-color: #fff0f0;
+  color: #dc3545;
+}
+.col-fecha {
+  width: 10%;
+  font-size: 13px;
+  color: #555;
+}
+
+/* Estados de Moderación */
+/* Lógica del Tooltip/Motivo Oculto */
+.estado-con-motivo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.icono-ojo {
+  font-size: 18px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.icono-ojo:hover {
+  color: #354edc;
+}
+
+.tooltip-motivo {
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  display: none;
+  white-space: nowrap;
+  z-index: 100;
+}
+
+/* Clase de activación controlada por JS */
+.tooltip-motivo.activo {
+  display: block;
+}
+
+
+
+.badge-aprobado {
+  background-color: #e2fbe8;
+  color: #1e7e34;
+}
+
+.badge-rechazado {
+  background-color: #fff0f0;
+  color: #dc3545;
+}
+
+
+/* Botones de acción */
+.col-acciones {
+  width: 15%;
+}
+
+.btn-group {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.btn-accion {
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-aprobar {
+  background-color: #9bdda9;
+  color: white;
+}
+.btn-aprobar:hover{
+   background-color: #77d38b;
+}
+
+.btn-rechazar {
+  background-color: #e68b9d;
+  color: white;
+}
+.btn-rechazar:hover{
+    background-color: #e36b83;
+}
+.btn-detalles {
+  background-color: #8bbde6;
+  color: white;
+}
+.btn-detalles:hover{
+    background-color: #6b7fe3;
+}
+
+
+/* ==========================================================================
+   PAGINACIÓN Y FOOTER
+   ========================================================================== */
+.stats-footer {
+  padding: 20px 30px;
+  background: #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  gap: 8px;
+}
+
+.page-btn {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.page-btn.active,
+.page-btn:hover {
+  background: #ff6b35;
+  color: white;
+  border-color: #ff6b35;
+}
+
+/* ==========================================================================
+  PARTE DEL TALLER
+   ========================================================================== */
+
+/* ==========================================================================
+   BOTÓN DE CERRAR (X) SOBRE LA IMAGEN
+   ========================================================================== */
+.btn-cerrar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 30;               /* Por encima del overlay-info (z-index implícito) */
+
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+
+  width: 36px;
+  height: 36px;
+  min-width: 36px;           /* Evita que flex lo aplaste */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Efecto al pasar el cursor (Hover) */
+.btn-cerrar:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Se oscurece más */
+  transform: scale(1.1); /* Crece un poquito de forma fluida */
+}
+
+/* Efecto al hacer clic (Active) */
+.btn-cerrar:active {
+  transform: scale(0.95);
+}
+
+/* Contenedor global para centrar la tarjeta perfectamente en pantalla */
+
+
+/* ==========================================================================
+   ESTRUCTURA DE LA TARJETA (EL RECTÁNGULO BONITO)
+
+   Arquitectura de capas para que la foto nunca se desacomode:
+
+   .card-taller          → posición relativa, SIN overflow (ancla la X y la foto)
+   ├── .btn-cerrar       → absolute sobre la foto, siempre visible
+   ├── .header-taller    → altura fija 240px, overflow:hidden, flex-shrink:0
+   │   ├── .foto-taller  → 100% × 100%, object-fit:cover
+   │   └── .overlay-info → absolute bottom-0, gradiente oscuro + texto
+   └── .contenido-taller → único bloque con scroll interno via .card-scroll
+   ========================================================================== */
+
+/* Capa exterior: solo ancla, sin overflow que interfiera */
+.card-taller {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  /* SIN overflow:hidden aquí — lo maneja cada sección por separado */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── HEADER: siempre 240 px, nunca se comprime ── */
+.header-taller {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  min-height: 240px;   /* Garantía absoluta de altura */
+  flex-shrink: 0;      /* Impide que flexbox lo aplaste al hacer scroll */
+  overflow: hidden;    /* Recorta la imagen al borde redondeado */
+  border-radius: 20px 20px 0 0; /* Solo esquinas superiores */
+}
+
+/* La foto rellena el header exacto sin deformarse */
+.foto-taller {
+  position: absolute;  /* Se desacopla del flujo para no empujar nada */
+  inset: 0;            /* top:0 right:0 bottom:0 left:0 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Compatibilidad con .imagen-banner */
+.imagen-banner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Capa oscura transparente sobre la imagen para que el texto blanco sea legible */
+.overlay-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  color: white;
+}
+
+.overlay-info h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.badge-especialidad {
+  background: #ff6b35;
+  color: white;
+  padding: 4px 14px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+/* Espaciado interno del cuerpo de la tarjeta */
+.contenido-taller {
+  padding: 25px;
+}
+
+.seccion-detalle {
+  margin-bottom: 25px;
+}
+
+/* Elementos comunes: Subtítulos y líneas decorativas modernas */
+.subtitulo-taller {
+  color: #1e3c72;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.linea-decorativa {
+  width: 50px; /* Línea corta y moderna en lugar de una barra larga y rígica */
+  height: 3px;
+  background: #e78021;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+
+.texto-descripcion {
+  color: #555;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   SECCIÓN: HORARIOS Y UBICACIÓN
+   ========================================================================== */
+.direccion-texto {
+  font-size: 14.5px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.direccion-texto i {
+  color: #e78021;
+  margin-right: 5px;
+}
+
+/* Bloques de horarios flexibles */
+.lista-horarios {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.lista-horarios li {
+  background: #f8f9fa;
+  border: 1px solid #eef0f2;
+  padding: 10px;
+  border-radius: 12px;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.dia-semana {
+  display: block;
+  color: #1e3c72;
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.dia-semana.domingo {
+  color: #999;
+}
+
+.bloque-hora {
+  color: #e78021;
+  font-weight: 700;
+  font-size: 13px;
+  display: block;
+}
+
+.bloque-hora.cerrado {
+  color: #dc3545;
+}
+
+/* ==========================================================================
+   SECCIÓN: TABLA DE PRECIOS
+   ========================================================================== */
+.tabla-precios {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden; /* Redondea los bordes de la tabla */
+  border: 1px solid #eef0f2;
+}
+
+.tabla-precios th {
+  background: #1e3c72;
+  color: white;
+  padding: 10px 15px;
+  font-size: 13.5px;
+  text-align: left;
+}
+
+.tabla-precios th:last-child {
+  text-align: right;
+}
+
+.tabla-precios td {
+  padding: 10px 15px;
+  font-size: 13.5px;
+  border-bottom: 1px solid #eee;
+}
+
+.tabla-precios tr:last-child td {
+  border-bottom: none;
+}
+
+.celda-servicio {
+  background: #fbfcfd;
+  color: #333;
+}
+
+.celda-precio {
+  background: #fffbfe;
+  color: #e78021;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ==========================================================================
+   SECCIÓN: CALIFICACIONES Y COMENTARIOS
+   ========================================================================== */
+
+/* Badge de promedio junto al título */
+.badge-promedio {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fff8ec;
+  border: 1px solid #f1c40f;
+  color: #b8860b;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.conteo-calis {
+  font-weight: 400;
+  font-size: 12px;
+  color: #888;
+}
+
+/* Contenedor de la lista de bloques */
+.lista-calificaciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* Mensaje cuando no hay calificaciones */
+.sin-calis {
+  color: #aaa;
+  font-size: 13.5px;
+  text-align: center;
+  padding: 15px 0;
+  font-style: italic;
+}
+.bloque-comentario {
+  background: #fdfdfd;
+  border: 1px solid #eaeaea;
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.usuario-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.avatar-icono {
+  color: #1e3c72;
+  background-color: #e9ecef;
+  border-radius: 50%;
+  font-size: 20px;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.usuario-meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.nombre-estrellas-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.nombre-usuario {
+  font-size: 14.5px;
+  color: #222;
+}
+
+.estrellas-grupo {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.star-activa {
+  color: #f1c40f;
+  font-size: 14px;
+}
+
+.numero-score {
+  font-size: 12px;
+  color: #666;
+  margin-left: 4px;
+}
+
+.fecha-comentario {
+  font-size: 11px;
+  color: #999;
+}
+
+.comentario-texto {
+  color: #555;
+  font-size: 13.5px;
+  line-height: 1.5;
+  padding-left: 2px;
+}
+/*OCULTAR Y APARECER CASILLA DE TALLER*/
+/* ==========================================================================
+   ESTILOS DE LA CAPA FLOTANTE (MODAL OVERLAY)
+   ========================================================================== */
+/* ==========================================================================
+   CAPA FLOTANTE TOTALMENTE CENTRADA
+   ========================================================================== */
+.modal-overlay {
+  position: fixed; /* Se fija respecto a la pantalla del navegador, no a la tabla */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro para dar prioridad a la tarjeta */
+  z-index: 9999; /* Un número muy alto para asegurarse de estar por encima de todo */
+  
+  /* Centrado perfecto en la mitad de la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  /* Oculto por defecto */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Cuando tiene la clase .active, se muestra y bloquea la pantalla */
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all; /* Permite interactuar con la tarjeta */
+}
+
+/* El card limita la altura pero el scroll va SOLO en el cuerpo de contenido */
+.modal-overlay .card-taller {
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+/* Scroll solo en el contenido — el header con la foto nunca se mueve */
+.modal-overlay .contenido-taller {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(90vh - 240px);
+}
+
+
+/* ==========================================================================
+   AGREGAR AL FINAL DE admin_tallerrr.css
+   ========================================================================== */
+
+/* Form flotante de motivo (Desactivar taller desde admin) */
+.form-flotante-motivo {
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.oculto-motivo {
+    display: none !important;
+}
+
+.input-registro {
+    width: 100%;
+    padding: 8px 10px;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.input-registro:focus {
+    border-color: #1e3c72;
+}
+
+.btn-enviar-motivo {
+    background-color: #dc7835;
+    color: white;
+    border: none;
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+/* Alertas flotantes (éxito y error) */
+.alerta-error,
+.alerta-exito {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 9999;
+    min-width: 300px;
+    max-width: 380px;
+    padding: 16px 20px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+    animation: entrada-alerta 0.35s ease forwards;
+}
+
+.alerta-error {
+    background-color: #FDEDEC;
+    border-left: 5px solid #C0392B;
+    color: #922B21;
+    box-shadow: 0 8px 24px rgba(192, 57, 43, 0.18);
+}
+
+.alerta-exito {
+    background-color: #EAFAF1;
+    border-left: 5px solid #1E8449;
+    color: #1A5C32;
+    box-shadow: 0 8px 24px rgba(30, 132, 73, 0.15);
+}
+
+
+

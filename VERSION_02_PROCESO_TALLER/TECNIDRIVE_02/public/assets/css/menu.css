@@ -1,0 +1,72 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* ==========================================================================
+       MENÚ LATERAL (SIDEBAR)
+       ========================================================================== */
+    .sidebar {
+      background-color: #3f4bd0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 70px;
+      overflow-x: hidden;
+      padding-top: 10px;
+      z-index: 1000;
+      transition: width 0.4s ease;
+      box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+    }
+
+    .sidebar:hover {
+      width: 250px;
+    }
+
+    .sidebar:hover ul li a .text {
+      opacity: 1;
+    }
+
+    .sidebar ul {
+      height: 95vh;
+      overflow-y: auto;
+    }
+
+    .sidebar ul li {
+      list-style: none;
+      margin: 5px 0;
+    }
+
+    .sidebar ul li a {
+      display: flex;
+      text-decoration: none;
+      color: white;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .sidebar ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar ul li a .icon {
+      min-width: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      font-size: 22px;
+    }
+
+    .sidebar ul li a .text {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      opacity: 0;
+      margin-left: 10px;
+      transition: opacity 0.3s ease;
+    }

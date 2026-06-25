@@ -1,0 +1,705 @@
+/* ==========================================================================
+   ENCABEZADOS
+   ========================================================================== */
+.titulos {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.titulo {
+  color: #0a0a0a;
+  font-size: 28px;
+  margin-bottom: 5px;
+    font-weight: 700 !important;
+}
+
+h5 {
+  color: #3f4bd0;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* CONTENEDOR ESTILO TARJETA (Mismo tamaño del Login/Registro) */
+.tarjeta-autenticacion {
+  margin: 0 auto;
+  margin-top: 90px;
+  width: 380px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+  overflow: hidden;
+  padding: 30px 25px;
+}
+
+/* ==========================================================================
+   DISEÑO PASO 1: PANEL VACÍO
+   ========================================================================== */
+.panel-vacio {
+  text-align: center;
+  padding: 15px 10px;
+}
+
+.panel-vacio i{
+  color: #4d88ff;
+     font-size: 50px;
+}
+
+.panel-vacio p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* TITULOS */
+h1 {
+  text-align: center;
+  color: #1a1a1a;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+/* FORMULARIO */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABELS */
+label {
+   text-align: left;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4d4c4c;
+  
+}
+
+/* INPUTS */
+input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 2px solid #e5e5e5;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: 0.3s;
+  outline: none;
+  color: #333;
+  background: #fafafa;
+}
+
+input:focus {
+  border-color: #3f77d0;
+  background: white;
+  box-shadow: 0px 0px 8px rgba(63, 75, 208, 0.2);
+}
+
+.grupo-input {
+  position: relative;
+}
+
+.grupo-input input {
+  padding-right: 40px;
+}
+
+
+
+/* ==========================================================================
+   MANEJO DE FILAS DINÁMICAS (CATEGORÍAS)
+   ========================================================================== */
+.categoria-item {
+  margin-bottom: -5px;
+}
+
+.fila-doble {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end; /* Alinea los inputs con el botón de borrar horizontalmente */
+  width: 100%;
+}
+
+.campo-bloque {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Botón de basurero para filas agregadas */
+.btn-eliminar-fila {
+  background: #fff0f0;
+  color: #dc3545;
+  border: 2px solid #ffe3e3;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px; /* Hace simetría exacta con la altura del input */
+  margin-bottom: 6px;
+}
+
+
+
+/* Ocultador espacial del primer elemento */
+.invisible {
+  visibility: hidden;
+  width: 44px; 
+}
+
+/* ==========================================================================
+   BOTONES
+   ========================================================================== */
+/* Botón Naranja Principal */
+.btn-principal {
+  width: 100%;
+  padding: 13px;
+  background: #ed8941;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-principal:hover {
+  background: #e7711d;
+}
+
+.btn-guardar {
+  background-color: #1e3c72;
+  color: #ffffff;
+}
+
+.btn-guardar:hover {
+   background-color: #0d275a;
+}
+
+/* Botón "+ Agregar otra categoría" */
+.btn-accion-secundaria {
+  background: #dbe4f6;
+  color: #385995;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: 0.2s;
+}
+
+.btn-accion-secundaria:hover {
+   background: #d6e4ff;
+}
+
+/* CLASE UTILITARIA GLOBAL */
+.hidden {
+  display: none !important;
+}
+
+/*===========================
+PARTE DE LOSV VEHICULOOOO lalala
+===============================
+=============================*/
+
+.dashboard-section {
+  border-radius: 18px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: visible; /* CAMBIADO: Permite que los elementos con z-index floten hacia afuera */
+}
+
+
+
+/* ==========================================================================
+   CONTROLES (LICENCIA Y BOTÓN AGREGAR)
+   ========================================================================== */
+.controles {
+  padding: 25px 30px;
+  background: #f8f9fa;
+  border-bottom: 3px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Estilos de las mini-tarjetas internas de controles */
+.tarjeta-licencia, 
+.tarjeta-agregar-vehiculo {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 15px;
+  flex: 1;
+  min-width: 280px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+position: relative !important;
+}
+
+.header-licencia {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titulo-licencia {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e3c72;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.titulo-licencia i{
+     color: #4d88ff;
+     font-size: 25px;
+}
+
+.btn-desplegar{
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #3f4bd0;
+  font-size: 25px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.titulo-vehiculo{
+   color: #3f4bd0;
+    font-size: 18px;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.info-licencia, 
+.formulario-vehiculo {
+  /* 1. Posicionamiento absoluto justo abajo del contenedor */
+  position: absolute !important;
+  top: 100%;                  /* Se pega exactamente debajo del bloque visible del header */
+  left: 0;
+  width: 100%;
+  
+  /* 2. Estética para que no se transparente con la tabla */
+  background: white !important;          
+  border: 1px solid #e2e8f0;
+  border-top: none;           /* Remueve el borde superior para unirse perfectamente al header */
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  padding: 15px;
+  margin-top: 0 !important;   /* Evita desfases de espacio */
+
+  /* 3. Súper prioridad de capa (por encima de la tabla, pero debajo de los documentos que tienen 9999) */
+  z-index: 1000 !important;   
+}
+
+.info-licencia strong, .formulario-vehiculo h2 {
+  display: block;
+  font-size: 13px;
+  color: #4a5568;
+  margin-bottom: 5px;
+}
+
+.formulario-vehiculo h2 {
+  font-size: 15px;
+  color: #1e3c72;
+}
+
+/* Formulario Campos */
+.formulario-vehiculo input, 
+.formulario-vehiculo select {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 13px;
+  outline: none;
+}
+
+.btn-guardar-vehiculo {
+  width: 100%;
+  background: #f6802c;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-guardar-vehiculo:hover{
+   background: #ff8229;
+}
+
+
+/*----------------------
+Informacion de licencia
+------------------------*/
+
+.info-licencia strong{
+  font-size: 17px;
+  text-align: center;
+}
+.conten {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.cates,
+.viges {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cates strong,
+.viges strong {
+  margin-bottom: 12px;
+}
+
+.lista-categorias {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-categorias li,
+.texto-detalle {
+  width: 45px;
+  height: 40px;
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.texto-detalle {
+  width: 120px;
+  height: 40px;
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.lista-categorias li {
+  background: #3f4bd0;
+  color: white;
+}
+
+.texto-detalle {
+  background: #f8fafc;
+  border: 1px solid #dbe2ea;
+  color: #2d3748;
+  font-size: 13px;
+  padding: 5px;
+}
+.numer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.si {
+  margin-top: 10px;
+   width: 130px;
+  height: 40px;
+  display: flex;
+}
+
+
+
+.Licencia-editar{
+  display: flex;
+ margin: auto;
+margin-top: 30px;
+padding: 5px 20px;
+border-radius: 9px;
+border-style: none;
+ background: #f6802c;
+ color: white;
+ font-weight: 600;
+ font-size: 15px;
+ cursor: pointer;
+}
+.Licencia-editar:hover{
+   background: #fe7e22;
+}
+
+
+
+
+/* ==========================================================================
+   ESTILOS DE LA TABLA INTEGRADA
+   ========================================================================== */
+.tabla-wrapper {
+  padding: 20px;
+  overflow-x: auto;
+}
+.contenedor-documentos {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+
+  /* POSICIONAMIENTO ABSOLUTO PERFECTO */
+  position: absolute;     
+  margin-left: 108px;   
+  transform: translateX(-50%);
+  width: 170px;               
+  z-index: 800;               
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+}
+
+
+.tabla-calificaciones {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 25px;
+}
+
+.cabeza-tabla th {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 14px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+
+.fila-cuerpo td {
+  background: white;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 35px 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+
+
+
+/* Componente Interno: Datos Básicos */
+.bloque-vehiculo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+}
+
+.badge-vehiculo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f1f5f9;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.badge-vehiculo i {
+  font-size: 28px;
+ color: #4d88ff;
+}
+
+.texto-placa {
+  font-weight: 700;
+  font-size: 18px;
+  color: #333;
+  margin-top: 2px;
+}
+
+.nombre-vehiculo {
+  display: block;
+  font-size: 20px;
+  color: #1a1a1a;
+ margin-bottom: 5px;
+}
+
+.tipo-servicio {
+  font-size: 14px;
+  color: #666;
+  background: #e9ecef;
+  padding: 2px 6px;
+  border-radius: 4px;
+ 
+}
+
+/* Columna Documentos */
+.btn-ver-docs {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+/*Tabla que salgo documento abajo*/
+.tabla-wrapper {
+  padding: 20px;
+  overflow: visible; /* CAMBIADO: Antes era overflow-x: auto. Ahora permite que el menú flote por fuera */
+}
+.grupo-input-doc {
+  margin-bottom: 8px;
+}
+
+.grupo-input-doc strong {
+  display: block;
+  font-size: 12px;
+  color: #333;
+}
+
+.grupo-input-doc label {
+  font-size: 11px;
+  color: #666;
+}
+
+.grupo-input-doc input {
+  width: 100%;
+  margin-top: 2px;
+  padding: 4px;
+  font-size: 12px;
+}
+
+.btn-guardar-docs {
+  background-color: #1e3c72;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+}
+
+
+/* Botones de acción */
+.grupo-botones-accion {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.btn-accion {
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-aprobar {
+ background-color: #6fce96;
+  color: #ffffff;
+}
+
+
+.btn-rechazar {
+  background-color: #e68b9d;
+  color: white;
+}
+.btn-rechazar:hover { background-color: #e36b83; }
+
+.status-badge.activo {
+    padding: 6px 25px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+    background-color: #e2fbe8;
+    color: #1e7e34;
+}
+
+.status-badge.inactivo {
+    padding: 6px 25px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+    background-color: #fff0f0;
+    color: #dc3545;
+}
+/* ==========================================================================
+   UTILIDADES JS
+   ========================================================================== */
+.hidden {
+  display: none !important;
+}
+
+/* ==========================================================================
+   ALERTAS FLOTANTES (éxito y error)
+   ========================================================================== */
+
+.alerta-error,
+.alerta-exito {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 9999;
+
+    min-width: 300px;
+    max-width: 380px;
+
+    padding: 16px 20px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+
+    animation: entrada-alerta 0.35s ease forwards;
+}
+
+.alerta-error {
+    background-color: #FDEDEC;
+    border-left: 5px solid #C0392B;
+    color: #922B21;
+    box-shadow: 0 8px 24px rgba(192, 57, 43, 0.18);
+}
+
+.alerta-exito {
+    background-color: #EAFAF1;
+    border-left: 5px solid #1E8449;
+    color: #1A5C32;
+    box-shadow: 0 8px 24px rgba(30, 132, 73, 0.15);
+}
