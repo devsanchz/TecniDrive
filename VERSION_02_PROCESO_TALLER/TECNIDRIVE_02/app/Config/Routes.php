@@ -46,11 +46,7 @@ $routes->group('administrador', ['filter' => 'auth:1'], static function($routes)
     $routes->get('vehiculo',                   'Administrador\AdminVehiculo::vehiculo');
 
     $routes->get('taller',                     'Administrador\AdminTaller::taller');
-
-    $routes->post('administrador/taller/activar',    'Administrador\AdminTaller::activar');
-
-    $routes->post('administrador/taller/desactivar', 'Administrador\AdminTaller::desactivar');
-
+    
     $routes->get('calificacion',               'Administrador\AdminCalificacion::calificacion');
 
     $routes->post('calificacion/aceptar',      'Administrador\AdminCalificacion::aceptar');
