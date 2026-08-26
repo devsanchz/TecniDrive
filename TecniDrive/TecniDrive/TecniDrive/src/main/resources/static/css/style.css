@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ---------- INDEX ---------- */
+
+.index-body {
+    min-height: 100vh;
+    background: #f4f8fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.index-container {
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+    background: white;
+    padding: 60px 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 48px;
+    font-weight: bold;
+    color: #1565c0;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 19px;
+    color: #555;
+    line-height: 1.6;
+    margin: 20px auto 35px;
+    max-width: 650px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background: #1565c0;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #0d47a1;
+}
+
+
+/* ---------- LOGIN ---------- */
+
+.login-body {
+    min-height: 100vh;
+    background: #f4f8fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    width: 90%;
+    max-width: 420px;
+    background: white;
+    padding: 45px 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #1565c0;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #1565c0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0d47a1;
+}
+
+.back {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #1565c0;
+    text-decoration: none;
+}
