@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
+    <h1>Hola, {{ user.nombre_completo }}</h1>
+
+    <p>Tu rol: {{ user.get_rol_display }}</p>
+    <p>Tu correo: {{ user.email }}</p>
+
+    {% if user.rol == "propietario" %}
+        <p>Tu teléfono: {{ user.propietario.telefono }}</p>
+
+    {% elif user.rol == "mecanico" %}
+        <p>Tu teléfono: {{ user.mecanico.telefono }}</p>
+    {% endif %}
+
+{% endblock %}

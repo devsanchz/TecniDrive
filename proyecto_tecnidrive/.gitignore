@@ -1,0 +1,27 @@
+# Entorno virtual
+venv/
+.venv/
+
+# Base de datos local
+db.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Variables privadas
+.env
+.env.*
+!.env.example
+
+# Archivos multimedia y generados
+media/
+staticfiles/
+
+# Editores
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

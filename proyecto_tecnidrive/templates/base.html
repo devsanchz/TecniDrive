@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block titulo %}TecniDrive{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <strong>TecniDrive</strong>
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}" style="display:inline">
+                {% csrf_token %}
+                <button type="submit">Cerrar sesión</button>
+            </form>
+        {% endif %}
+    </header>
+
+    {% if messages %}
+        <ul>
+            {% for mensaje in messages %}
+                <li>{{ mensaje }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% block contenido %}{% endblock %}
+</body>
+</html>
