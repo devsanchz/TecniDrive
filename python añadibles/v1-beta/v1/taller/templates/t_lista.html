@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Talleres</title>
+</head>
+<body>
+    <h1>Talleres Registrados</h1>
+    <a href="{% url 'crear_taller' %}">Registrar Nuevo Taller</a>
+    <hr>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Foto (URL)</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Dirección</th>
+                <th>Horario</th>
+                <th>Fecha Registro</th>
+                <th>Estado</th>
+                <th>Motivo Estado</th>
+                <th>Mecánico ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for taller in talleres %}
+            <tr>
+                <td>{{ taller.id_taller }}</td>
+                <td>{{ taller.foto_taller|default:"Sin foto" }}</td>
+                <td>{{ taller.nombre_taller }}</td>
+                <td>{{ taller.descripcion_taller }}</td>
+                <td>{{ taller.direccion_taller }}</td>
+                <td>{{ taller.horario_taller }}</td>
+                <td>{{ taller.fecha_registro }}</td>
+                <td>{% if taller.estado_taller %}Activo{% else %}Inactivo{% endif %}</td>
+                <td>{{ taller.motivo_estado|default:"-" }}</td>
+                <td>{{ taller.mecanicos_id_mecanico.id_mecanico }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="10">No hay talleres registrados.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

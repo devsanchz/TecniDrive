@@ -19,7 +19,7 @@ def lista_vehiculos(request):
 
 # urls.py
 from django.urls import path
-from . import views
+from django import views
 
 urlpatterns = [
     path("vehiculos/", views.lista_vehiculos, name="lista_vehiculos"),

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Taller</title>
+</head>
+<body>
+    <h1>Registrar Taller</h1>
+    <a href="{% url 'lista_talleres' %}">Volver a la lista</a>
+    <hr>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div>
+            <label for="foto_taller">Foto del Taller (URL/Ruta):</label><br>
+            <input type="text" id="foto_taller" name="foto_taller" maxlength="255">
+        </div><br>
+
+        <div>
+            <label for="nombre_taller">Nombre del Taller *:</label><br>
+            <input type="text" id="nombre_taller" name="nombre_taller" maxlength="80" required>
+        </div><br>
+
+        <div>
+            <label for="descripcion_taller">Descripción *:</label><br>
+            <textarea id="descripcion_taller" name="descripcion_taller" maxlength="150" required></textarea>
+        </div><br>
+
+        <div>
+            <label for="direccion_taller">Dirección *:</label><br>
+            <input type="text" id="direccion_taller" name="direccion_taller" maxlength="80" required>
+        </div><br>
+
+        <div>
+            <label for="horario_taller">Horario *:</label><br>
+            <input type="text" id="horario_taller" name="horario_taller" maxlength="150" required>
+        </div><br>
+
+        <div>
+            <label for="estado_taller">Taller Activo:</label>
+            <input type="checkbox" id="estado_taller" name="estado_taller" checked>
+        </div><br>
+
+        <div>
+            <label for="motivo_estado">Motivo del Estado:</label><br>
+            <input type="text" id="motivo_estado" name="motivo_estado" maxlength="100">
+        </div><br>
+
+        <div>
+            <label for="mecanicos_id_mecanico">Mecánico Responsable *:</label><br>
+            <select id="mecanicos_id_mecanico" name="mecanicos_id_mecanico" required>
+                <option value="">-- Selecciona un mecánico --</option>
+                {% for mecanico in mecanicos %}
+                <option value="{{ mecanico.id_mecanico }}">{{ mecanico }}</option>
+                {% endfor %}
+            </select>
+        </div><br>
+
+        <button type="submit">Guardar Taller</button>
+    </form>
+</body>
+</html>
